@@ -18,7 +18,6 @@ public class OptionMenu : MonoBehaviour
     [SerializeField] Toggle fullscreenToggle;
 
     private Resolution[] resolutions; //Array to hold the available screen resolutions
-    private int currentResolutionIndex = 0; //Variable to store the index of the current screen resolution
 
     void Start()
     {
@@ -29,7 +28,7 @@ public class OptionMenu : MonoBehaviour
         //Add the available resolutions to the dropdown options
         resolutionDropdown.AddOptions(GetResolutionOptions());
         //Set the dropdown to the current resolution index
-        resolutionDropdown.value = currentResolutionIndex; 
+        resolutionDropdown.value = SaveDataHolder.instance.loadedState.resolutionIndex; 
         resolutionDropdown.RefreshShownValue(); //Refresh the dropdown to show the current resolution
 
         //Set the quality dropdown to the current quality level
@@ -55,9 +54,10 @@ public class OptionMenu : MonoBehaviour
             string option = resolution.width + " x " + resolution.height;
             options.Add(option);
             //Check if the current resolution matches the screen's current resolution and store its index
-            if (resolution.width == SaveDataHolder.instance.loadedState.resolution.width && resolution.height == SaveDataHolder.instance.loadedState.resolution.height)
+            if (SaveDataHolder.instance.loadedState.resolutionIndex == -1 &&
+                resolution.width == Screen.currentResolution.width && resolution.height == Screen.currentResolution.height)
             {
-                currentResolutionIndex = options.Count - 1; // Store the index of the current resolution
+                SaveDataHolder.instance.loadedState.resolutionIndex = options.Count - 1; // Store the index of the current resolution
             }
         }
         //return the list of formatted resolution options for the dropdown
@@ -69,7 +69,7 @@ public class OptionMenu : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-        SaveDataHolder.instance.loadedState.resolution = resolution; //Update the loaded state with the new resolution
+        SaveDataHolder.instance.loadedState.resolutionIndex = resolutionIndex; //Update the loaded state with the new resolution
     }
 
     //Method to set the quality level based on the selected index from the quality dropdown

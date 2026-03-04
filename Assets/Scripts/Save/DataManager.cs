@@ -15,7 +15,7 @@ public static class DataManager
         var saveData = new SaveData
         {
             language = saveDataSO.language,
-            resolution = saveDataSO.resolution,
+            resolutionIndex = saveDataSO.resolutionIndex,
             fullscreen = saveDataSO.fullscreen,
             quality = saveDataSO.quality,
             volume = saveDataSO.volume,
@@ -48,7 +48,7 @@ public static class DataManager
         {
             SaveData(saveDataSO);
             saveDataSO.language = 0;
-            saveDataSO.resolution = Screen.currentResolution;
+            saveDataSO.resolutionIndex = -1;
             saveDataSO.fullscreen = true;
             saveDataSO.quality = QualitySettings.GetQualityLevel();
             saveDataSO.volume = 0.5f;
@@ -83,7 +83,7 @@ public static class DataManager
         //Create an Instance of a SO with the gotten Data
         var newSaveState = ScriptableObject.CreateInstance<SaveDataSO>();
         newSaveState.language = saveData.language;
-        newSaveState.resolution = saveData.resolution;
+        newSaveState.resolutionIndex = saveData.resolutionIndex;
         newSaveState.fullscreen = saveData.fullscreen;
         newSaveState.quality = saveData.quality;
         newSaveState.volume = saveData.volume;
