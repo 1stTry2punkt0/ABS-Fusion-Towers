@@ -67,8 +67,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300016, guid: e919f8b19e6260d44b25ce176dd8ee66, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -227,15 +227,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8344149538991794987, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.19607843
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8344149538991794987, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.19607843
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8344149538991794987, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.19607843
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8344149538991794987, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_fontSizeBase
@@ -247,7 +247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8344149538991794987, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4281479730
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8344149538991794987, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_VerticalAlignment
