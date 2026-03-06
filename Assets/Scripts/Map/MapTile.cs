@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class MapTile : MonoBehaviour
+public class MapTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
     //State of the tile
     public TileType tileType;
@@ -12,6 +13,12 @@ public class MapTile : MonoBehaviour
     [SerializeField] Vector2[] blockerOffsetY;
     //stored blockerobject
     private GameObject blockerObj;
+
+    [Header("VisualFeedback")]
+    [SerializeField] GameObject feedbackObj;
+    [SerializeField] Material hoveredMat;
+    [SerializeField] Material selectedMat;
+    private bool isSelected = false;
 
     //Method to change the tile type and set its mesh
     public void SetTileType(TileType newType)
@@ -69,5 +76,39 @@ public class MapTile : MonoBehaviour
             //set its parent
             blockerObj.transform.parent = transform;
         }
+    }
+
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (tileType == TileType.free && !isSelected)
+        {
+            feedbackObj.SetActive(true);
+            feedbackObj.GetComponent<MeshRenderer>().material = hoveredMat;
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (tileType == TileType.free && !isSelected)
+        {
+            feedbackObj.SetActive(false);
+        }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (tileType == TileType.free)
+        {
+            isSelected = !isSelected;
+            feedbackObj.SetActive(isSelected);
+            feedbackObj.GetComponent<MeshRenderer>().material = selectedMat;
+        }
+    }
+
+    public void Unsecelt()
+    {
+        isSelected = false;
+        feedbackObj.SetActive(false);
     }
 }

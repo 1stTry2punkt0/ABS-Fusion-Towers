@@ -207,7 +207,6 @@ public class MapManager : MonoBehaviour
                 if (horizontalCorner != lastCorner)
                     pathCorners.Add(horizontalCorner);
             }
-
             if (lastCorner.y != bestNeighbor.y)
             {
                 Vector2 verticalCorner = new Vector2(bestNeighbor.x, bestNeighbor.y);
