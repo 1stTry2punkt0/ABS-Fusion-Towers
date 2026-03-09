@@ -12,10 +12,10 @@ public class MapManager : MonoBehaviour
     private GameObject[,] grid;//Array grid to store references to all map tiles for easy access
 
     [Header("Road")]
-    [SerializeField] Vector2 roadStart;//grid coordinates for the start of the road
-    [SerializeField] Vector2 roadEnd;//grid coordinates for the end of the road
-    [SerializeField] Vector2 goal;//grid coordinates for the goal
-    public List<Vector2> showplaces = new List<Vector2>();//grid coordinates for showplaces
+    [SerializeField] Vector2Int roadStart;//grid coordinates for the start of the road
+    [SerializeField] Vector2Int roadEnd;//grid coordinates for the end of the road
+    [SerializeField] Vector2Int goal;//grid coordinates for the goal
+    public List<Vector2Int> showplaces = new List<Vector2Int>();//grid coordinates for showplaces
     private List<GameObject> roadObjs = new List<GameObject>();//List to store references to all road tiles for easy access
 
     private void Awake()
@@ -54,6 +54,7 @@ public class MapManager : MonoBehaviour
 
                 //Get the tile script
                 MapTile tilebehavior = tile.GetComponent<MapTile>();
+                tilebehavior.gridPos = new Vector2Int(x, z);
                 //set its default mesh
                 tilebehavior.tileMeshes[0] = tilemeshfree[tileColor];
                 //Add some blocked tiles on sides
@@ -85,6 +86,52 @@ public class MapManager : MonoBehaviour
         }
     }
 
+    //Method to add showplaces
+    public bool AddShowplace(Vector2Int position)
+    {
+        //Dont allow showplaces on the first column
+        if ( position.x == 0 || position.x >= roadEnd.x)
+        {
+            grid[position.x, position.y].GetComponent<MapTile>().Invalid();
+            if (position.x == 0)
+            {
+                grid[roadStart.x, roadStart.y].GetComponent<MapTile>().Invalid();
+            }
+            else
+            {
+                grid[roadEnd.x, roadEnd.y].GetComponent<MapTile>().Invalid();
+            }
+            return false;
+        }
+        //checks if there is already a showplace close to the given position and returns false if so
+        foreach (Vector2Int s in showplaces)
+        {
+            if (s.x >= position.x -1 && s.x <= position.x +1)
+            {
+                grid[s.x, s.y].GetComponent<MapTile>().Invalid();
+                grid[position.x, position.y].GetComponent<MapTile>().Invalid();
+                return false;
+            }
+        }
+        //otherwise adds the new showplace and returns true
+        showplaces.Add(position);
+        UpdatePath();
+        return true;
+    }
+
+    public void RemoveShowplace( Vector2Int position)
+    {
+        foreach (Vector2Int s in showplaces)
+        {
+            if (s == position)
+            {
+                showplaces.Remove(s);
+                UpdatePath();
+                return;
+            }
+        }
+    }
+
     //Method to update the path
     public void UpdatePath()
     {
@@ -97,13 +144,13 @@ public class MapManager : MonoBehaviour
         roadObjs.Clear();
 
         //get the new path corners
-        List<Vector2> pathCorners = CalculatePath();
+        List<Vector2Int> pathCorners = CalculatePath();
         //go frough the list
         for (int i = 0; i < pathCorners.Count - 2; i++)
         {
             //store start corner and end corner of the line
-            Vector2 start = pathCorners[i];
-            Vector2 end = pathCorners[i + 1];
+            Vector2Int start = pathCorners[i];
+            Vector2Int end = pathCorners[i + 1];
             //change tiles on the line to road tiles
             if (start.x == end.x)
             {
@@ -127,27 +174,27 @@ public class MapManager : MonoBehaviour
     }
 
     //Method to calculate the path depending on showplaces
-    public List<Vector2> CalculatePath()
+    public List<Vector2Int> CalculatePath()
     {
         //create the returning list
-        List<Vector2> pathCorners = new List<Vector2>();
+        List<Vector2Int> pathCorners = new List<Vector2Int>();
         //add the start
         pathCorners.Add(roadStart);
         //copy showplaces to keep track of not used showplaces
-        List<Vector2> showplacesCopy = new List<Vector2>(showplaces);
+        List<Vector2Int> showplacesCopy = new List<Vector2Int>(showplaces);
         //create orderd list of showplaces
-        List<Vector2> showplaceOrder = new List<Vector2>();
+        List<Vector2Int> showplaceOrder = new List<Vector2Int>();
         //store last position
-        Vector2 current = roadStart;
+        Vector2Int current = roadStart;
         //As long as there ist stile a tile in the copy list
         while (showplacesCopy.Count > 0)
         {
             //Store closest position of the next showplace .Set one position as default closest
-            Vector2 closest = showplacesCopy[0];
+            Vector2Int closest = showplacesCopy[0];
             //Store the value of distance in x direction
             float distX = closest.x - current.x;
             //check every last showplaces if its closer
-            foreach (Vector2 s in showplacesCopy)
+            foreach (Vector2Int s in showplacesCopy)
             {
                 float d = s.x - current.x;
                 if (d < distX)
@@ -173,20 +220,20 @@ public class MapManager : MonoBehaviour
             current = closest;
         }
         //check each showplace for its best corner for the path
-        foreach (Vector2 showplace in showplaceOrder)
+        foreach (Vector2Int showplace in showplaceOrder)
         {
             //store the last added path corner
-            Vector2 lastCorner = pathCorners[pathCorners.Count - 1];
+            Vector2Int lastCorner = pathCorners[pathCorners.Count - 1];
             //get all posible corners next to the showplace
-            Vector2[] neighbors = new Vector2[]
+            Vector2Int[] neighbors = new Vector2Int[]
             {
-            showplace + new Vector2( 1, 1),
-            showplace + new Vector2(-1, 1),
-            showplace + new Vector2( 1,-1),
-            showplace + new Vector2(-1,-1)
+            showplace + new Vector2Int( 1, 1),
+            showplace + new Vector2Int(-1, 1),
+            showplace + new Vector2Int( 1,-1),
+            showplace + new Vector2Int(-1,-1)
             };
             //store the closest to last corner, set one as default
-            Vector2 bestNeighbor = neighbors[0];
+            Vector2Int bestNeighbor = neighbors[0];
             //store the best distance
             float bestDist = Vector2.Distance(lastCorner, bestNeighbor);
             //Check each one if its closer than the stored
@@ -203,13 +250,13 @@ public class MapManager : MonoBehaviour
             //Add another corner if needed to connect the last one and the showplace corner
             if (lastCorner.x != bestNeighbor.x)
             {
-                Vector2 horizontalCorner = new Vector2(bestNeighbor.x, lastCorner.y);
+                Vector2Int horizontalCorner = new Vector2Int(bestNeighbor.x, lastCorner.y);
                 if (horizontalCorner != lastCorner)
                     pathCorners.Add(horizontalCorner);
             }
             if (lastCorner.y != bestNeighbor.y)
             {
-                Vector2 verticalCorner = new Vector2(bestNeighbor.x, bestNeighbor.y);
+                Vector2Int verticalCorner = new Vector2Int(bestNeighbor.x, bestNeighbor.y);
                 if (verticalCorner != pathCorners[pathCorners.Count - 1])
                     pathCorners.Add(verticalCorner);
             }
@@ -217,15 +264,15 @@ public class MapManager : MonoBehaviour
         //Add another corner to connect to the end if needed
         if (pathCorners[pathCorners.Count - 1].x != roadEnd.x)
         {
-            Vector2 lastCorner = pathCorners[pathCorners.Count - 1];
-            Vector2 verticalCorner = new Vector2(roadEnd.x, lastCorner.y);
+            Vector2Int lastCorner = pathCorners[pathCorners.Count - 1];
+            Vector2Int verticalCorner = new Vector2Int(roadEnd.x, lastCorner.y);
             if (verticalCorner != lastCorner)
                 pathCorners.Add(verticalCorner);
         }
         if (pathCorners[pathCorners.Count - 1].y != roadEnd.y)
         {
-            Vector2 lastCorner = pathCorners[pathCorners.Count - 1];
-            Vector2 horizontalCorner = new Vector2(lastCorner.x, roadEnd.y);
+            Vector2Int lastCorner = pathCorners[pathCorners.Count - 1];
+            Vector2Int horizontalCorner = new Vector2Int(lastCorner.x, roadEnd.y);
             if (horizontalCorner != lastCorner)
                 pathCorners.Add(horizontalCorner);
         }
@@ -235,7 +282,6 @@ public class MapManager : MonoBehaviour
         //return the list
         return pathCorners;
     }
-
 }
 
 //enum of states of a tile
@@ -243,5 +289,7 @@ public enum TileType
 {
     road,
     free,
-    blocked
+    blocked,
+    building,
+    tower
 }
