@@ -73,6 +73,16 @@ public class MapTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
 
         }
     }
+
+    public void ResetTile()
+    {
+        if (onTopObj != null)
+        {
+            Destroy(onTopObj);
+            onTopObj = null;
+        }
+    }
+
     //Method to get a random blocker of the list
     private void GetRandomBlocker()
     {

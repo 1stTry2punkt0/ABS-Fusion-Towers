@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject[] buildingPrefabs; //Array of building prefabs corresponding to the buildings array
     [SerializeField] private GameObject[] towerPrefabs; //Array of available buildings that can be built on the tiles
+
+    public int wave = 1;
+    [SerializeField] private List<EnemySO> enemySOs; //List of enemy prefabs corresponding to the enemies array
 
     private void Awake()
     {
@@ -42,6 +46,11 @@ public class GameManager : MonoBehaviour
         selectedTile = tile;
         if (selectedTile.tileType == TileType.free)
             buildingMenu.OpenMenu(tile);
+    }
+
+    public Vector3 GetWorldPosition(Vector2Int gridPos)
+    {
+        return mapManager.GetWorldPosition(gridPos);
     }
 
     public void BuildBuilding(int buildingIndex)
@@ -99,5 +108,26 @@ public class GameManager : MonoBehaviour
     public void UpgradeTower(int index)
     {
 
+    }
+
+    public void UpgradeEnemys()
+    {
+        foreach (EnemySO enemy in enemySOs)
+        {
+            enemy.SetLevel(wave);
+        }
+    }
+
+    public void ResetGame()
+    {
+        mapManager.ResetMap();
+        wave = 0;
+        UpgradeEnemys();
+    }
+
+    public void StartWave()
+    {
+        wave++;
+        UpgradeEnemys();
     }
 }

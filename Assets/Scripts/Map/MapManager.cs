@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MapManager : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class MapManager : MonoBehaviour
     {
         GenerateMap();
         UpdatePath();
+        //EnemySpawnManager.instance.CreateDictionary();
     }
 
     //Method to Generate the base map and store the references
@@ -58,32 +60,58 @@ public class MapManager : MonoBehaviour
                 //set its default mesh
                 tilebehavior.tileMeshes[0] = tilemeshfree[tileColor];
                 //Add some blocked tiles on sides
-                if ((z < 8 || z > mapSizeZ - 9) && x < mapSizeX - 4)
-                {
-                    float randomValue = Random.Range(0f, 100f);
-                    //Higher chance to become blocked if more distance to the middle
-                    if (z < 8)
-                    {
-                        if (15 - z * 2 > randomValue) tilebehavior.SetTileType(TileType.blocked);
-                        else tilebehavior.SetTileType(TileType.free);
-                    }
-                    else
-                    {
-                        if (15 - (mapSizeZ - 1 - z) * 2 > randomValue) tilebehavior.SetTileType(TileType.blocked);
-                        else tilebehavior.SetTileType(TileType.free);
-                    }
-                }
-                else
-                {
-                    tilebehavior.SetTileType(TileType.free);
-                }
-                //make sure key road tiles are road tiles
-                if(x == roadStart.x && z == roadStart.y || x == roadEnd.x && z == roadEnd.y || x == goal.x && z == goal.y)
-                {
-                    tilebehavior.SetTileType(TileType.road);
-                }
+                tilebehavior.SetTileType(CalculateDefaultTileType(x, z));
             }
         }
+    }
+
+    public void ResetMap()
+    {
+        showplaces.Clear();
+
+        for (int x = 0; x < mapSizeX; x++)
+        {
+            for (int z = 0; z < mapSizeZ; z++)
+            {
+                //Get the tile script
+                MapTile tilebehavior = grid[x,z].GetComponent<MapTile>();
+
+                tilebehavior.ResetTile();
+                
+                tilebehavior.SetTileType(CalculateDefaultTileType(x, z));
+            }
+        }
+        UpdatePath();
+    }
+
+    private TileType CalculateDefaultTileType(int x, int z)
+    {
+        TileType tiletype;
+        if ((z < 8 || z > mapSizeZ - 9) && x < mapSizeX - 4)
+        {
+            float randomValue = Random.Range(0f, 100f);
+            //Higher chance to become blocked if more distance to the middle
+            if (z < 8)
+            {
+                if (15 - z * 2 > randomValue) tiletype = TileType.blocked;
+                else tiletype = TileType.free;
+            }
+            else
+            {
+                if (15 - (mapSizeZ - 1 - z) * 2 > randomValue) tiletype = TileType.blocked;
+                else tiletype = TileType.free;
+            }
+        }
+        else
+        {
+            tiletype = TileType.free;
+        }
+        //make sure key road tiles are road tiles
+        if (x == roadStart.x && z == roadStart.y || x == roadEnd.x && z == roadEnd.y || x == goal.x && z == goal.y)
+        {
+            tiletype = TileType.road;
+        }
+        return tiletype;
     }
 
     //Method to add showplaces
@@ -145,6 +173,7 @@ public class MapManager : MonoBehaviour
 
         //get the new path corners
         List<Vector2Int> pathCorners = CalculatePath();
+        EnemySpawnManager.instance.enemyPath = pathCorners;
         //go frough the list
         for (int i = 0; i < pathCorners.Count - 2; i++)
         {
@@ -281,6 +310,11 @@ public class MapManager : MonoBehaviour
         pathCorners.Add(goal);
         //return the list
         return pathCorners;
+    }
+
+    public Vector3 GetWorldPosition(Vector2Int gridposition)
+    {
+        return grid[gridposition.x, gridposition.y].transform.position;
     }
 }
 
