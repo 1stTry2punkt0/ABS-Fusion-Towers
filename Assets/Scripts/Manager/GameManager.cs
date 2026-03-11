@@ -91,7 +91,6 @@ public class GameManager : MonoBehaviour
         {
             //Call the BuildTower method of the selected tile with the given tower index
             selectedTile.SetTileType(TileType.tower, towerPrefabs[towerIndex]);
-            mapManager.UpdatePath();
         }
     }
 

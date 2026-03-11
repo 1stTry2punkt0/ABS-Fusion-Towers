@@ -7,7 +7,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] GameObject mapTile;//Prefab for all map tiles
     [SerializeField] Mesh[] tilemeshfree;//Meshes for free and road tiles
     private int mapSizeX = 38;//count of tiles in x direction
-    private int mapSizeZ = 21;//count of tiles in z direction
+    private int mapSizeZ = 29;//count of tiles in z direction
     private float tileSize = 2f;//size of each tile, used for positioning
     
     private GameObject[,] grid;//Array grid to store references to all map tiles for easy access

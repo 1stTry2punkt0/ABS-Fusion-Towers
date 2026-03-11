@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3475751833920023712}
   - component: {fileID: 3775799763697172627}
   - component: {fileID: 5589710975400816491}
+  - component: {fileID: -4233774549520181633}
   m_Layer: 6
   m_Name: Skeleton
   m_TagString: Untagged
@@ -49,6 +50,8 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 958f6e374ecdfcd498019e59a3099c70, type: 2}
   currentHealth: 0
   movementEnabled: 1
+  currentWaypointIndex: 0
+  distanceToTarget: 0
 --- !u!136 &5589710975400816491
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -72,6 +75,33 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 2.2, z: 0}
+--- !u!54 &-4233774549520181633
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4864677678519958399}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &4056180042671556656
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,10 +6,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] EnemySO stats;
     private int level;
     public float currentHealth;
+    public bool isDead => currentHealth <= 0;
     private ObjectPool<Enemy> pool;
     public bool movementEnabled = false;
-    private int currentWaypointIndex = 0;
+    public int currentWaypointIndex = 0;
+    public float distanceToTarget;
     private Vector3 targetPosition;
+    public float progress => currentWaypointIndex * 100 - distanceToTarget;
 
 
     // Update is called once per frame
@@ -25,7 +28,8 @@ public class Enemy : MonoBehaviour
             if (lookRotation != transform.rotation)
                 transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
         }
-        if (Vector3.Distance(transform.position, targetPosition) < stats.speed * Time.deltaTime)
+        distanceToTarget = Vector3.Distance(transform.position, targetPosition);
+        if (distanceToTarget < stats.speed * Time.deltaTime)
         {
             SetTarget();
             if (currentWaypointIndex < EnemySpawnManager.instance.enemyPath.Count)

@@ -51,4 +51,11 @@ public class TextSceneObject : MonoBehaviour
                 break;
         }
     }
+
+    public void SetText(TextSO data)
+    {
+        englishText = data.englishText;
+        germanText = data.germanText;
+        UpdateText(TextManager.instance.currentLanguage);
+    }
 }

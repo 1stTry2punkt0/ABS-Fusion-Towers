@@ -126,18 +126,26 @@ public class MapTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     //Method to Handle Click
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (tileType == TileType.free)
+        switch (tileType)
         {
-            GameManager.instance.SelectTile(this);
-            isSelected = !isSelected;
-            feedbackObj.SetActive(isSelected);
-            feedbackObj.GetComponent<MeshRenderer>().material = selectedMat;
-        }
-        if (tileType == TileType.building)
-        {
-            isSelected = !isSelected;
-            onTopObj.GetComponent<OnTopObj>().objOptionMenu.SetActive(isSelected);
-            GameManager.instance.SelectTile(this);
+            case TileType.free:
+                GameManager.instance.SelectTile(this);
+                isSelected = !isSelected;
+                feedbackObj.SetActive(isSelected);
+                feedbackObj.GetComponent<MeshRenderer>().material = selectedMat;                
+                break;
+            case TileType.building:
+                isSelected = !isSelected;
+                onTopObj.GetComponent<OnTopObj>().objOptionMenu.SetActive(isSelected);
+                GameManager.instance.SelectTile(this);
+                break;
+            case TileType.road:
+                break;
+            case TileType.blocked:
+                break;
+            case TileType.tower:
+                onTopObj.GetComponent<BaseTower>().OnSelect();
+                break;
         }
     }
     //Method to unselect the tile
