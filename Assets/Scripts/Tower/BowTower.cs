@@ -41,7 +41,7 @@ public class BowTower : BaseTower
 
     public override void TargetHit(Enemy enemy)
     {
-        if(enemy == null)
+        if(enemy == null || enemy.isDead)
             return; 
         enemy.TakeDamage(damage, DamageType.weapon);        
     }

@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] EnemySO stats;
     private int level;
     public float currentHealth;
+    public float heightOffset;
     public bool isDead => currentHealth <= 0;
     private ObjectPool<Enemy> pool;
     public bool movementEnabled = false;
@@ -14,6 +15,10 @@ public class Enemy : MonoBehaviour
     private Vector3 targetPosition;
     public float progress => currentWaypointIndex * 100 - distanceToTarget;
 
+    private void Awake()
+    {
+        heightOffset = GetComponent<CapsuleCollider>().height / 2 +1;
+    }
 
     // Update is called once per frame
     void Update()

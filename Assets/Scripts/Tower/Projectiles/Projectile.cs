@@ -7,7 +7,7 @@ public abstract class Projectile : MonoBehaviour
     public BaseTower parentTower;
 
     protected Enemy targetEnemy; // The enemy this projectile is currently targeting
-    protected Transform targetTransform; // Cached transform of the target for efficient movement calculations
+    protected Vector3 targetPosition; // Cached transform of the target for efficient movement calculations
 
     [SerializeField] float speed; // Speed at which the projectile moves towards its target
     public bool isActive = false; // Indicates whether the projectile is currently active in the scene
@@ -18,7 +18,7 @@ public abstract class Projectile : MonoBehaviour
         targetEnemy = target;
         transform.position = tower.shootPoint.position;
 
-        targetTransform = targetEnemy.transform; // Cache the target's transform for movement
+        targetPosition = targetEnemy.transform.position; // Cache the target's transform for movement
         isActive = true;
     }
 
@@ -26,14 +26,14 @@ public abstract class Projectile : MonoBehaviour
     {
         SetTarget();
         // Move towards target
-        Vector3 dir = (targetTransform.position - transform.position).normalized;
+        Vector3 dir = (targetPosition - transform.position).normalized;
         if (dir != Vector3.zero)
             transform.rotation = Quaternion.LookRotation(dir);
 
         transform.position += dir * speed * Time.deltaTime;
 
         // Hit detection
-        if (Vector3.Distance(transform.position, targetTransform.position) < 0.2f)
+        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
             parentTower.TargetHit(targetEnemy);
             pool.Release(this); // Return to pool after hitting the target

@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   stats: {fileID: 11400000, guid: 958f6e374ecdfcd498019e59a3099c70, type: 2}
   currentHealth: 0
+  heightOffset: 0
   movementEnabled: 1
   currentWaypointIndex: 0
   distanceToTarget: 0
