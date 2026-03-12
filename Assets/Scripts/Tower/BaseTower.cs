@@ -14,6 +14,8 @@ public abstract class BaseTower : MonoBehaviour
     public float attackSpeed;         // Attacks per second or cooldown modifier
     public bool canAttack = true;     // Global attack toggle
 
+    public Transform shootPoint;
+
     protected readonly List<Enemy> enemiesInRange = new(); // Enemies currently inside the trigger radius
     public targetSelection targetSelectionType = targetSelection.first; // Targeting mode
     public Enemy targetEnemyData;     // Currently selected target
@@ -186,6 +188,7 @@ public abstract class BaseTower : MonoBehaviour
     // --- Abstract Methods (implemented by specific tower types) ---
     public abstract void Initialize();
     public abstract void Attack();
+    public abstract void TargetHit(Enemy enemy);
     public abstract void OnFusion(BaseTower otherTower);
     public abstract void OnSell();
     public abstract void OnSelect();

@@ -77,11 +77,12 @@ public class EnemySpawnManager : MonoBehaviour
     {
 
         // Example: Spawn an enemy of type "EnemyType1"
+
         InvokeRepeating(nameof(TestspawnSkeleton), 2f, 5f);
     }
 
 
-    private void TestspawnSkeleton()
+    public void TestspawnSkeleton()
     {
         SpawnEnemy("Skeleton");
 

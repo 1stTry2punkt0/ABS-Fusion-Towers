@@ -29,8 +29,6 @@ public class MapManager : MonoBehaviour
     void Start()
     {
         GenerateMap();
-        UpdatePath();
-        //EnemySpawnManager.instance.CreateDictionary();
     }
 
     //Method to Generate the base map and store the references
@@ -63,6 +61,7 @@ public class MapManager : MonoBehaviour
                 tilebehavior.SetTileType(CalculateDefaultTileType(x, z));
             }
         }
+        UpdatePath();
     }
 
     public void ResetMap()

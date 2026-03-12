@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 4195432748563309485}
   - component: {fileID: -4588673279508678867}
   - component: {fileID: 1263979485267576372}
+  - component: {fileID: -7495162426459813353}
   m_Layer: 7
   m_Name: Tower
   m_TagString: Untagged
@@ -125,6 +126,7 @@ Transform:
   - {fileID: 7966690094622778799}
   - {fileID: 7986712946753508921}
   - {fileID: 9085757961892172789}
+  - {fileID: 2196565810901962820}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &-4588673279508678867
@@ -169,8 +171,54 @@ MonoBehaviour:
   damage: 0
   attackSpeed: 0
   canAttack: 1
+  shootPoint: {fileID: 2196565810901962820}
   targetSelectionType: 0
   targetEnemyData: {fileID: 0}
+--- !u!114 &-7495162426459813353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653789581430311994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f2dcdf0fbbe4d4ebf84a744845f45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OnTopObj
+  objOptionMenu: {fileID: 0}
+  mapTile: {fileID: 0}
+--- !u!1 &8077694918724443377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2196565810901962820}
+  m_Layer: 7
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2196565810901962820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8077694918724443377}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.82, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4195432748563309485}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2584171018891934532
 PrefabInstance:
   m_ObjectHideFlags: 0

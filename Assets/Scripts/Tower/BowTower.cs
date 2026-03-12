@@ -34,12 +34,16 @@ public class BowTower : BaseTower
 
         if (attackCooldown > 0f)
             return;
-
-        // Apply damage
-        targetEnemyData.TakeDamage(damage, DamageType.weapon);
-
+        ProjectileSpawnManager.instance.SpawnProjectile(ProjectileType.Arrow, this, targetEnemyData); // Spawn an arrow projectile
         // Reset cooldown
         attackCooldown = 1f / attackSpeed;
+    }
+
+    public override void TargetHit(Enemy enemy)
+    {
+        if(enemy == null)
+            return; 
+        enemy.TakeDamage(damage, DamageType.weapon);        
     }
 
     public override void OnFusion(BaseTower otherTower)
