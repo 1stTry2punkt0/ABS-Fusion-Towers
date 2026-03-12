@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] MapManager mapManager; //Reference to the MapManager, set in inspector
     [SerializeField] BuildingMenu buildingMenu; //Reference to the BuildingMenu, set in inspector
+    [SerializeField] TowerMenu towerMenu; //Reference to the TowerMenu, set in inspector
 
     private MapTile selectedTile;
 
@@ -35,17 +36,38 @@ public class GameManager : MonoBehaviour
         if (selectedTile != null)
         {
             selectedTile.Unsecelt();
+            buildingMenu.CloseMenu();
+            towerMenu.OnClose();
             if (selectedTile == tile)
             {
-                buildingMenu.CloseMenu();
                 selectedTile = null;
                 return;
             }
         }
         //Select the new tile
         selectedTile = tile;
-        if (selectedTile.tileType == TileType.free)
-            buildingMenu.OpenMenu(tile);
+        switch (selectedTile.tileType)
+        {
+            case TileType.free:
+                buildingMenu.OpenMenu(tile);
+                break;
+            case TileType.building:
+                BuildingSelected();
+                break;
+            case TileType.tower:
+                TowerSelected(tile.onTopObj.GetComponent<BaseTower>());
+                break;
+        }
+    }
+
+    public bool AmISelected(MapTile tile)
+    {
+        return selectedTile == tile;
+    }
+
+    public void Unselect()
+    {
+        SelectTile(selectedTile);
     }
 
     public Vector3 GetWorldPosition(Vector2Int gridPos)
@@ -64,12 +86,18 @@ public class GameManager : MonoBehaviour
                 selectedTile.SetTileType(TileType.building, buildingPrefabs[buildingIndex]);
                 mapManager.UpdatePath();
                 SelectTile(selectedTile);
+                buildingMenu.CloseMenu();
             }
             else
             {
                 Invalid();
             }
         }
+    }
+
+    private void BuildingSelected()
+    {
+        selectedTile.onTopObj.GetComponent<OnTopObj>().objOptionMenu.SetActive(true);
     }
 
     public void SellBuilding(GameObject building)
@@ -91,7 +119,14 @@ public class GameManager : MonoBehaviour
         {
             //Call the BuildTower method of the selected tile with the given tower index
             selectedTile.SetTileType(TileType.tower, towerPrefabs[towerIndex]);
+            buildingMenu.CloseMenu();
+            TowerSelected(selectedTile.onTopObj.GetComponent<BaseTower>());
         }
+    }
+
+    public void TowerSelected(BaseTower tower)
+    {
+        towerMenu.OpenMenu(tower);
     }
 
     public void Demolish()
@@ -102,11 +137,6 @@ public class GameManager : MonoBehaviour
             selectedTile.SetTileType(TileType.free);
             mapManager.UpdatePath();
         }
-    }
-
-    public void UpgradeTower(int index)
-    {
-
     }
 
     public void UpgradeEnemys()

@@ -163,11 +163,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BowTower
   stats: {fileID: 11400000, guid: d4223b9d4bb29ec4ebee9c6e85bc59fa, type: 2}
-  towerName: {fileID: 0}
-  level: 0
+  towerName: 0
+  level: 1
   optionlvl: 0000000000000000
   range: 0
   rangeCollider: {fileID: 0}
+  rangeIndicator: {fileID: 1432121050007484986}
   damage: 0
   attackSpeed: 0
   canAttack: 1

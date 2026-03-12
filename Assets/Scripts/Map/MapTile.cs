@@ -14,14 +14,13 @@ public class MapTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     //offset for different blockerobjects to place them above the tile
     [SerializeField] Vector2[] blockerOffsetY;
     //stored blockerobject
-    private GameObject onTopObj;
+    public GameObject onTopObj;
 
     [Header("VisualFeedback")]
     [SerializeField] GameObject feedbackObj;
     [SerializeField] Material hoveredMat;
     [SerializeField] Material selectedMat;
     [SerializeField] Material invalidMat;
-    private bool isSelected = false;
 
     //Method to change the tile type and set its mesh
     public void SetTileType(TileType newType, GameObject prefab = null)
@@ -109,7 +108,7 @@ public class MapTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     //Method to Handle Hover
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (tileType == TileType.free && !isSelected)
+        if (tileType == TileType.free && !GameManager.instance.AmISelected(this))
         {
             feedbackObj.SetActive(true);
             feedbackObj.GetComponent<MeshRenderer>().material = hoveredMat;
@@ -118,7 +117,7 @@ public class MapTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     //Method to Handle Hover Exit
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (tileType == TileType.free && !isSelected)
+        if (tileType == TileType.free && !GameManager.instance.AmISelected(this))
         {
             feedbackObj.SetActive(false);
         }
@@ -126,32 +125,19 @@ public class MapTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     //Method to Handle Click
     public void OnPointerDown(PointerEventData eventData)
     {
-        switch (tileType)
+        if(tileType == TileType.blocked || tileType == TileType.road)
         {
-            case TileType.free:
-                GameManager.instance.SelectTile(this);
-                isSelected = !isSelected;
-                feedbackObj.SetActive(isSelected);
-                feedbackObj.GetComponent<MeshRenderer>().material = selectedMat;                
-                break;
-            case TileType.building:
-                isSelected = !isSelected;
-                onTopObj.GetComponent<OnTopObj>().objOptionMenu.SetActive(isSelected);
-                GameManager.instance.SelectTile(this);
-                break;
-            case TileType.road:
-                break;
-            case TileType.blocked:
-                break;
-            case TileType.tower:
-                onTopObj.GetComponent<BaseTower>().OnSelect();
-                break;
+            Invalid();
+            return;
         }
+        GameManager.instance.SelectTile(this);
+        feedbackObj.SetActive(GameManager.instance.AmISelected(this));
+        feedbackObj.GetComponent<MeshRenderer>().material = selectedMat;                
     }
+
     //Method to unselect the tile
     public void Unsecelt()
     {
-        isSelected = false;
         feedbackObj.SetActive(false);
     }
     //Method to show invalid feedback

@@ -12,6 +12,10 @@ public class BowTower : BaseTower
         // Base stats
         range = stats.baseRange;
         rangeCollider.radius = range; // Ensure the collider matches the range
+        Vector3 indicatorScale = Vector3.one * range * 2; // Calculate the scale for the range indicator
+        indicatorScale.y = 0.01f; // Keep the Y scale thin for a flat indicator
+        rangeIndicator.transform.localScale = indicatorScale; // Scale the indicator to match the range
+
         damage = stats.baseDamage;
         attackSpeed = stats.baseAttackSpeed; // attacks per second
 
@@ -54,10 +58,5 @@ public class BowTower : BaseTower
     public override void OnSell()
     {
         // Refund logic
-    }
-
-    public override void OnSelect()
-    {
-        // UI highlight logic
     }
 }

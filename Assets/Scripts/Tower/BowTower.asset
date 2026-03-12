@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d3db085564a934896fd651bc958124, type: 3}
   m_Name: BowTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerSO
-  towerName: {fileID: 11400000, guid: b84c4765efa025c4a9a1414a07795537, type: 2}
+  towerName: 0
   damageType: 0
   statusEffect: 0
   baseDamage: 15
@@ -20,6 +20,8 @@ MonoBehaviour:
   baseRange: 14
   upgradeOption:
   - statToUpgrade: 0
+    upgradeName: {fileID: 11400000, guid: 25b8e3fc8942a3342ae9501c78fee562, type: 2}
     increaseAmount: 15
   - statToUpgrade: 1
+    upgradeName: {fileID: 11400000, guid: f5f67baacc708fc4099eebd03b417903, type: 2}
     increaseAmount: 1.2

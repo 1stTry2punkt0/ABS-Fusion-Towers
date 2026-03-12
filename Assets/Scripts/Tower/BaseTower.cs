@@ -5,11 +5,12 @@ public abstract class BaseTower : MonoBehaviour
 {
     // --- Base Stats ---
     public TowerStatSO stats;          // Reference to the ScriptableObject for this tower type
-    public TextSO towerName;          // Display name of the tower
-    public int level;                 // Current upgrade level
+    public TowerType towerName;          // Display name of the tower
+    public int level = 1;                 // Current upgrade level
     public int[] optionlvl = new int[2];        // Level of the upgrade options
     public float range;               // Attack radius
     public SphereCollider rangeCollider;        // Collider used for detecting enemies in range
+    public GameObject rangeIndicator;        // Visual representation of the tower's range (optional)
     public float damage;              // Base damage value
     public float attackSpeed;         // Attacks per second or cooldown modifier
     public bool canAttack = true;     // Global attack toggle
@@ -151,6 +152,9 @@ public abstract class BaseTower : MonoBehaviour
             case Stats.range:
                 range += increaseAmount;
                 rangeCollider.radius = range; // Update collider radius to match new range
+                Vector3 indicatorScale = Vector3.one * range * 2; // Calculate the scale for the range indicator
+                indicatorScale.y = 0.01f; // Keep the Y scale thin for a flat indicator
+                rangeIndicator.transform.localScale = indicatorScale; // Scale the indicator to match the range
                 break;
 
         }
@@ -184,6 +188,10 @@ public abstract class BaseTower : MonoBehaviour
         return multiplyer;
     }
 
+    public void OnSelect(bool isSelected)
+    {
+        rangeIndicator.SetActive(isSelected);
+    }
 
     // --- Abstract Methods (implemented by specific tower types) ---
     public abstract void Initialize();
@@ -191,7 +199,6 @@ public abstract class BaseTower : MonoBehaviour
     public abstract void TargetHit(Enemy enemy);
     public abstract void OnFusion(BaseTower otherTower);
     public abstract void OnSell();
-    public abstract void OnSelect();
 }
 
 // Target selection modes

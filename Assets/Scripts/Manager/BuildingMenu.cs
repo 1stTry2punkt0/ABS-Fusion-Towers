@@ -13,8 +13,10 @@ public class BuildingMenu : MonoBehaviour
         SwitchMenu(0);
     }
 
-    public void CloseMenu()
+    public void CloseMenu(bool shouldUnselect = false)
     {
+        if(shouldUnselect)
+            GameManager.instance.Unselect();
         menuPanel.SetActive(false);
     }
 
@@ -36,8 +38,4 @@ public class BuildingMenu : MonoBehaviour
         GameManager.instance.BuildTower(towerIndex);
     }
 
-    public void UpgradeTower(int upgradeIndex)
-    {
-        GameManager.instance.UpgradeTower(upgradeIndex);
-    }
 }

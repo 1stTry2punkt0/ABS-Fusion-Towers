@@ -36,7 +36,7 @@ public class ProjectileSpawnManager : MonoBehaviour
                 OnGetProjectile,
                 OnReleaseProjectile,
                 OnDestroyProjectile,
-                true, 10, 100);
+                true, 10, 1000);
             projectilePools.Add(projectileType, pool);
         }
     }
