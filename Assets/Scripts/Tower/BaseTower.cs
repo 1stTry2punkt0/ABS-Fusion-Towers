@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseTower : MonoBehaviour
+public abstract class BaseTower : MonoBehaviour, IOnTopObj
 {
+    public MapTile mapTile { get; set; }
+
+
     // --- Base Stats ---
     public TowerStatSO stats;          // Reference to the ScriptableObject for this tower type
     public TowerType towerName;          // Display name of the tower
@@ -13,6 +16,9 @@ public abstract class BaseTower : MonoBehaviour
     public GameObject rangeIndicator;        // Visual representation of the tower's range (optional)
     public float damage;              // Base damage value
     public float attackSpeed;         // Attacks per second or cooldown modifier
+
+    public Cost sellValue { get; set; }            // Value returned to the player when selling the tower
+
     public bool canAttack = true;     // Global attack toggle
 
     public Transform shootPoint;
@@ -95,6 +101,11 @@ public abstract class BaseTower : MonoBehaviour
         Debug.Log($"Selected target: {targetEnemyData.name} with {targetEnemyData.currentHealth} HP");
     }
 
+    public void SetTargetSelection(targetSelection selection)
+    {
+        targetSelectionType = selection;
+    }
+
     // Returns the enemy with the highest health (stable order on ties)
     private Enemy GetStrongest()
     {
@@ -138,6 +149,12 @@ public abstract class BaseTower : MonoBehaviour
     {
         if (level > 5)
             return;
+        if (!RessourceManager.instance.SpendRessource(stats.upgradeCosts[index]))
+        {
+            GameManager.instance.Invalid(GameManager.instance.invalidMessages[1]);
+            return;
+        }
+        sellValue.amount += (int)(stats.upgradeCosts[index].amount * 0.7f);
         UpgradeOption option = stats.upgradeOption[index];
         float increaseAmount = option.increaseAmount * GetMultipyer(optionlvl[index]);
         switch (option.statToUpgrade)
@@ -188,17 +205,31 @@ public abstract class BaseTower : MonoBehaviour
         return multiplyer;
     }
 
-    public void OnSelect(bool isSelected)
-    {
-        rangeIndicator.SetActive(isSelected);
-    }
-
     // --- Abstract Methods (implemented by specific tower types) ---
     public abstract void Initialize();
     public abstract void Attack();
     public abstract void TargetHit(Enemy enemy);
     public abstract void OnFusion(BaseTower otherTower);
-    public abstract void OnSell();
+
+
+    public void OnSell()
+    {
+        RessourceManager.instance.GainRessource(sellValue);
+        GameManager.instance.SellBuilding(gameObject);
+    }
+
+    public void OnSelect()
+    {
+        rangeIndicator.SetActive(true);
+        TowerMenu.instance.OpenMenu(this);
+    }
+
+    public void DeSelect()
+    {
+        rangeIndicator.SetActive(false);
+        TowerMenu.instance.CloseMenu(false);
+    }
+
 }
 
 // Target selection modes

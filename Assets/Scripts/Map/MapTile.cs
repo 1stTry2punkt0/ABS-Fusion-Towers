@@ -62,12 +62,12 @@ public class MapTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
             case TileType.building:
                 onTopObj = Instantiate(prefab, transform.position + new Vector3(0, 1f, 0), Quaternion.identity);
                 onTopObj.transform.parent = transform;
-                onTopObj.GetComponent<OnTopObj>().mapTile = this;
+                onTopObj.GetComponent<IOnTopObj>().mapTile = this;
                 break;
             case TileType.tower:
                 onTopObj = Instantiate(prefab, transform.position + new Vector3(0, 1f, 0), Quaternion.identity);
                 onTopObj.transform.parent = transform;
-                onTopObj.GetComponent<OnTopObj>().mapTile = this;
+                onTopObj.GetComponent<IOnTopObj>().mapTile = this;
                 break;
 
         }
@@ -131,6 +131,10 @@ public class MapTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
             return;
         }
         GameManager.instance.SelectTile(this);
+        if(onTopObj != null)
+        {
+            onTopObj.GetComponent<IOnTopObj>()?.OnSelect();
+        }
         feedbackObj.SetActive(GameManager.instance.AmISelected(this));
         feedbackObj.GetComponent<MeshRenderer>().material = selectedMat;                
     }
@@ -138,6 +142,11 @@ public class MapTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     //Method to unselect the tile
     public void Unsecelt()
     {
+        if (onTopObj != null)
+        {
+            onTopObj.GetComponent<IOnTopObj>()?.DeSelect();
+        }
+
         feedbackObj.SetActive(false);
     }
     //Method to show invalid feedback

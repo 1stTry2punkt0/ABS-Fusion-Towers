@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] MapManager mapManager; //Reference to the MapManager, set in inspector
     [SerializeField] BuildingMenu buildingMenu; //Reference to the BuildingMenu, set in inspector
     [SerializeField] TowerMenu towerMenu; //Reference to the TowerMenu, set in inspector
+    [SerializeField] RessourceManager ressourceManager; //Reference to the RessourceManager, set in inspector
 
     private MapTile selectedTile;
 
@@ -16,6 +17,9 @@ public class GameManager : MonoBehaviour
 
     public int wave = 1;
     [SerializeField] private List<EnemySO> enemySOs; //List of enemy prefabs corresponding to the enemies array
+
+    [SerializeField] private TextSceneObject messageObject;
+    public TextSO[] invalidMessages;
 
     private void Awake()
     {
@@ -29,6 +33,10 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void Start()
+    {
+        ressourceManager.SetDefault();
+    }
 
     public void SelectTile(MapTile tile)
     {
@@ -36,8 +44,7 @@ public class GameManager : MonoBehaviour
         if (selectedTile != null)
         {
             selectedTile.Unsecelt();
-            buildingMenu.CloseMenu();
-            towerMenu.OnClose();
+            towerMenu.CloseMenu();
             if (selectedTile == tile)
             {
                 selectedTile = null;
@@ -46,17 +53,13 @@ public class GameManager : MonoBehaviour
         }
         //Select the new tile
         selectedTile = tile;
-        switch (selectedTile.tileType)
+        if (selectedTile.tileType == TileType.free)
         {
-            case TileType.free:
-                buildingMenu.OpenMenu(tile);
-                break;
-            case TileType.building:
-                BuildingSelected();
-                break;
-            case TileType.tower:
-                TowerSelected(tile.onTopObj.GetComponent<BaseTower>());
-                break;
+            buildingMenu.OpenMenu(tile);
+        }
+        else
+        {
+            buildingMenu.CloseMenu();
         }
     }
 
@@ -67,6 +70,7 @@ public class GameManager : MonoBehaviour
 
     public void Unselect()
     {
+        if (selectedTile!=null)
         SelectTile(selectedTile);
     }
 
@@ -80,7 +84,8 @@ public class GameManager : MonoBehaviour
         if (selectedTile != null)
         {
             bool suc = mapManager.AddShowplace(selectedTile.gridPos);
-            if (suc)
+            bool hasRessource = ressourceManager.SpendRessource(buildingPrefabs[buildingIndex].GetComponent<Showplace>().showplaceSO.baseCost);
+            if (suc && hasRessource)
             {
                 //Call the BuildBuilding method of the selected tile with the given building index
                 selectedTile.SetTileType(TileType.building, buildingPrefabs[buildingIndex]);
@@ -88,39 +93,56 @@ public class GameManager : MonoBehaviour
                 SelectTile(selectedTile);
                 buildingMenu.CloseMenu();
             }
-            else
+            if (!suc)
             {
-                Invalid();
+                Invalid(invalidMessages[0]);
+            }
+            if (!hasRessource)
+            {
+                Invalid(invalidMessages[1]);
             }
         }
     }
 
-    private void BuildingSelected()
-    {
-        selectedTile.onTopObj.GetComponent<OnTopObj>().objOptionMenu.SetActive(true);
-    }
 
     public void SellBuilding(GameObject building)
     {
+        if(selectedTile.tileType == TileType.building)
+            mapManager.RemoveShowplace(selectedTile.gridPos);
+
         selectedTile.SetTileType(TileType.free, building);
-        mapManager.RemoveShowplace(selectedTile.gridPos);
         SelectTile(selectedTile);
         Destroy(building);
     }
 
-    private void Invalid()
+    public void Invalid(TextSO message)
     {
+        messageObject.SetText(message);
+        messageObject.gameObject.SetActive(true);
+        Invoke("CloseMessage", 3f);
+    }
 
+    private void CloseMessage()
+    {
+        messageObject.gameObject.SetActive(false);
     }
 
     public void BuildTower(int towerIndex)
     {
         if (selectedTile != null)
         {
-            //Call the BuildTower method of the selected tile with the given tower index
-            selectedTile.SetTileType(TileType.tower, towerPrefabs[towerIndex]);
-            buildingMenu.CloseMenu();
-            TowerSelected(selectedTile.onTopObj.GetComponent<BaseTower>());
+            BaseTower tower = towerPrefabs[towerIndex].GetComponent<BaseTower>();
+            if (ressourceManager.SpendRessource(tower.stats.baseCost))
+            {
+                //Call the BuildTower method of the selected tile with the given tower index
+                selectedTile.SetTileType(TileType.tower, towerPrefabs[towerIndex]);
+                buildingMenu.CloseMenu();
+                TowerSelected(selectedTile.onTopObj.GetComponent<BaseTower>());
+            }
+            else
+            {
+                Invalid(invalidMessages[1]);
+            }
         }
     }
 
@@ -150,8 +172,10 @@ public class GameManager : MonoBehaviour
     public void ResetGame()
     {
         mapManager.ResetMap();
+        ressourceManager.SetDefault();
         wave = 0;
         UpgradeEnemys();
+
     }
 
     public void StartWave()

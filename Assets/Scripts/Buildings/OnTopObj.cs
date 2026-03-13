@@ -15,4 +15,9 @@ public class OnTopObj : MonoBehaviour
         GameManager.instance.SelectTile(mapTile);
         objOptionMenu.SetActive(false);
     }
+
+    public void OnSelect()
+    {
+
+    }
 }

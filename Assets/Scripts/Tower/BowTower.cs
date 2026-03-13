@@ -18,6 +18,8 @@ public class BowTower : BaseTower
 
         damage = stats.baseDamage;
         attackSpeed = stats.baseAttackSpeed; // attacks per second
+        sellValue = stats.baseCost; // Example: sell for half the cost
+        sellValue.amount = (int) (sellValue.amount * 0.7f);
 
         attackCooldown = 0f;
     }
@@ -55,8 +57,4 @@ public class BowTower : BaseTower
         // Fusion logic comes later
     }
 
-    public override void OnSell()
-    {
-        // Refund logic
-    }
 }

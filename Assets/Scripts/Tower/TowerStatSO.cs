@@ -12,6 +12,11 @@ public class TowerStatSO : ScriptableObject
     public float baseAttackSpeed;
     public float baseRange;
     public UpgradeOption[] upgradeOption;
+
+    public Cost baseCost;
+    public Cost[] upgradeCosts;
+    public Cost fusionCost;
+
 }
 
 public enum DamageType
@@ -28,6 +33,13 @@ public class UpgradeOption
     public TextSO upgradeName; // Name of the upgrade option for display purposes
     [Tooltip("The amount for the first 5 upgrades in total")]
     public float increaseAmount; // The amount by which the stat will increase when upgraded
+}
+
+[System.Serializable]
+public class Cost
+{
+    public int amount;
+    public RessourceType ressourceType;
 }
 
 public enum Stats

@@ -54,6 +54,12 @@ public class TextSceneObject : MonoBehaviour
 
     public void SetText(TextSO data)
     {
+        //Get the text component from the game object, if it is not assigned in the inspector
+        if (textObj == null)
+        {
+            textObj = GetComponent<TMP_Text>();
+        }
+
         englishText = data.englishText;
         germanText = data.germanText;
         UpdateText(TextManager.instance.currentLanguage);

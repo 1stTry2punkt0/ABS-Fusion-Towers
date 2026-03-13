@@ -25,3 +25,14 @@ MonoBehaviour:
   - statToUpgrade: 1
     upgradeName: {fileID: 11400000, guid: f5f67baacc708fc4099eebd03b417903, type: 2}
     increaseAmount: 1.2
+  baseCost:
+    amount: 150
+    ressourceType: 0
+  upgradeCosts:
+  - amount: 50
+    ressourceType: 0
+  - amount: 50
+    ressourceType: 0
+  fusionCost:
+    amount: 50
+    ressourceType: 1

@@ -5,6 +5,8 @@ using System;
 
 public class TowerMenu : MonoBehaviour
 {
+    public static TowerMenu instance;
+
     [SerializeField] GameObject menuPanel;
 
     [SerializeField] Image icon;
@@ -17,25 +19,22 @@ public class TowerMenu : MonoBehaviour
 
     [HideInInspector]
     public BaseTower selectedTower;
+    private int currentTargetSelectionIndex = 0;
+    [SerializeField] TextSceneObject targetSelectionText;
+    [SerializeField] TextSO[] targetSelectionNames;
 
-    
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
-        
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void OpenMenu(BaseTower tower)
     {
         selectedTower = tower;
-        tower.OnSelect(true);
         menuPanel.SetActive(true);
         UpdateMenu();
     }
@@ -47,6 +46,8 @@ public class TowerMenu : MonoBehaviour
         {
             icon.sprite = ui.icon;
             nameText.SetText(ui.nameText);
+            currentTargetSelectionIndex = (int)selectedTower.targetSelectionType;
+            ChangeTargetSelection(0); // Update the target selection text
             UpdateUpgrades();
         }
     }
@@ -77,13 +78,23 @@ public class TowerMenu : MonoBehaviour
         }
     }
 
-    public void OnClose(bool shouldUnselect = false)
+    public void ChangeTargetSelection(int direction)
+    {
+        currentTargetSelectionIndex += direction;
+        if (currentTargetSelectionIndex < 0)
+            currentTargetSelectionIndex = Enum.GetNames(typeof(targetSelection)).Length - 1;
+        else if (currentTargetSelectionIndex >= Enum.GetNames(typeof(targetSelection)).Length)
+            currentTargetSelectionIndex = 0;
+
+        targetSelectionText.SetText(targetSelectionNames[currentTargetSelectionIndex]);
+        selectedTower.SetTargetSelection( (targetSelection)currentTargetSelectionIndex );
+    }
+
+    public void CloseMenu(bool shouldUnselect = false)
     {
         if (shouldUnselect)
             GameManager.instance.Unselect();
 
-        if (selectedTower != null)
-            selectedTower.OnSelect(false);
         selectedTower = null;
         menuPanel.SetActive(false);
     }
@@ -109,7 +120,7 @@ public class TowerMenu : MonoBehaviour
     {
         // Implement sell logic here, e.g., refund resources, remove tower from the game, etc.
         selectedTower.OnSell();
-        OnClose(true);
+        CloseMenu(true);
     }
 }
 
