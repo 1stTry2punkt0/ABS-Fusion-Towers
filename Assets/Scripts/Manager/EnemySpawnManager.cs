@@ -8,10 +8,14 @@ public class EnemySpawnManager : MonoBehaviour
     public List<Vector2Int> enemyPath;
 
     [SerializeField] GameObject[] enemyPrefab;
+    [SerializeField] GameObject merchant;
+    private Merchant merchantcs;
     [SerializeField] Transform spawnPoint;
 
     private ObjectPool<Enemy> enemyPool;
     private Dictionary<string, ObjectPool<Enemy>> enemyPools = new Dictionary<string, ObjectPool<Enemy>>();
+
+    public int waveIndex = 0;
 
     void Awake()
     {
@@ -77,11 +81,18 @@ public class EnemySpawnManager : MonoBehaviour
     {
 
         // Example: Spawn an enemy of type "EnemyType1"
-
-        InvokeRepeating(nameof(TestspawnSkeleton), 2f, 5f);
+        Invoke("StartWave", 3f);
+        merchantcs = Instantiate(merchant).GetComponent<Merchant>();
+        merchantcs.spawnPoint = spawnPoint;
+        merchantcs.gameObject.SetActive(false);
     }
 
+    public void StartWave()
+    {
+        merchantcs.StartRound();
+        InvokeRepeating(nameof(TestspawnSkeleton), 2f, 5f);
 
+    }
     public void TestspawnSkeleton()
     {
         SpawnEnemy("Skeleton");
