@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemySO : ScriptableObject
 {
     string enemyName;
+    public EnemyType enemyType;
     public float maxHp;
     [SerializeField] float baseHp;
     [SerializeField] [Range(0f, 0.5f)] float hpScale;
@@ -17,6 +18,7 @@ public class EnemySO : ScriptableObject
     [SerializeField] float baseSpeed;
     [SerializeField][Range(0f, 0.5f)] float speedScale;
     public MoveType moveType;
+    public Cost damage;
 
     public void SetLevel(int level)
     {

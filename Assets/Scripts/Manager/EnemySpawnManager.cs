@@ -8,12 +8,10 @@ public class EnemySpawnManager : MonoBehaviour
     public List<Vector2Int> enemyPath;
 
     [SerializeField] GameObject[] enemyPrefab;
-    [SerializeField] GameObject merchant;
-    private Merchant merchantcs;
     [SerializeField] Transform spawnPoint;
 
     private ObjectPool<Enemy> enemyPool;
-    private Dictionary<string, ObjectPool<Enemy>> enemyPools = new Dictionary<string, ObjectPool<Enemy>>();
+    private Dictionary<EnemyType, ObjectPool<Enemy>> enemyPools = new Dictionary<EnemyType, ObjectPool<Enemy>>();
 
     public int waveIndex = 0;
 
@@ -34,19 +32,19 @@ public class EnemySpawnManager : MonoBehaviour
     {
         for (int i = 0; i < enemyPrefab.Length; i++)
         {
-            string enemyType = enemyPrefab[i].name;
             GameObject prefab = enemyPrefab[i];
+            EnemyType enemyType = prefab.GetComponent<Enemy>().stats.enemyType;
             ObjectPool<Enemy> pool = new ObjectPool<Enemy>(
                 () => CreateEnemy(prefab, enemyType),
                 OnGetEnemy,
                 OnReleaseEnemy,
                 OnDestroyEnemy,
-                true, 10, 100);
+                true, 50, 1000);
             enemyPools.Add(enemyType, pool);
         }
     }
 
-    private Enemy CreateEnemy( GameObject prefab, string name)
+    private Enemy CreateEnemy( GameObject prefab, EnemyType name)
     {
         GameObject enemyObj = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
         Enemy enemy = enemyObj.GetComponent<Enemy>();
@@ -62,14 +60,12 @@ public class EnemySpawnManager : MonoBehaviour
         enemy.SetStats();
         enemy.movementEnabled = true;
         enemy.gameObject.SetActive(true);
-        // Set enemy stats from enemyStatSO
     }
 
     private void OnReleaseEnemy(Enemy enemy)
     {
         enemy.movementEnabled = false;
         enemy.gameObject.SetActive(false);
-        // Reset enemy state if necessary
     }
 
     private void OnDestroyEnemy(Enemy enemy)
@@ -77,29 +73,7 @@ public class EnemySpawnManager : MonoBehaviour
         Destroy(enemy.gameObject);
     }
 
-    void Start()
-    {
-
-        // Example: Spawn an enemy of type "EnemyType1"
-        Invoke("StartWave", 3f);
-        merchantcs = Instantiate(merchant).GetComponent<Merchant>();
-        merchantcs.spawnPoint = spawnPoint;
-        merchantcs.gameObject.SetActive(false);
-    }
-
-    public void StartWave()
-    {
-        merchantcs.StartRound();
-        InvokeRepeating(nameof(TestspawnSkeleton), 2f, 5f);
-
-    }
-    public void TestspawnSkeleton()
-    {
-        SpawnEnemy("Skeleton");
-
-    }
-
-    public void SpawnEnemy(string enemyType)
+    public void SpawnEnemy(EnemyType enemyType)
     {
         if (enemyPools.ContainsKey(enemyType))
         {
@@ -110,4 +84,10 @@ public class EnemySpawnManager : MonoBehaviour
             Debug.LogWarning("No pool found for enemy type: " + enemyType);
         }
     }
+}
+
+public enum EnemyType
+{
+    Skeleton,
+    example
 }

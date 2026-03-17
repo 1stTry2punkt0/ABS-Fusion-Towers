@@ -3,7 +3,7 @@ using UnityEngine.Pool;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] EnemySO stats;
+    public EnemySO stats;
     private int level;
     public float currentHealth;
     public float heightOffset;
@@ -44,6 +44,9 @@ public class Enemy : MonoBehaviour
             else
             {
                 // Enemy reached the end of the path, handle accordingly (e.g., damage player, return to pool)
+                RessourceManager.instance.SpendRessource(stats.damage);
+                currentHealth = 0;
+                WaveManager.instance.enemyCount--;
                 pool.Release(this);
             }
         }
@@ -81,6 +84,7 @@ public class Enemy : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
+            WaveManager.instance.enemyCount--;
             pool.Release(this);
         }
     }

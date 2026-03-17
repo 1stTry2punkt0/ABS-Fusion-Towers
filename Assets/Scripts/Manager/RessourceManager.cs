@@ -119,7 +119,9 @@ public class RessourceManager : MonoBehaviour
         }
         health += changeAmount;
         health = Mathf.Clamp(health, 0, maxHealth);
-        healthText.text = ((health / maxHealth) *100).ToString() + "%";
+        Debug.Log(health);
+        healthText.text = ((int)(((float)health / (float)maxHealth) * 100)).ToString() + "%";
+        Debug.Log((int)(((float)health / (float)maxHealth) * 100));
         return true;
     }
 

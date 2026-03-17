@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0155b43d8a671fd4096d51fd48dab6fa, type: 3}
   m_Name: Skeleton
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStatSO
+  enemyType: 0
   maxHp: 0
   baseHp: 100
   hpScale: 0.1
@@ -25,3 +26,6 @@ MonoBehaviour:
   baseSpeed: 2
   speedScale: 0
   moveType: 0
+  damage:
+    amount: 1
+    ressourceType: 2

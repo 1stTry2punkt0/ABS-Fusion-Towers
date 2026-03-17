@@ -6,6 +6,7 @@ public class Arrow : Projectile
     {
         if (targetEnemy == null || targetEnemy.isDead)
         {
+            targetEnemy = null;
             targetPosition.y = 1f; // Default height if no target or target is dead
             return;
         }

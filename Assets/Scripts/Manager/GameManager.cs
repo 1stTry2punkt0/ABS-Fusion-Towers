@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
         if (selectedTile != null)
         {
             selectedTile.Unsecelt();
-            towerMenu.CloseMenu();
             if (selectedTile == tile)
             {
                 selectedTile = null;

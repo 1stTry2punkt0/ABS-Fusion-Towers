@@ -12,7 +12,7 @@ public class Merchant : MonoBehaviour
 
     public void StartRound()
     {
-        goods.amount = 100 + EnemySpawnManager.instance.waveIndex * 10;
+        goods.amount = 100 + WaveManager.instance.currentWave * 10;
         transform.position = spawnPoint.position;
         currentWaypointIndex = 0;
         targetPosition = GameManager.instance.GetWorldPosition(EnemySpawnManager.instance.enemyPath[currentWaypointIndex]);
@@ -24,7 +24,7 @@ public class Merchant : MonoBehaviour
     {
         movementEnabled = false;
         gameObject.SetActive(false);
-        Invoke("StartRound", 2f);
+        WaveManager.instance.EndWave();
     }
 
     void Update()
