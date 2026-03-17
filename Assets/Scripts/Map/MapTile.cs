@@ -130,11 +130,11 @@ public class MapTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
             Invalid();
             return;
         }
-        GameManager.instance.SelectTile(this);
         if(onTopObj != null)
         {
             onTopObj.GetComponent<IOnTopObj>()?.OnSelect();
         }
+        GameManager.instance.SelectTile(this);
         feedbackObj.SetActive(GameManager.instance.AmISelected(this));
         feedbackObj.GetComponent<MeshRenderer>().material = selectedMat;                
     }

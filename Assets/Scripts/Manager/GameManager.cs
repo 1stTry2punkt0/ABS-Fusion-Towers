@@ -147,7 +147,7 @@ public class GameManager : MonoBehaviour
 
     public void TowerSelected(BaseTower tower)
     {
-        towerMenu.OpenMenu(tower);
+        tower.OnSelect();
     }
 
     public void Demolish()
