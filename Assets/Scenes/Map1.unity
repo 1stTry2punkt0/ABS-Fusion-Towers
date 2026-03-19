@@ -565,6 +565,10 @@ PrefabInstance:
       value: BuildingMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -2139,7 +2143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 686558009092359484, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 168.33
       objectReference: {fileID: 0}
     - target: {fileID: 686558009092359484, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_SizeDelta.y
@@ -3867,7 +3871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 686558009092359484, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 122.8
       objectReference: {fileID: 0}
     - target: {fileID: 686558009092359484, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_SizeDelta.y
@@ -4540,6 +4544,8 @@ MonoBehaviour:
   - {fileID: 8799266910099362094, guid: 5fce18ec814939446a367a8e4eacd9ab, type: 3}
   towerPrefabs:
   - {fileID: 1653789581430311994, guid: b46dd2788f072174ea6f365bba71d083, type: 3}
+  - {fileID: 1653789581430311994, guid: c0ffbf196a5e8894ba178b835a1a375d, type: 3}
+  - {fileID: 1653789581430311994, guid: f8ffaaf208edc474488ba37966fc1025, type: 3}
   wave: 1
   enemySOs:
   - {fileID: 11400000, guid: 958f6e374ecdfcd498019e59a3099c70, type: 2}
@@ -4559,6 +4565,9 @@ MonoBehaviour:
   invalidMessages:
   - {fileID: 11400000, guid: 8d5207f3d451bc44cbf1ddd3855b181d, type: 2}
   - {fileID: 11400000, guid: b84af050b811ed7418cb683629af0e46, type: 2}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &899638607
 GameObject:
   m_ObjectHideFlags: 0
@@ -6944,7 +6953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 686558009092359484, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 179.07
       objectReference: {fileID: 0}
     - target: {fileID: 686558009092359484, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_SizeDelta.y
@@ -7400,6 +7409,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileSpawnManager
   projecilePrefab:
   - {fileID: 1787413264057725863, guid: 01c00517a0804aa4185fedced0b1b8d8, type: 3}
+  - {fileID: 1787413264057725863, guid: b4d59eb0babd1f34aa119d553dc09335, type: 3}
+  - {fileID: 1787413264057725863, guid: 4aed566266e3c174b9bec0b3420c9de1, type: 3}
 --- !u!224 &1358161081 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3454219867003490880, guid: ffb8c9e328f06914ab08d7d5585a4699, type: 3}
@@ -8262,8 +8273,20 @@ PrefabInstance:
       value: BuildingMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168301719197283742, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: germanText
+      value: Katapult
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168301719197283742, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: englishText
+      value: Catapult
       objectReference: {fileID: 0}
     - target: {fileID: 5620550513463056321, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
       propertyPath: m_Pivot.x
@@ -8819,19 +8842,11 @@ MonoBehaviour:
   waves:
   - delay: 6
     enemyGroups:
-    - enemyType: 9
-      firstSpawnDelay: 1
-      spawnInterval: 0.5
-      groupInterval: 4
-      groupSize: 1
-      boss: 1
-  - delay: 6
-    enemyGroups:
     - enemyType: 1
       firstSpawnDelay: 1
       spawnInterval: 1
       groupInterval: 3
-      groupSize: 3
+      groupSize: 10
       boss: 0
   - delay: 6
     enemyGroups:
@@ -11279,8 +11294,20 @@ PrefabInstance:
       value: BuildingMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168301719197283742, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: germanText
+      value: Balliste
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168301719197283742, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: englishText
+      value: Ballista
       objectReference: {fileID: 0}
     - target: {fileID: 5620550513463056321, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
       propertyPath: m_Pivot.x

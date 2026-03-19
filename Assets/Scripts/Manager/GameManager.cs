@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextSceneObject messageObject;
     public TextSO[] invalidMessages;
 
+    public LayerMask enemyLayer;
+
     private void Awake()
     {
         //make sure their is only one instance

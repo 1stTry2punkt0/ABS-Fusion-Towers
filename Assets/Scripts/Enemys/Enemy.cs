@@ -92,7 +92,7 @@ public class Enemy : MonoBehaviour
         // Set other stats as needed
     }
 
-    public void TakeDamage(float damage, DamageType dmgtype)
+    public float TakeDamage(float damage, DamageType dmgtype)
     {
         if (dmgtype == DamageType.weapon)
         {
@@ -105,8 +105,10 @@ public class Enemy : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
+            damage += currentHealth; 
             Die();
         }
+        return damage;
     }
 
     public void ApplyStatusEffect(StatusEffect effect)

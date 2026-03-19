@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public abstract class BaseTower : MonoBehaviour, IOnTopObj
@@ -16,16 +17,20 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
     public GameObject rangeIndicator;        // Visual representation of the tower's range (optional)
     public float damage;              // Base damage value
     public float attackSpeed;         // Attacks per second or cooldown modifier
+    public float damageRange;
 
     public Cost sellValue { get; set; }            // Value returned to the player when selling the tower
 
     public bool canAttack = true;     // Global attack toggle
 
     public Transform shootPoint;
+    [SerializeField] GameObject weapon;
 
     protected readonly List<Enemy> enemiesInRange = new(); // Enemies currently inside the trigger radius
     public targetSelection targetSelectionType = targetSelection.first; // Targeting mode
     public Enemy targetEnemyData;     // Currently selected target
+
+    public float dmgDealt = 0f;
 
     // --- Unity Lifecycle ---
     protected virtual void Start()
@@ -41,6 +46,7 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
         if (canAttack && enemiesInRange.Count > 0)
         {
             FindTarget();   // Determine which enemy to attack
+            RotateWeaponToTarget();
             Attack();       // Execute the attack logic
         }
     }
@@ -98,7 +104,18 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
                 targetEnemyData = GetWeakest();
                 break;
         }
-        Debug.Log($"Selected target: {targetEnemyData.name} with {targetEnemyData.currentHealth} HP");
+    }
+
+    public void RotateWeaponToTarget()
+    {
+        if(weapon == null) return;
+        if (targetEnemyData == null) return;
+        // rotate weapon around y to face the target enemy
+        Vector3 dir = (targetEnemyData.transform.position - transform.position).normalized;
+        dir.y = 0;
+        if (dir != Vector3.zero)
+            weapon.transform.rotation = Quaternion.LookRotation(dir);
+
     }
 
     public void SetTargetSelection(targetSelection selection)
@@ -173,6 +190,9 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
                 indicatorScale.y = 0.01f; // Keep the Y scale thin for a flat indicator
                 rangeIndicator.transform.localScale = indicatorScale; // Scale the indicator to match the range
                 break;
+            case Stats.damageRange:
+                damageRange += increaseAmount;
+                break;
 
         }
 
@@ -204,9 +224,32 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
         }
         return multiplyer;
     }
+    public virtual void Initialize()
+    {
+        towerName = stats.towerName;
+        level = 1;
+
+        // Base stats
+        range = stats.baseRange;
+        rangeCollider.radius = range; // Ensure the collider matches the range
+        Vector3 indicatorScale = Vector3.one * range * 2; // Calculate the scale for the range indicator
+        indicatorScale.y = 0.01f; // Keep the Y scale thin for a flat indicator
+        rangeIndicator.transform.localScale = indicatorScale; // Scale the indicator to match the range
+
+        damage = stats.baseDamage;
+        attackSpeed = stats.baseAttackSpeed; // attacks per second
+        damageRange = stats.baseDamageRange;
+        sellValue = new Cost
+        {
+            amount = stats.baseCost.amount,
+            ressourceType = stats.baseCost.ressourceType
+        };
+        sellValue.amount = (int)(sellValue.amount * 0.7f);
+
+
+    }
 
     // --- Abstract Methods (implemented by specific tower types) ---
-    public abstract void Initialize();
     public abstract void Attack();
     public abstract void TargetHit(Enemy enemy);
     public abstract void OnFusion(BaseTower otherTower);

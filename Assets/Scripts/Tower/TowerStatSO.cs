@@ -11,6 +11,8 @@ public class TowerStatSO : ScriptableObject
     public float baseDamage;
     public float baseAttackSpeed;
     public float baseRange;
+
+    public float baseDamageRange;
     public UpgradeOption[] upgradeOption;
 
     public Cost baseCost;
@@ -46,7 +48,8 @@ public enum Stats
 {
     damage,
     attackSpeed,
-    range
+    range,
+    damageRange,
 }
 
 public enum StatusEffect
@@ -60,5 +63,7 @@ public enum StatusEffect
 
 public enum TowerType
 {
-    BowTower
+    BowTower,
+    Catapult,
+    Ballista
 }
