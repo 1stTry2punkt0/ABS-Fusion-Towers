@@ -26,7 +26,7 @@ MonoBehaviour:
     upgradeName: {fileID: 11400000, guid: f5f67baacc708fc4099eebd03b417903, type: 2}
     increaseAmount: 1.2
   baseCost:
-    amount: 150
+    amount: 200
     ressourceType: 0
   upgradeCosts:
   - amount: 50

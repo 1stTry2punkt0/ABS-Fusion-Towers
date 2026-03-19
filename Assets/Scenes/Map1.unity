@@ -4543,6 +4543,18 @@ MonoBehaviour:
   wave: 1
   enemySOs:
   - {fileID: 11400000, guid: 958f6e374ecdfcd498019e59a3099c70, type: 2}
+  - {fileID: 11400000, guid: 0ddc0f12ba29ce34995686c8cde05bc1, type: 2}
+  - {fileID: 11400000, guid: c781211c2bfe0554b9a80fca114e09d9, type: 2}
+  - {fileID: 11400000, guid: ab8e3d532ebe88342a31a2cef73229ba, type: 2}
+  - {fileID: 11400000, guid: 4a4c3e0923017c043bdb7137984a41de, type: 2}
+  - {fileID: 11400000, guid: 1ece89295693dcf43acd6cd9665f62e9, type: 2}
+  - {fileID: 11400000, guid: 17ff8fa890b933d4aac677fb9b49c337, type: 2}
+  - {fileID: 11400000, guid: fec446e7e95a73c44b03acb3cf732c48, type: 2}
+  - {fileID: 11400000, guid: 780feaee70024414b99269298a30fd1d, type: 2}
+  - {fileID: 11400000, guid: 39fe273ef851d1d4ea65cee3e9785e42, type: 2}
+  - {fileID: 11400000, guid: 8664380f4a6347646a9fe7174524a75b, type: 2}
+  - {fileID: 11400000, guid: b0af8e0269b2f2c4a9f64d221adef45b, type: 2}
+  - {fileID: 11400000, guid: 72e53b81ff6e28b46814327150f0e2d7, type: 2}
   messageObject: {fileID: 361174990}
   invalidMessages:
   - {fileID: 11400000, guid: 8d5207f3d451bc44cbf1ddd3855b181d, type: 2}
@@ -4878,6 +4890,18 @@ MonoBehaviour:
   enemyPath: []
   enemyPrefab:
   - {fileID: 4864677678519958399, guid: 0ec4744633a206c4684e5161a055d15b, type: 3}
+  - {fileID: 4864677678519958399, guid: c1b2eb5c9901dde4da420f4c926d3610, type: 3}
+  - {fileID: 4864677678519958399, guid: 46acc37ed3777964993a666c657391dd, type: 3}
+  - {fileID: 4864677678519958399, guid: 8c19a06c7e4953944af736b8599610ea, type: 3}
+  - {fileID: 4864677678519958399, guid: 20cdd00b7474b514384ccd5d788d29f9, type: 3}
+  - {fileID: 4864677678519958399, guid: 7f9ff3c52e1f92443adcc6d94ebb0875, type: 3}
+  - {fileID: 4864677678519958399, guid: f582e46e192f52446ba9f9dd0d10410f, type: 3}
+  - {fileID: 4864677678519958399, guid: eabb3bd7058673b40999d5942e08f8ee, type: 3}
+  - {fileID: 4864677678519958399, guid: eab14fcfb96822e44b671aa09bcff25a, type: 3}
+  - {fileID: 4864677678519958399, guid: c59e9526e5408814fbe08a153db62b11, type: 3}
+  - {fileID: 4864677678519958399, guid: b7595daa7270b9840a0802318d7d6629, type: 3}
+  - {fileID: 4864677678519958399, guid: 0c5b98b92415fb1469b07e92e4c7db13, type: 3}
+  - {fileID: 4864677678519958399, guid: fe205fa54248fa54f8e3a13318207230, type: 3}
   spawnPoint: {fileID: 944846641}
   waveIndex: 0
 --- !u!1 &944846640
@@ -5381,7 +5405,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 686558009092359484, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 125.26
       objectReference: {fileID: 0}
     - target: {fileID: 686558009092359484, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_SizeDelta.y
@@ -8439,7 +8463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 686558009092359484, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 110.52
       objectReference: {fileID: 0}
     - target: {fileID: 686558009092359484, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_SizeDelta.y
@@ -8795,9 +8819,73 @@ MonoBehaviour:
   waves:
   - delay: 6
     enemyGroups:
-    - enemyType: 0
+    - enemyType: 9
       firstSpawnDelay: 1
       spawnInterval: 0.5
+      groupInterval: 4
+      groupSize: 1
+      boss: 1
+  - delay: 6
+    enemyGroups:
+    - enemyType: 1
+      firstSpawnDelay: 1
+      spawnInterval: 1
+      groupInterval: 3
+      groupSize: 3
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 1
+      firstSpawnDelay: 1
+      spawnInterval: 0.75
+      groupInterval: 2
+      groupSize: 4
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 3
+      firstSpawnDelay: 1
+      spawnInterval: 1
+      groupInterval: 3
+      groupSize: 6
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 6
+      firstSpawnDelay: 1
+      spawnInterval: 0.75
+      groupInterval: 1.5
+      groupSize: 3
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 3
+      firstSpawnDelay: 1
+      spawnInterval: 1
+      groupInterval: 1.5
+      groupSize: 1
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 4
+      firstSpawnDelay: 3
+      spawnInterval: 0.75
+      groupInterval: 1.5
+      groupSize: 3
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 5
+      firstSpawnDelay: 1
+      spawnInterval: 1
+      groupInterval: 5
+      groupSize: 4
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 7
+      firstSpawnDelay: 1
+      spawnInterval: 1
       groupInterval: 3
       groupSize: 4
       boss: 0
@@ -8807,7 +8895,49 @@ MonoBehaviour:
       firstSpawnDelay: 1
       spawnInterval: 0.5
       groupInterval: 2
+      groupSize: 4
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 2
+      firstSpawnDelay: 0
+      spawnInterval: 2
+      groupInterval: 6
+      groupSize: 2
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 1
+      spawnInterval: 1
+      groupInterval: 2
       groupSize: 3
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 9
+      firstSpawnDelay: 1
+      spawnInterval: 2
+      groupInterval: 6
+      groupSize: 1
+      boss: 1
+    - enemyType: 1
+      firstSpawnDelay: 1
+      spawnInterval: 0.75
+      groupInterval: 2
+      groupSize: 4
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 8
+      firstSpawnDelay: 1
+      spawnInterval: 1
+      groupInterval: 3
+      groupSize: 3
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 3
+      spawnInterval: 0.75
+      groupInterval: 2
+      groupSize: 4
       boss: 0
   autoplay: 0
   startAvailable: 1

@@ -18,7 +18,11 @@ public class BowTower : BaseTower
 
         damage = stats.baseDamage;
         attackSpeed = stats.baseAttackSpeed; // attacks per second
-        sellValue = stats.baseCost; // Example: sell for half the cost
+        sellValue = new Cost
+        {
+            amount = stats.baseCost.amount,
+            ressourceType = stats.baseCost.ressourceType
+        };
         sellValue.amount = (int) (sellValue.amount * 0.7f);
 
         attackCooldown = 0f;

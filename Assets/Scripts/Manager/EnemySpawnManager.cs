@@ -57,7 +57,7 @@ public class EnemySpawnManager : MonoBehaviour
         enemy.transform.position = spawnPoint.position;
         enemy.transform.rotation = spawnPoint.rotation;
 
-        enemy.SetStats();
+        enemy.Initialize();
         enemy.movementEnabled = true;
         enemy.gameObject.SetActive(true);
     }
@@ -89,5 +89,16 @@ public class EnemySpawnManager : MonoBehaviour
 public enum EnemyType
 {
     Skeleton,
-    example
+    Burrow,
+    Golem,
+    Slime,
+    Rabbit,
+    Bat,
+    Ghost,
+    BigGhost,
+    DevilGhost,
+    DragonNightmare,
+    DragonSoulEater,
+    DragonTerrorBringer,
+    DragonUsurper
 }

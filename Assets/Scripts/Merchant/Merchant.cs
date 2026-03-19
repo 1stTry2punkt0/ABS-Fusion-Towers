@@ -61,7 +61,8 @@ public class Merchant : MonoBehaviour
     {
         if(other.TryGetComponent(out Enemy enemy))
         {
-            EndRound();
+            if (enemy.stats.moveType != MoveType.Fly)
+                EndRound();
         }
     }
 }

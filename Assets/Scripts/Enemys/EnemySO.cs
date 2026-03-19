@@ -7,16 +7,16 @@ public class EnemySO : ScriptableObject
     public EnemyType enemyType;
     public float maxHp;
     [SerializeField] float baseHp;
-    [SerializeField] [Range(0f, 0.5f)] float hpScale;
+    [SerializeField] [Range(0f, 0.1f)] float hpScale;
     public float amor;
     [SerializeField] float baseAmor;
-    [SerializeField][Range(0f, 0.5f)] float amorScale;
+    [SerializeField][Range(0f, 0.1f)] float amorScale;
     public float resistance;
     [SerializeField] float baseResistance;
-    [SerializeField][Range(0f, 0.5f)] float resistanceScale;
+    [SerializeField][Range(0f, 0.1f)] float resistanceScale;
     public float speed;
     [SerializeField] float baseSpeed;
-    [SerializeField][Range(0f, 0.5f)] float speedScale;
+    [SerializeField][Range(0f, 0.1f)] float speedScale;
     public MoveType moveType;
     public Cost damage;
 

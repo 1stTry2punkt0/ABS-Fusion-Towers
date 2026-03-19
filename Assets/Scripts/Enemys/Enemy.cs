@@ -18,12 +18,14 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         heightOffset = GetComponent<CapsuleCollider>().height / 2 +1;
+        if (stats.moveType == MoveType.Fly) heightOffset += 1;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!movementEnabled) return;
+
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, stats.speed * Time.deltaTime);
         //Rotate towards the target position
         Vector3 direction = (targetPosition - transform.position).normalized;
@@ -40,22 +42,41 @@ public class Enemy : MonoBehaviour
             if (currentWaypointIndex < EnemySpawnManager.instance.enemyPath.Count)
             {
                 targetPosition = GameManager.instance.GetWorldPosition(EnemySpawnManager.instance.enemyPath[currentWaypointIndex]);
+                if (stats.moveType == MoveType.Fly)
+                    targetPosition = ConvertForFly(targetPosition);
             }
             else
             {
                 // Enemy reached the end of the path, handle accordingly (e.g., damage player, return to pool)
                 RessourceManager.instance.SpendRessource(stats.damage);
-                currentHealth = 0;
-                WaveManager.instance.enemyCount--;
-                pool.Release(this);
+                Disappear();
             }
         }
     }
 
-    private void SetTarget()
+    protected void Disappear()
+    {
+        movementEnabled = false;
+        currentHealth = 0;
+        WaveManager.instance.enemyCount--;
+        pool.Release(this);
+    }
+
+    protected virtual void Die()
+    {
+        Disappear();
+    }
+
+    protected virtual void SetTarget()
     {
         transform.position = targetPosition;
         currentWaypointIndex++;
+    }
+
+    private Vector3 ConvertForFly(Vector3 position)
+    {
+        position.z = transform.position.z;
+        return position;
     }
 
     public void SetPool(ObjectPool<Enemy> pool)
@@ -63,7 +84,7 @@ public class Enemy : MonoBehaviour
         this.pool = pool;
     }
 
-    public void SetStats()
+    public virtual void Initialize()
     {
         currentHealth = stats.maxHp;
         currentWaypointIndex = 0;
@@ -84,8 +105,7 @@ public class Enemy : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
-            WaveManager.instance.enemyCount--;
-            pool.Release(this);
+            Die();
         }
     }
 

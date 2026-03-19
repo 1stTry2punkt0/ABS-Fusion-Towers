@@ -25,6 +25,10 @@ public class Showplace : MonoBehaviour, IOnTopObj
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        sellValue = showplaceSO.baseCost;
+        sellValue = new Cost
+        {
+            amount = showplaceSO.baseCost.amount,
+            ressourceType = showplaceSO.baseCost.ressourceType
+        };
     }
 }
