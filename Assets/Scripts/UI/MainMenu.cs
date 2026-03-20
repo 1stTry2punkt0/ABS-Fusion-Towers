@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
     //Method to switch between shown menu panels based on the index provided
     public void ShowMenu(int index) //0 = Main Menu, 1 = Start Game, 2 = Options
     {
+        SaveDataHolder.instance.SaveData();
         //Hide all menu panels first
         foreach (var panel in MenuPanel)
         {
@@ -30,7 +31,7 @@ public class MainMenu : MonoBehaviour
         SaveDataHolder.instance.SaveData(); //Save the current game state before quitting
         if (Application.isEditor)
         {
-            UnityEditor.EditorApplication.isPlaying = false;
+            //UnityEditor.EditorApplication.isPlaying = false;
         }
         else
         {

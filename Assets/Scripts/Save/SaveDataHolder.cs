@@ -22,6 +22,9 @@ public class SaveDataHolder : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        //load data
+        var saveState = ScriptableObject.CreateInstance<SaveDataSO>();
+        loadedState = DataManager.LoadData(saveState);
     }
 
 
@@ -33,9 +36,6 @@ public class SaveDataHolder : MonoBehaviour
 
     public void LoadData()
     {
-        //load data
-        var saveState = ScriptableObject.CreateInstance<SaveDataSO>();
-        loadedState = DataManager.LoadData(saveState);
         //set everything depending on loaded data
         TextManager.instance.UpdateLanguage((Language)loadedState.language);
         optionMenu.SetVolume(loadedState.volume);

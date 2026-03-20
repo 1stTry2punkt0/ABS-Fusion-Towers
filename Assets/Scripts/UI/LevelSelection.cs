@@ -20,10 +20,12 @@ public class LevelSelection : MonoBehaviour
     public void OnDifficultySelected(int index)
     {
         SaveDataHolder.instance.loadedState.difficultyIndex = index; //Update the loaded state with the selected difficulty index
+        Debug.Log(index);
     }
 
     public void StartGame()
     {
         SceneManager.LoadScene(SaveDataHolder.instance.loadedState.mapIndex); //Load the selected level scene based on the map index stored in the loaded state
+        SaveDataHolder.instance.SaveData();
     }
 }
