@@ -24,7 +24,7 @@ MonoBehaviour:
     upgradeName: {fileID: 11400000, guid: 25b8e3fc8942a3342ae9501c78fee562, type: 2}
     increaseAmount: 15
   - statToUpgrade: 3
-    upgradeName: {fileID: 11400000, guid: f5f67baacc708fc4099eebd03b417903, type: 2}
+    upgradeName: {fileID: 11400000, guid: 47929f88de28109489b91086f3f02aa5, type: 2}
     increaseAmount: 3
   baseCost:
     amount: 200

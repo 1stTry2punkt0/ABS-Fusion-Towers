@@ -40,6 +40,16 @@ public class GameManager : MonoBehaviour
         ressourceManager.SetDefault();
     }
 
+    public void ResetGame()
+    {
+        mapManager.ResetMap();
+        ressourceManager.SetDefault();
+        WaveManager.instance.NewGame();
+        wave = 0;
+        UpgradeEnemys();
+
+    }
+
     public void SelectTile(MapTile tile)
     {
         //Deselect the previously selected tile if there is one
@@ -170,14 +180,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ResetGame()
-    {
-        mapManager.ResetMap();
-        ressourceManager.SetDefault();
-        wave = 0;
-        UpgradeEnemys();
-
-    }
 
     public void StartWave()
     {

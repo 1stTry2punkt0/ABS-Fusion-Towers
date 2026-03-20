@@ -11,7 +11,7 @@ public class WaveManager : MonoBehaviour
     public bool startAvailable = true;
     [SerializeField] GameObject startAvailableImage;
     public int currentWave = 0;
-    public int lastWave = 2;
+    public int lastWave = 12;
     private List<Coroutine> SpawnRoutines = new List<Coroutine>();
     public int enemyCount = 0;
 
