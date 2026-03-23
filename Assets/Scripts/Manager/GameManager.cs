@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        ressourceManager.SetDefault();
+        ResetGame();
     }
 
     public void ResetGame()

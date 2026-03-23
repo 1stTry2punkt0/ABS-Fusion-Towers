@@ -6,11 +6,15 @@ using System;
 public class TowerMenu : MonoBehaviour
 {
     public static TowerMenu instance;
+    [HideInInspector]
+    public int gridSizeX = 19;
 
     [SerializeField] GameObject menuPanel;
+    [SerializeField] RectTransform panelRectTransform;
 
     [SerializeField] Image icon;
     [SerializeField] TextSceneObject nameText;
+    [SerializeField] TextMeshProUGUI dmgDealt;
     [SerializeField] TMPro.TextMeshProUGUI level;
     [SerializeField] Image[] upgradeProgress;
     [SerializeField] TextSceneObject[] upgradeProgressText;
@@ -29,12 +33,33 @@ public class TowerMenu : MonoBehaviour
             instance = this;
         else
             Destroy(gameObject);
+
     }
 
+    public void UpdateDmg()
+    {
+        dmgDealt.text = "Dmg: " + selectedTower.dmgDealt.ToString();
+    }
 
     public void OpenMenu(BaseTower tower)
     {
         selectedTower = tower;
+        float halfwidth = panelRectTransform.rect.width / 2;
+        if(tower.mapTile.gridPos.x > gridSizeX)
+        {
+            panelRectTransform.anchoredPosition = new Vector2(halfwidth, panelRectTransform.anchoredPosition.y);
+            panelRectTransform.anchorMin = new Vector2(0f, 0f);
+            panelRectTransform.anchorMax = new Vector2(0f, 1f);
+            panelRectTransform.pivot = new Vector2(0.5f, 0.5f);
+        }
+        else
+        {
+            panelRectTransform.anchoredPosition = new Vector2(-halfwidth, panelRectTransform.anchoredPosition.y);
+            panelRectTransform.anchorMin = new Vector2(1f, 0f);
+            panelRectTransform.anchorMax = new Vector2(1f, 1f);
+            panelRectTransform.pivot = new Vector2(0.5f, 0.5f);
+        }
+
         menuPanel.SetActive(true);
         UpdateMenu();
     }
@@ -46,6 +71,7 @@ public class TowerMenu : MonoBehaviour
         {
             icon.sprite = ui.icon;
             nameText.SetText(ui.nameText);
+            UpdateDmg();
             currentTargetSelectionIndex = (int)selectedTower.targetSelectionType;
             ChangeTargetSelection(0); // Update the target selection text
             UpdateUpgrades();
@@ -95,11 +121,12 @@ public class TowerMenu : MonoBehaviour
         selectedTower.SetTargetSelection( (targetSelection)currentTargetSelectionIndex );
     }
 
-    public void CloseMenu(bool shouldUnselect = false)
+    public void CloseMenu(bool shouldUnselect = false, BaseTower tower = null)
     {
         if (shouldUnselect)
             GameManager.instance.Unselect();
 
+        if (tower != selectedTower) return;
         selectedTower = null;
         menuPanel.SetActive(false);
     }

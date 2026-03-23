@@ -31,6 +31,7 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
     public Enemy targetEnemyData;     // Currently selected target
 
     public float dmgDealt = 0f;
+    protected bool isSelected;
 
     // --- Unity Lifecycle ---
     protected virtual void Start()
@@ -249,9 +250,18 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
 
     }
 
+
+    public virtual void TargetHit(Enemy enemy)
+    {
+        if (enemy == null || enemy.isDead)
+            return;
+        dmgDealt += enemy.TakeDamage(damage, DamageType.weapon);
+        if (isSelected)
+            TowerMenu.instance.UpdateDmg();
+    }
+
     // --- Abstract Methods (implemented by specific tower types) ---
     public abstract void Attack();
-    public abstract void TargetHit(Enemy enemy);
     public abstract void OnFusion(BaseTower otherTower);
 
 
@@ -274,12 +284,14 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
     {
         rangeIndicator.SetActive(true);
         TowerMenu.instance.OpenMenu(this);
+        isSelected = true;
     }
 
     public void DeSelect()
     {
         rangeIndicator.SetActive(false);
-        TowerMenu.instance.CloseMenu(false);
+        TowerMenu.instance.CloseMenu(false, this);
+        isSelected = false;
     }
 
 }

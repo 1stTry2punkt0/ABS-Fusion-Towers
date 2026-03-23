@@ -38,12 +38,6 @@ public class Catapult : BaseTower
         attackCooldown = 1f / attackSpeed;
     }
 
-    public override void TargetHit(Enemy enemy)
-    {
-        if(enemy == null || enemy.isDead)
-            return;
-        dmgDealt += enemy.TakeDamage(damage, DamageType.weapon);        
-    }
 
     public override void OnFusion(BaseTower otherTower)
     {

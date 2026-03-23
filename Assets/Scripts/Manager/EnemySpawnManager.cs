@@ -43,6 +43,7 @@ public class EnemySpawnManager : MonoBehaviour
                 OnDestroyEnemy,
                 true, 50, 1000);
             enemyPools.Add(enemyType, pool);
+            allEnemies[enemyType] = new List<Enemy>();
         }
     }
 
@@ -51,12 +52,7 @@ public class EnemySpawnManager : MonoBehaviour
         GameObject enemyObj = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
         Enemy enemy = enemyObj.GetComponent<Enemy>();
         enemy.SetPool(enemyPools[name]);
-
-        if (!allEnemies.ContainsKey(name))
-            allEnemies[name] = new List<Enemy>();
-
         allEnemies[name].Add(enemy);
-
         return enemy;
     }
 

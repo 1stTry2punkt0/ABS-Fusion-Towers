@@ -35,15 +35,6 @@ public class Ballista : BaseTower
         attackCooldown = 1f / attackSpeed;
     }
 
-    public override void TargetHit(Enemy enemy)
-    {
-        if(enemy == null || enemy.isDead)
-            return; 
-        dmgDealt += enemy.TakeDamage(damage, DamageType.weapon);
-
-
-        Debug.Log($"Hit target: {targetEnemyData.name} with {targetEnemyData.currentHealth} HP for {dmgDealt} DMG");
-    }
 
     public override void OnFusion(BaseTower otherTower)
     {

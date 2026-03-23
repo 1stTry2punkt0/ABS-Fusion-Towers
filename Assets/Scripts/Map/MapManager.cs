@@ -23,12 +23,12 @@ public class MapManager : MonoBehaviour
     {
         //Initialize the grid array based on the map size
         grid = new GameObject[mapSizeX, mapSizeZ];
+        GenerateMap();
     }
 
     //For testing start Everything in Start
     void Start()
     {
-        GenerateMap();
     }
 
     //Method to Generate the base map and store the references
