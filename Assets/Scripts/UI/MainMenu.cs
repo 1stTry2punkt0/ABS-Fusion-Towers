@@ -29,14 +29,11 @@ public class MainMenu : MonoBehaviour
     public void Quit()
     {
         SaveDataHolder.instance.SaveData(); //Save the current game state before quitting
-        if (Application.isEditor)
-        {
-            //UnityEditor.EditorApplication.isPlaying = false;
-        }
-        else
-        {
-            Application.Quit();
-        }
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 
     //Load the last saved game state if time for it

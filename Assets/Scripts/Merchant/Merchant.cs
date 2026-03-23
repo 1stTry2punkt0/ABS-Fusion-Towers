@@ -22,9 +22,14 @@ public class Merchant : MonoBehaviour
 
     public void EndRound()
     {
+        StopMerchant();
+        WaveManager.instance.EndWave();
+    }
+
+    public void StopMerchant()
+    {
         movementEnabled = false;
         gameObject.SetActive(false);
-        WaveManager.instance.EndWave();
     }
 
     void Update()

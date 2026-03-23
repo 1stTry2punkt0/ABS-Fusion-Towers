@@ -68,6 +68,7 @@ public class MapTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
                 onTopObj = Instantiate(prefab, transform.position + new Vector3(0, 1f, 0), Quaternion.identity);
                 onTopObj.transform.parent = transform;
                 onTopObj.GetComponent<IOnTopObj>().mapTile = this;
+                GameManager.instance.towerList.Add(onTopObj.GetComponent<BaseTower>());
                 break;
 
         }
@@ -77,6 +78,8 @@ public class MapTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     {
         if (onTopObj != null)
         {
+            if(tileType == TileType.tower)
+                GameManager.instance.towerList.Remove(onTopObj.GetComponent<BaseTower>());
             Destroy(onTopObj);
             onTopObj = null;
         }

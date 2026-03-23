@@ -28,11 +28,19 @@ public class WaveManager : MonoBehaviour
 
     public void NewGame()
     {
+        foreach(EnemyGroup group in waves[currentWave].enemyGroups)
+        {
+            EnemySpawnManager.instance.ResetAllEnemies(group.enemyType);
+        }
+        merchant.StopMerchant();
+
         currentWave = 0;
         lastWave = waves.Length;
         startAvailable = true;
+        startAvailableImage.SetActive(true);
         UpdateUI(currentWave);
         SpawnRoutines.Clear();
+        StopAllCoroutines();
     }
 
     private void UpdateUI(int number)
@@ -43,11 +51,14 @@ public class WaveManager : MonoBehaviour
 
     public void StartWave()
     {
+        if(GameManager.instance.gameState != GameState.Fighting)
+        {
+            GameManager.instance.gameState = GameState.Fighting;
+        }
         if (!startAvailable) return;
         startAvailable = false;
         startAvailableImage.SetActive(false);
         UpdateUI(currentWave + 1);
-        GameManager.instance.wave = currentWave;
         GameManager.instance.UpgradeEnemys();
         merchant.StartRound();
         foreach (EnemyGroup group in waves[currentWave].enemyGroups)
@@ -91,6 +102,7 @@ public class WaveManager : MonoBehaviour
         else
         {
             Debug.Log("Victory!");
+            GameManager.instance.EndGame(true);
         }
     }
 

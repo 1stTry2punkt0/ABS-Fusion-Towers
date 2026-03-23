@@ -115,6 +115,7 @@ public class RessourceManager : MonoBehaviour
     {
         if ( changeAmount < 0 && health < -changeAmount)
         {
+            GameManager.instance.EndGame(false);
             return false;
         }
         health += changeAmount;

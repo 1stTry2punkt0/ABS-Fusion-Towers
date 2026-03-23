@@ -1,21 +1,26 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance; //Singleton instance to allow easy access to the GameManager from other scripts
 
+    public GameState gameState;
+
     [SerializeField] MapManager mapManager; //Reference to the MapManager, set in inspector
     [SerializeField] BuildingMenu buildingMenu; //Reference to the BuildingMenu, set in inspector
     [SerializeField] TowerMenu towerMenu; //Reference to the TowerMenu, set in inspector
     [SerializeField] RessourceManager ressourceManager; //Reference to the RessourceManager, set in inspector
+    [SerializeField] Endscreen endscreen;
 
     private MapTile selectedTile;
 
     [SerializeField] private GameObject[] buildingPrefabs; //Array of building prefabs corresponding to the buildings array
     [SerializeField] private GameObject[] towerPrefabs; //Array of available buildings that can be built on the tiles
+    public List<BaseTower> towerList;
 
-    public int wave = 1;
+    public int wave => WaveManager.instance.currentWave;
     [SerializeField] private List<EnemySO> enemySOs; //List of enemy prefabs corresponding to the enemies array
 
     [SerializeField] private TextSceneObject messageObject;
@@ -45,9 +50,21 @@ public class GameManager : MonoBehaviour
         mapManager.ResetMap();
         ressourceManager.SetDefault();
         WaveManager.instance.NewGame();
-        wave = 0;
         UpgradeEnemys();
+        gameState = GameState.RoadBuilding;
+    }
 
+    public void EndGame(bool won)
+    {
+        if (gameState == GameState.Ended) return;
+        gameState = GameState.Ended;
+        BaseTower valueTower = null;
+        if (towerList.Count > 0)
+        {
+            //sort tower list by dmgdealt
+            valueTower = towerList.OrderByDescending(t => t.dmgDealt).First();
+        }
+        endscreen.ShowEndscreen(won, valueTower);
     }
 
     public void SelectTile(MapTile tile)
@@ -92,6 +109,11 @@ public class GameManager : MonoBehaviour
 
     public void BuildBuilding(int buildingIndex)
     {
+        if(gameState != GameState.RoadBuilding)
+        {
+            Invalid(invalidMessages[2]);
+            return;
+        }
         if (selectedTile != null)
         {
             bool suc = mapManager.AddShowplace(selectedTile.gridPos);
@@ -140,6 +162,9 @@ public class GameManager : MonoBehaviour
 
     public void BuildTower(int towerIndex)
     {
+        if (gameState == GameState.RoadBuilding)
+            gameState = GameState.Preparing;
+        
         if (selectedTile != null)
         {
             BaseTower tower = towerPrefabs[towerIndex].GetComponent<BaseTower>();
@@ -179,12 +204,12 @@ public class GameManager : MonoBehaviour
             enemy.SetLevel(wave);
         }
     }
+}
 
-
-    public void StartWave()
-    {
-        wave++;
-        UpgradeEnemys();
-    }
-
+public enum GameState
+{
+    RoadBuilding,
+    Preparing,
+    Fighting,
+    Ended
 }

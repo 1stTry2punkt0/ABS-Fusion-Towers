@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected void Disappear()
+    public void Disappear()
     {
         movementEnabled = false;
         currentHealth = 0;

@@ -52,6 +52,11 @@ public class TowerMenu : MonoBehaviour
         }
     }
 
+    public TextSO GetTowerName(TowerType type)
+    {
+        return Array.Find(towerUI, t => (t.towerType == type)).nameText;
+    }
+
     private void UpdateUpgrades()
     {
         Debug.Log("Updating upgrades for " + selectedTower.name + " With Level: " + selectedTower.level);

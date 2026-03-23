@@ -8,6 +8,12 @@ public class Showplace : MonoBehaviour, IOnTopObj
 
     public void OnSell()
     {
+        if (GameManager.instance.gameState != GameState.RoadBuilding)
+        {
+            GameManager.instance.Invalid(GameManager.instance.invalidMessages[2]);
+            return;
+        }
+
         RessourceManager.instance.GainRessource(sellValue);
         GameManager.instance.SellBuilding(gameObject);
     }

@@ -171,7 +171,7 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
             GameManager.instance.Invalid(GameManager.instance.invalidMessages[1]);
             return;
         }
-        sellValue.amount += (int)(stats.upgradeCosts[index].amount * 0.7f);
+        sellValue.amount += Mathf.CeilToInt(stats.upgradeCosts[index].amount * 0.7f);
         UpgradeOption option = stats.upgradeOption[index];
         float increaseAmount = option.increaseAmount * GetMultipyer(optionlvl[index]);
         switch (option.statToUpgrade)
@@ -244,7 +244,7 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
             amount = stats.baseCost.amount,
             ressourceType = stats.baseCost.ressourceType
         };
-        sellValue.amount = (int)(sellValue.amount * 0.7f);
+        sellValue.amount = Mathf.CeilToInt(sellValue.amount * 0.7f);
 
 
     }
@@ -257,8 +257,17 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
 
     public void OnSell()
     {
-        RessourceManager.instance.GainRessource(sellValue);
+        if(GameManager.instance.gameState == GameState.Preparing)
+        {
+            sellValue.amount = Mathf.CeilToInt(sellValue.amount / 0.7f); 
+            RessourceManager.instance.GainRessource(sellValue);
+        }
+        else
+        {
+            RessourceManager.instance.GainRessource(sellValue);
+        }
         GameManager.instance.SellBuilding(gameObject);
+        GameManager.instance.towerList.Remove(this);
     }
 
     public void OnSelect()

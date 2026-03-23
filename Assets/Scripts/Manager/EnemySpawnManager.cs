@@ -12,6 +12,8 @@ public class EnemySpawnManager : MonoBehaviour
 
     private ObjectPool<Enemy> enemyPool;
     private Dictionary<EnemyType, ObjectPool<Enemy>> enemyPools = new Dictionary<EnemyType, ObjectPool<Enemy>>();
+    private Dictionary<EnemyType, List<Enemy>> allEnemies = new Dictionary<EnemyType, List<Enemy>>();
+
 
     public int waveIndex = 0;
 
@@ -49,6 +51,12 @@ public class EnemySpawnManager : MonoBehaviour
         GameObject enemyObj = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
         Enemy enemy = enemyObj.GetComponent<Enemy>();
         enemy.SetPool(enemyPools[name]);
+
+        if (!allEnemies.ContainsKey(name))
+            allEnemies[name] = new List<Enemy>();
+
+        allEnemies[name].Add(enemy);
+
         return enemy;
     }
 
@@ -83,6 +91,25 @@ public class EnemySpawnManager : MonoBehaviour
         {
             Debug.LogWarning("No pool found for enemy type: " + enemyType);
         }
+    }
+
+    public void ResetAllEnemies(EnemyType enemyType)
+    {
+        if (allEnemies.ContainsKey(enemyType))
+        {
+            foreach (Enemy enemy in allEnemies[enemyType])
+            {
+                if(enemy.gameObject.activeSelf)
+                {
+                    enemy.Disappear();
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No pool found for enemy type: " + enemyType);
+        }
+
     }
 }
 
