@@ -131,6 +131,11 @@ public class TowerMenu : MonoBehaviour
         menuPanel.SetActive(false);
     }
 
+    public void CloseMenuButton()
+    {
+        CloseMenu(true);
+    }
+
     public void OnUpgrade(int optionIndex)
     {
         if (optionIndex < selectedTower.optionlvl.Length)
