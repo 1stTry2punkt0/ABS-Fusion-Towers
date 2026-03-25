@@ -86,4 +86,5 @@ public class ParticleSpawnManager : MonoBehaviour
 public enum ParticleType
 {
     DustExplosion,
+    LightningStrike,
 }

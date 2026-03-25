@@ -16,9 +16,14 @@ public abstract class Projectile : MonoBehaviour
     {
         parentTower = tower;
         targetEnemy = target;
-        transform.position = tower.shootPoint.position;
+        if(tower.shootPoint != null)
+            transform.position = tower.shootPoint.position;
+        else
+        {
+            transform.position =  new Vector3(targetEnemy.transform.position.x, 1, targetEnemy.transform.position.z);
+        }
 
-        targetPosition = targetEnemy.transform.position; // Cache the target's transform for movement
+            targetPosition = targetEnemy.transform.position; // Cache the target's transform for movement
         isActive = true;
     }
 

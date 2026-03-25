@@ -81,5 +81,6 @@ public enum ProjectileType
 {
     Arrow,
     Bolt,
-    Bomb
+    Bomb,
+    LightningStrike,
 }

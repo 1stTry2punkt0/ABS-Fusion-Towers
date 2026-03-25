@@ -6,6 +6,8 @@ public class TowerStatSO : ScriptableObject
     public TowerType towerName;
     public DamageType damageType;
     public StatusEffect statusEffect;
+    public float duration;
+    public float effectiveness;
 
     [Header("Base Stats")]
     public float baseDamage;
@@ -50,20 +52,24 @@ public enum Stats
     attackSpeed,
     range,
     damageRange,
+    duration,
+    effectiveness
 }
 
 public enum StatusEffect
 {
     none,
+    electrify,
     burn,
     freeze,
-    poison,
-    stun
 }
 
 public enum TowerType
 {
     BowTower,
     Catapult,
-    Ballista
+    Ballista,
+    Lightning,
+    Fire,
+    Ice
 }

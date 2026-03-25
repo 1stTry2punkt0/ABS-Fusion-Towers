@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d3db085564a934896fd651bc958124, type: 3}
+  m_Name: Lightning
+  m_EditorClassIdentifier: Assembly-CSharp::TowerStatSO
+  towerName: 3
+  damageType: 1
+  statusEffect: 1
+  duration: 1
+  effectiveness: 5
+  baseDamage: 5
+  baseAttackSpeed: 1
+  baseRange: 10
+  baseDamageRange: 0
+  upgradeOption:
+  - statToUpgrade: 4
+    upgradeName: {fileID: 11400000, guid: c85ed51885086364ca68789205373abd, type: 2}
+    increaseAmount: 2
+  - statToUpgrade: 5
+    upgradeName: {fileID: 11400000, guid: ddf271618c820524bba43596cd5e5f51, type: 2}
+    increaseAmount: 20
+  baseCost:
+    amount: 100
+    ressourceType: 1
+  upgradeCosts:
+  - amount: 40
+    ressourceType: 1
+  - amount: 60
+    ressourceType: 1
+  fusionCost:
+    amount: 0
+    ressourceType: 0

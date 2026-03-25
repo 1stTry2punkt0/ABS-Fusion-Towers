@@ -107,16 +107,25 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
         }
     }
 
+    private float currentYRotation;
+    private float rotationVelocity;
     public void RotateWeaponToTarget()
     {
-        if(weapon == null) return;
-        if (targetEnemyData == null) return;
-        // rotate weapon around y to face the target enemy
-        Vector3 dir = (targetEnemyData.transform.position - transform.position).normalized;
-        dir.y = 0;
-        if (dir != Vector3.zero)
-            weapon.transform.rotation = Quaternion.LookRotation(dir);
+        if (weapon == null || targetEnemyData == null) return;
 
+        Vector3 dir = targetEnemyData.transform.position - transform.position;
+        dir.y = 0;
+
+        float targetAngle = Quaternion.LookRotation(dir).eulerAngles.y;
+
+        currentYRotation = Mathf.SmoothDampAngle(
+            currentYRotation,
+            targetAngle,
+            ref rotationVelocity,
+            0.15f // smooth time
+        );
+
+        weapon.transform.rotation = Quaternion.Euler(0, currentYRotation, 0);
     }
 
     public void SetTargetSelection(targetSelection selection)
