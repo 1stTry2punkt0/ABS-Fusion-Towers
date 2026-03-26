@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -14,6 +15,11 @@ public class Enemy : MonoBehaviour
     public float distanceToTarget;
     private Vector3 targetPosition;
     public float progress => currentWaypointIndex * 100 - distanceToTarget;
+    private float electrifyMultiplyer = 1;
+    private StatusEffect currentStatus;
+    private Coroutine statusRoutine;
+    private ParticlePoolObj statusParticle;
+
 
     private void Awake()
     {
@@ -96,11 +102,11 @@ public class Enemy : MonoBehaviour
     {
         if (dmgtype == DamageType.weapon)
         {
-            damage *= 1 - stats.amor/100;
+            damage *= 1 - (stats.amor * electrifyMultiplyer)/100;
         }
         else if (dmgtype == DamageType.elemental)
         {
-            damage *= 1 - stats.resistance/100;
+            damage *= 1 - (stats.resistance * electrifyMultiplyer)/ 100;
         }
         currentHealth -= damage;
         if (currentHealth <= 0)
@@ -111,8 +117,55 @@ public class Enemy : MonoBehaviour
         return damage;
     }
 
-    public void ApplyStatusEffect(StatusEffect effect)
+    public void ApplyStatusEffect(StatusEffect effect, float duration, float effectiveness)
     {
+        if (effect == StatusEffect.none) return;
+        if (statusRoutine != null)
+        {
+            StopCoroutine(statusRoutine);
+        }
+        if(statusParticle != null)
+        {
+            //statusParticle.pool.Release(statusParticle);
+        }
+        StatusEffect lastStatus = currentStatus;
+        currentStatus = effect;
         // Implement status effect application logic here
+        switch (effect)
+        {
+            case StatusEffect.electrify:
+                
+                electrifyMultiplyer = Mathf.Min(1-effectiveness, electrifyMultiplyer);
+                statusParticle = ParticleSpawnManager.instance.SpawnParticle(ParticleType.Electrified, transform.position);
+                statusParticle.gameObject.transform.SetParent(transform);
+
+                StartCoroutine(Electryfied());
+                statusRoutine = StartCoroutine(ResetStatusEffect(duration));
+                break;
+        }
+    }
+
+    private IEnumerator ResetStatusEffect(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        currentStatus = StatusEffect.none;
+        statusParticle.pool.Release(statusParticle);
+    }
+
+    private IEnumerator Electryfied()
+    {
+        while(StatusEffect.electrify == currentStatus)
+        {
+            yield return null;
+        }
+        electrifyMultiplyer = 1;
+    }
+    private IEnumerator Burned(float effectiveness)
+    {
+        while(StatusEffect.burn == currentStatus)
+        {
+            TakeDamage(effectiveness, DamageType.elemental);
+            yield return new WaitForSeconds(0.3f);
+        }
     }
 }

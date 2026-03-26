@@ -19,6 +19,9 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
     public float attackSpeed;         // Attacks per second or cooldown modifier
     public float damageRange;
 
+    public float duration;
+    public float effectiveness;
+
     public Cost sellValue { get; set; }            // Value returned to the player when selling the tower
 
     public bool canAttack = true;     // Global attack toggle
@@ -203,6 +206,12 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
             case Stats.damageRange:
                 damageRange += increaseAmount;
                 break;
+            case Stats.duration:
+                duration += increaseAmount;
+                break;
+            case Stats.effectiveness:
+                effectiveness += increaseAmount;
+                break;
 
         }
 
@@ -249,6 +258,8 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
         damage = stats.baseDamage;
         attackSpeed = stats.baseAttackSpeed; // attacks per second
         damageRange = stats.baseDamageRange;
+        duration = stats.duration;
+        effectiveness = stats.effectiveness;
         sellValue = new Cost
         {
             amount = stats.baseCost.amount,
@@ -265,6 +276,7 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
         if (enemy == null || enemy.isDead)
             return;
         dmgDealt += enemy.TakeDamage(damage, DamageType.weapon);
+        enemy.ApplyStatusEffect(stats.statusEffect, duration, effectiveness);
         if (isSelected)
             TowerMenu.instance.UpdateDmg();
     }

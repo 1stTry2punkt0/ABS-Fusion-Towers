@@ -4473,6 +4473,7 @@ MonoBehaviour:
   particlePrefabs:
   - {fileID: 3883875930665981975, guid: 09a7267d9f4461f4a9a19d5907458534, type: 3}
   - {fileID: 2744174068353025560, guid: a56552c1df8ccad42b85aac6245a567c, type: 3}
+  - {fileID: 1786868311804508220, guid: 78b38ba723af7df419ae73a861a2a2b4, type: 3}
 --- !u!1 &596933643
 GameObject:
   m_ObjectHideFlags: 0

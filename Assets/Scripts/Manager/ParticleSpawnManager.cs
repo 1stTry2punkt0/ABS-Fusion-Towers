@@ -70,7 +70,8 @@ public class ParticleSpawnManager : MonoBehaviour
             ParticlePoolObj particle = pool.Get();
             particle.transform.position = pos;
             float delay = particle.Play();
-            StartCoroutine(ReturnParticle(particle, delay));
+            if(delay != 0)
+                StartCoroutine(ReturnParticle(particle, delay));
             return particle;
         }
         return null;
@@ -87,4 +88,5 @@ public enum ParticleType
 {
     DustExplosion,
     LightningStrike,
+    Electrified,
 }
