@@ -275,8 +275,8 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
     {
         if (enemy == null || enemy.isDead)
             return;
-        dmgDealt += enemy.TakeDamage(damage, DamageType.weapon);
         enemy.ApplyStatusEffect(stats.statusEffect, duration, effectiveness);
+        dmgDealt += enemy.TakeDamage(damage, DamageType.weapon);
         if (isSelected)
             TowerMenu.instance.UpdateDmg();
     }

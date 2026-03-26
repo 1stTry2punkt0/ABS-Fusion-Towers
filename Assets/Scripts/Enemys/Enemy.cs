@@ -62,6 +62,11 @@ public class Enemy : MonoBehaviour
 
     public void Disappear()
     {
+        if(statusParticle != null)
+        {
+            statusParticle.pool.Release(statusParticle);
+            statusParticle = null;
+        }
         movementEnabled = false;
         currentHealth = 0;
         WaveManager.instance.enemyCount--;
@@ -126,7 +131,8 @@ public class Enemy : MonoBehaviour
         }
         if(statusParticle != null)
         {
-            //statusParticle.pool.Release(statusParticle);
+            statusParticle.pool.Release(statusParticle);
+            statusParticle = null;
         }
         StatusEffect lastStatus = currentStatus;
         currentStatus = effect;
@@ -150,6 +156,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(duration);
         currentStatus = StatusEffect.none;
         statusParticle.pool.Release(statusParticle);
+        statusParticle = null;
     }
 
     private IEnumerator Electryfied()
@@ -165,7 +172,7 @@ public class Enemy : MonoBehaviour
         while(StatusEffect.burn == currentStatus)
         {
             TakeDamage(effectiveness, DamageType.elemental);
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 }

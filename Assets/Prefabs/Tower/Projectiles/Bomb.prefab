@@ -48,6 +48,40 @@ MonoBehaviour:
   parentTower: {fileID: 0}
   speed: 10
   isActive: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1.9999635
+      outSlope: 1.9999635
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5000069
+      value: 0.9999956
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.1380753
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2.0000188
+      outSlope: -2.0000188
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  arcHeight: 6
 --- !u!1001 &2328651188079500332
 PrefabInstance:
   m_ObjectHideFlags: 0

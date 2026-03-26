@@ -9,7 +9,7 @@ public abstract class Projectile : MonoBehaviour
     protected Enemy targetEnemy; // The enemy this projectile is currently targeting
     protected Vector3 targetPosition; // Cached transform of the target for efficient movement calculations
 
-    [SerializeField] float speed; // Speed at which the projectile moves towards its target
+    [SerializeField] protected float speed; // Speed at which the projectile moves towards its target
     public bool isActive = false; // Indicates whether the projectile is currently active in the scene
 
     public virtual void Initialize(BaseTower tower, Enemy target)
@@ -23,7 +23,7 @@ public abstract class Projectile : MonoBehaviour
             transform.position =  new Vector3(targetEnemy.transform.position.x, 1, targetEnemy.transform.position.z);
         }
 
-            targetPosition = targetEnemy.transform.position; // Cache the target's transform for movement
+        targetPosition = targetEnemy.transform.position; // Cache the target's transform for movement
         isActive = true;
     }
 

@@ -15,7 +15,7 @@ MonoBehaviour:
   towerName: 3
   damageType: 1
   statusEffect: 1
-  duration: 1
+  duration: 3
   effectiveness: 5
   baseDamage: 5
   baseAttackSpeed: 1
