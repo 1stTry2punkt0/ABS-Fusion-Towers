@@ -93,4 +93,8 @@ public enum ParticleType
     Frozen,
     FireErruption,
     Burn,
+    FireExplosion,
+    IceExplosion,
+    LightningExplosion,
+    ChainLightning,
 }

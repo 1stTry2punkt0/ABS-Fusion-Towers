@@ -5,7 +5,7 @@ public class Bomb : Projectile
 {
     [SerializeField] AnimationCurve curve;
     [SerializeField] float arcHeight = 4f;
-
+    private ParticleType explosionEffect;
     private Vector3 startPos;
 
     public override void Initialize(BaseTower tower, Enemy target)
@@ -14,6 +14,11 @@ public class Bomb : Projectile
         startPos = transform.position;
         targetPosition.y = 1;
         targetPosition += target.transform.forward;
+        SetExplosion(ParticleType.DustExplosion);
+    }
+    public void SetExplosion(ParticleType explosion)
+    {
+        explosionEffect = explosion;
     }
 
     public override void SetTarget()
@@ -23,7 +28,7 @@ public class Bomb : Projectile
 
     protected override bool FindNextTarget()
     {
-        ParticlePoolObj explosion = ParticleSpawnManager.instance.SpawnParticle(ParticleType.DustExplosion, transform.position);
+        ParticlePoolObj explosion = ParticleSpawnManager.instance.SpawnParticle(explosionEffect, transform.position);
         explosion.ScaleEffect(parentTower.damageRange / 2);
         foreach (Collider hit in Physics.OverlapSphere(transform.position, parentTower.damageRange, GameManager.instance.enemyLayer))
         {

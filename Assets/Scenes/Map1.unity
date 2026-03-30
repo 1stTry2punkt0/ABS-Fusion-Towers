@@ -4484,6 +4484,9 @@ MonoBehaviour:
   - {fileID: 6911079213271525869, guid: 04608a0c7d357d9418245bd566506153, type: 3}
   - {fileID: 8342508633121740972, guid: e377d91d4a8f78b4a8b0a88d29b223be, type: 3}
   - {fileID: 5766285485934675433, guid: fba1d001e70eeeb41912b4fd8d8c58a9, type: 3}
+  - {fileID: 3883875930665981975, guid: 8a30ef770fd8cbb4cb92d86fd2f30744, type: 3}
+  - {fileID: 3883875930665981975, guid: bf7a0148053e90f43ad17f79af48f0c7, type: 3}
+  - {fileID: 3883875930665981975, guid: 8ac87fc9e33a04e4181c23b51f5fe4c1, type: 3}
 --- !u!1 &596933643
 GameObject:
   m_ObjectHideFlags: 0
@@ -8817,7 +8820,9 @@ MonoBehaviour:
   - {fileID: 1787413264057725863, guid: 01c00517a0804aa4185fedced0b1b8d8, type: 3}
   - {fileID: 1787413264057725863, guid: b4d59eb0babd1f34aa119d553dc09335, type: 3}
   - {fileID: 1787413264057725863, guid: 4aed566266e3c174b9bec0b3420c9de1, type: 3}
-  - {fileID: 6956033618250865035, guid: da4569960b8bc1a4488b7f83461857e8, type: 3}
+  - {fileID: 1787413264057725863, guid: bd4a953e4b664d444bb6185d77e520d7, type: 3}
+  - {fileID: 1787413264057725863, guid: 850313906f47c124c954f98aa0e9e61d, type: 3}
+  - {fileID: 1787413264057725863, guid: 2915ec8a2f694ba4f8c675dad1f5ac30, type: 3}
 --- !u!224 &1358161081 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3454219867003490880, guid: ffb8c9e328f06914ab08d7d5585a4699, type: 3}
@@ -12702,7 +12707,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7212285832888557706, guid: 366377810aaf4fc4ab2be725a54c5712, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7689
+      value: -6.12
       objectReference: {fileID: 0}
     - target: {fileID: 7212285832888557706, guid: 366377810aaf4fc4ab2be725a54c5712, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12710,7 +12715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7212285832888557706, guid: 366377810aaf4fc4ab2be725a54c5712, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.81874
+      value: 5.6
       objectReference: {fileID: 0}
     - target: {fileID: 7212285832888557706, guid: 366377810aaf4fc4ab2be725a54c5712, type: 3}
       propertyPath: m_LocalRotation.w
