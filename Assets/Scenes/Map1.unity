@@ -4146,6 +4146,12 @@ MonoBehaviour:
   - towerType: 3
     icon: {fileID: -207153134, guid: 489359000cb364141b8b5a17fe0e361f, type: 3}
     nameText: {fileID: 11400000, guid: df2925cbcc22eaf4888826fe558c7c9d, type: 2}
+  - towerType: 5
+    icon: {fileID: -965727808, guid: a63133233749ca943ba31b821252837e, type: 3}
+    nameText: {fileID: 11400000, guid: c60f5cb65a6bdf24db11a7d7a735a4a2, type: 2}
+  - towerType: 4
+    icon: {fileID: 1348348204, guid: 973797b999d7ae447b65eddb4d717a20, type: 3}
+    nameText: {fileID: 11400000, guid: 84a86dbe7f65cc7449263cc0e6086eae, type: 2}
   FusionUpgrade: {fileID: 1484082830}
   selectedTower: {fileID: 0}
   targetSelectionText: {fileID: 1000185354}
@@ -4474,6 +4480,10 @@ MonoBehaviour:
   - {fileID: 3883875930665981975, guid: 09a7267d9f4461f4a9a19d5907458534, type: 3}
   - {fileID: 2744174068353025560, guid: a56552c1df8ccad42b85aac6245a567c, type: 3}
   - {fileID: 1786868311804508220, guid: 78b38ba723af7df419ae73a861a2a2b4, type: 3}
+  - {fileID: 1217997970315304543, guid: db4b8c10f1086c44c8b90f06a74ad2bc, type: 3}
+  - {fileID: 6911079213271525869, guid: 04608a0c7d357d9418245bd566506153, type: 3}
+  - {fileID: 8342508633121740972, guid: e377d91d4a8f78b4a8b0a88d29b223be, type: 3}
+  - {fileID: 5766285485934675433, guid: fba1d001e70eeeb41912b4fd8d8c58a9, type: 3}
 --- !u!1 &596933643
 GameObject:
   m_ObjectHideFlags: 0
@@ -5681,6 +5691,8 @@ MonoBehaviour:
   - {fileID: 1653789581430311994, guid: c0ffbf196a5e8894ba178b835a1a375d, type: 3}
   - {fileID: 1653789581430311994, guid: f8ffaaf208edc474488ba37966fc1025, type: 3}
   - {fileID: 1653789581430311994, guid: bebdb3a56f360294896c7ce6b47df506, type: 3}
+  - {fileID: 1653789581430311994, guid: e8a28ddb3e3b8ca4b90dd4d6b2402873, type: 3}
+  - {fileID: 1653789581430311994, guid: a2645b2d53adaea4fb58320326402c8c, type: 3}
   towerList: []
   enemySOs:
   - {fileID: 11400000, guid: 958f6e374ecdfcd498019e59a3099c70, type: 2}
@@ -7127,6 +7139,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1281976566}
     m_Modifications:
+    - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 836615339}
+    - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuildTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168301719197283742, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: germanText
+      value: Eis
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168301719197283742, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: englishText
+      value: Ice
+      objectReference: {fileID: 0}
     - target: {fileID: 5620550513463056321, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7207,9 +7259,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5845518356255963458, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_text
+      value: Ice
+      objectReference: {fileID: 0}
     - target: {fileID: 8645552704758124424, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
       propertyPath: m_Name
-      value: Rock
+      value: Ice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7998,8 +8054,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1264552318}
-  - {fileID: 1871653619}
   - {fileID: 1167922783}
+  - {fileID: 1871653619}
   m_Father: {fileID: 1791291174}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -12705,6 +12761,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1281976566}
     m_Modifications:
+    - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 836615339}
+    - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuildTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 956589305436686944, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168301719197283742, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: germanText
+      value: Feuer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168301719197283742, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
+      propertyPath: englishText
+      value: Fire
+      objectReference: {fileID: 0}
     - target: {fileID: 5620550513463056321, guid: 923f317cdaf4bfc4b9eb43c01e8cdd4e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -15,16 +17,32 @@ public class Enemy : MonoBehaviour
     public float distanceToTarget;
     private Vector3 targetPosition;
     public float progress => currentWaypointIndex * 100 - distanceToTarget;
-    private float electrifyMultiplyer = 1;
-    private StatusEffect currentStatus;
-    private Coroutine statusRoutine;
-    private ParticlePoolObj statusParticle;
+    private float electrifyMultiplier = 1;
+    private float freezeMultiplier = 1;
+    private StatusEffectData[] statusEffectDatas;
+    private Transform meshTransform;
 
 
     private void Awake()
     {
         heightOffset = GetComponent<CapsuleCollider>().height / 2 +1;
         if (stats.moveType == MoveType.Fly) heightOffset += 1;
+
+        statusEffectDatas = new StatusEffectData[Enum.GetValues(typeof(StatusEffect)).Length];
+
+        for (int i = 0; i < statusEffectDatas.Length; i++)
+        {
+            statusEffectDatas[i] = new StatusEffectData
+            {
+                effect = (StatusEffect)i,
+                isActive = false,
+                duration = 0,
+                effectiveness = 0,
+                particle = null,
+                resetRoutine = null
+            };
+        }
+        meshTransform = transform.GetChild(0);
     }
 
     // Update is called once per frame
@@ -32,7 +50,7 @@ public class Enemy : MonoBehaviour
     {
         if (!movementEnabled) return;
 
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, stats.speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, stats.speed * freezeMultiplier * Time.deltaTime);
         //Rotate towards the target position
         Vector3 direction = (targetPosition - transform.position).normalized;
         if (direction != Vector3.zero)
@@ -62,10 +80,9 @@ public class Enemy : MonoBehaviour
 
     public void Disappear()
     {
-        if(statusParticle != null)
+        foreach(StatusEffectData data in statusEffectDatas)
         {
-            statusParticle.pool.Release(statusParticle);
-            statusParticle = null;
+            if (data.isActive) EndStatusEffect(data);
         }
         movementEnabled = false;
         currentHealth = 0;
@@ -107,11 +124,11 @@ public class Enemy : MonoBehaviour
     {
         if (dmgtype == DamageType.weapon)
         {
-            damage *= 1 - (stats.amor * electrifyMultiplyer)/100;
+            damage *= 1 - (stats.amor * electrifyMultiplier)/100;
         }
         else if (dmgtype == DamageType.elemental)
         {
-            damage *= 1 - (stats.resistance * electrifyMultiplyer)/ 100;
+            damage *= 1 - (stats.resistance * electrifyMultiplier)/ 100;
         }
         currentHealth -= damage;
         if (currentHealth <= 0)
@@ -124,55 +141,119 @@ public class Enemy : MonoBehaviour
 
     public void ApplyStatusEffect(StatusEffect effect, float duration, float effectiveness)
     {
-        if (effect == StatusEffect.none) return;
-        if (statusRoutine != null)
+        var data = statusEffectDatas[(int)effect];
+
+        // Wenn schon aktiv resetten
+        if (data.isActive)
         {
-            StopCoroutine(statusRoutine);
+            if (data.resetRoutine != null)
+                StopCoroutine(data.resetRoutine);
+
+            if (data.particle != null)
+            {
+                data.particle.pool.Release(data.particle);
+                data.particle = null;
+            }
         }
-        if(statusParticle != null)
-        {
-            statusParticle.pool.Release(statusParticle);
-            statusParticle = null;
-        }
-        StatusEffect lastStatus = currentStatus;
-        currentStatus = effect;
-        // Implement status effect application logic here
-        switch (effect)
+
+        // Runtime-Daten setzen
+        data.isActive = true;
+        data.duration = duration;
+        data.effectiveness = effectiveness;
+
+        // Partikel starten
+        Vector3 position = meshTransform.position;
+        position.y = heightOffset;
+        data.particle = ParticleSpawnManager.instance.SpawnParticle(GetParticleType(effect), position);
+        data.particle.transform.SetParent(transform);
+
+        // Coroutine starten
+        data.resetRoutine = StartCoroutine(RunStatusEffect(data));
+    }
+
+    private ParticleType GetParticleType(StatusEffect effect)
+    {
+        switch(effect)
         {
             case StatusEffect.electrify:
-                
-                electrifyMultiplyer = Mathf.Min(1-effectiveness, electrifyMultiplyer);
-                statusParticle = ParticleSpawnManager.instance.SpawnParticle(ParticleType.Electrified, transform.position);
-                statusParticle.gameObject.transform.SetParent(transform);
+                return ParticleType.Electrified;
+            case StatusEffect.freeze:
+                return ParticleType.Frozen;
+            case StatusEffect.burn:
+                return ParticleType.Burn;
+        }
+        return ParticleType.Electrified;
+    }
 
-                StartCoroutine(Electryfied());
-                statusRoutine = StartCoroutine(ResetStatusEffect(duration));
+    private IEnumerator RunStatusEffect(StatusEffectData data)
+    {
+        float timer = 0f;
+        switch (data.effect)
+        {
+            case StatusEffect.electrify:
+                electrifyMultiplier = 1 - data.effectiveness;
+                break;
+            case StatusEffect.freeze:
+                freezeMultiplier = 1 - data.effectiveness;
+                break;
+            default:
                 break;
         }
+
+        while (timer < data.duration)
+        {
+            switch (data.effect)
+            {
+                case StatusEffect.burn:
+                    TakeDamage(data.effectiveness, DamageType.elemental);
+                    yield return new WaitForSeconds(0.2f);
+                    timer += 0.2f;
+                    break;
+
+                default:
+                    yield return null;
+                    timer += Time.deltaTime;
+                    break;
+            }
+        }
+        EndStatusEffect(data);
     }
 
-    private IEnumerator ResetStatusEffect(float duration)
+    private void EndStatusEffect(StatusEffectData data)
     {
-        yield return new WaitForSeconds(duration);
-        currentStatus = StatusEffect.none;
-        statusParticle.pool.Release(statusParticle);
-        statusParticle = null;
+        // Effekt zurücksetzen
+        data.isActive = false;
+
+        if (data.particle != null)
+        {
+            data.particle.pool.Release(data.particle);
+            data.particle = null;
+        }
+        switch (data.effect)
+        {
+            case StatusEffect.electrify:
+                electrifyMultiplier = 1;
+                break;
+            case StatusEffect.freeze:
+                freezeMultiplier = 1;
+                break;
+            default:
+                break;
+        }
+
+        data.resetRoutine = null;
+
     }
 
-    private IEnumerator Electryfied()
-    {
-        while(StatusEffect.electrify == currentStatus)
-        {
-            yield return null;
-        }
-        electrifyMultiplyer = 1;
-    }
-    private IEnumerator Burned(float effectiveness)
-    {
-        while(StatusEffect.burn == currentStatus)
-        {
-            TakeDamage(effectiveness, DamageType.elemental);
-            yield return new WaitForSeconds(0.2f);
-        }
-    }
+}
+
+[System.Serializable]
+public class StatusEffectData
+{
+    public StatusEffect effect;
+    public float duration;
+    public float effectiveness;
+    public ParticlePoolObj particle;
+    public Coroutine resetRoutine;
+    public bool isActive;
 }

@@ -89,4 +89,8 @@ public enum ParticleType
     DustExplosion,
     LightningStrike,
     Electrified,
+    IceErruption,
+    Frozen,
+    FireErruption,
+    Burn,
 }

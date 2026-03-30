@@ -16,7 +16,7 @@ MonoBehaviour:
   damageType: 1
   statusEffect: 2
   duration: 3
-  effectiveness: 100
+  effectiveness: 1
   baseDamage: 10
   baseAttackSpeed: 1
   baseRange: 10
