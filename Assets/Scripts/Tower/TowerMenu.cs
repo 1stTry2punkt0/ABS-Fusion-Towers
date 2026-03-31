@@ -149,8 +149,8 @@ public class TowerMenu : MonoBehaviour
     public void OnFusionUpgrade()
     {
         // Implement fusion upgrade logic here, e.g., check for resources, apply fusion effects, etc.
-        
-        UpdateUpgrades();
+        selectedTower.OnFusion();
+        CloseMenu(true);
     }
 
     public void OnSell()

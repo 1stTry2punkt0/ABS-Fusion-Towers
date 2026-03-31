@@ -82,5 +82,13 @@ public enum ProjectileType
     Arrow,
     Bolt,
     Bomb,
-    LightningStrike,
+    FireArrow,
+    FireBolt,
+    FireBomb,
+    IceArrow,
+    IceBolt,
+    IceBomb,
+    LightningArrow,
+    LightningBolt,
+    LightningBomb
 }

@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] towerPrefabs; //Array of available buildings that can be built on the tiles
     public List<BaseTower> towerList;
 
+    public BaseTower weaponFusion;
+    public ElementalTower elementalFusion;
+    [SerializeField] GameObject fusionOverlay;
+
     public int wave => WaveManager.instance.currentWave;
     [SerializeField] private List<EnemySO> enemySOs; //List of enemy prefabs corresponding to the enemies array
 
@@ -72,7 +76,7 @@ public class GameManager : MonoBehaviour
         //Deselect the previously selected tile if there is one
         if (selectedTile != null)
         {
-            selectedTile.Unsecelt();
+            selectedTile.Unselect();
             if (selectedTile == tile)
             {
                 selectedTile = null;
@@ -182,6 +186,64 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Fusion(BaseTower tower)
+    {
+        gameState = GameState.Fusing;
+        fusionOverlay.SetActive(true);
+        tower.mapTile.HighlightTile(true);
+        if (tower is ElementalTower)
+        {
+            if (elementalFusion != null)
+            {
+                Invalid(invalidMessages[3]);
+                return;
+            }
+            elementalFusion = (ElementalTower)tower;
+        }
+        else
+        {
+            if (weaponFusion != null)
+            {
+                Invalid(invalidMessages[3]);
+                return;
+            }
+            weaponFusion = tower;
+        }
+        if(weaponFusion != null && elementalFusion != null)
+        {
+            if (ressourceManager.SpendRessource(weaponFusion.stats.fusionCost))
+            {
+                //Fuse the towers
+                weaponFusion.Fuse(elementalFusion);
+                //Destroy the elemental tower
+                elementalFusion.Fuse(elementalFusion);
+                //Reset the fusion variables
+                CancelFusion();
+            }
+            else
+            {
+                Invalid(invalidMessages[1]);
+            }
+        }
+    }
+
+    public void CancelFusion()
+    {
+        if (weaponFusion != null)
+        {
+            weaponFusion.mapTile.HighlightTile(false);
+            weaponFusion = null;
+        }
+        if (elementalFusion != null)
+        {
+            elementalFusion.mapTile.HighlightTile(false);
+            elementalFusion = null;
+        }
+        gameState = GameState.Fighting;
+        fusionOverlay.SetActive(false);
+        Unselect();
+    }
+
     public void TowerSelected(BaseTower tower)
     {
         tower.OnSelect();
@@ -211,5 +273,6 @@ public enum GameState
     RoadBuilding,
     Preparing,
     Fighting,
-    Ended
+    Ended,
+    Fusing
 }

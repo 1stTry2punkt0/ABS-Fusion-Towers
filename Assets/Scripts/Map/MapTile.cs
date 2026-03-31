@@ -20,7 +20,9 @@ public class MapTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     [SerializeField] GameObject feedbackObj;
     [SerializeField] Material hoveredMat;
     [SerializeField] Material selectedMat;
-    [SerializeField] Material invalidMat;
+    [SerializeField] Material invalidMat; 
+    private bool keepHighlighted = false;
+
 
     //Method to change the tile type and set its mesh
     public void SetTileType(TileType newType, GameObject prefab = null)
@@ -83,6 +85,7 @@ public class MapTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
             Destroy(onTopObj);
             onTopObj = null;
         }
+        SetTileType(TileType.free);
     }
 
     //Method to get a random blocker of the list
@@ -142,21 +145,37 @@ public class MapTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
         feedbackObj.GetComponent<MeshRenderer>().material = selectedMat;                
     }
 
+    public void HighlightTile(bool highlight)
+    {
+        keepHighlighted = highlight;
+        if (highlight)
+        {
+            feedbackObj.SetActive(true);
+            feedbackObj.GetComponent<MeshRenderer>().material = selectedMat;
+        }
+        else
+        {
+            feedbackObj.SetActive(false);
+        }
+    }
+
     //Method to unselect the tile
-    public void Unsecelt()
+    public void Unselect()
     {
         if (onTopObj != null)
         {
             onTopObj.GetComponent<IOnTopObj>()?.DeSelect();
         }
-
-        feedbackObj.SetActive(false);
+        if(!keepHighlighted)
+        {
+            feedbackObj.SetActive(false);
+        }
     }
     //Method to show invalid feedback
     public void Invalid()
     {
         feedbackObj.SetActive(true);
         feedbackObj.GetComponent<MeshRenderer>().material = invalidMat;
-        Invoke("Unsecelt", 1f);
+        Invoke("Unselect", 1f);
     }
 }

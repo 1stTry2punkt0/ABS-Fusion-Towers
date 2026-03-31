@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class ElementalTower : BaseTower
 {
-    [SerializeField] ParticleType elementalAttack;
+    public ParticleType elementalAttack;
     [SerializeField] float offset;
     private float attackCooldown;
     [SerializeField] GameObject attackLight;
+    [SerializeField] Material FuseMat;
+    public GameObject FusionPrefab;
 
     public override void Initialize()
     {
@@ -53,10 +55,37 @@ public class ElementalTower : BaseTower
         attackLight.SetActive(false);
     }
 
+    [SerializeField] float spawnEffectTime = 2;
+    [SerializeField] AnimationCurve fadeOut;
 
-    public override void OnFusion(BaseTower otherTower)
+    [SerializeField] ParticleSystem ps;
+    float timer = 0;
+    [SerializeField] Renderer _renderer;
+
+    int shaderProperty;
+
+
+    public override void Fuse(ElementalTower otherTower)
     {
-        // Fusion logic comes later
+        shaderProperty = Shader.PropertyToID("_cutoff");
+
+        var main = ps.main;
+        main.duration = spawnEffectTime;
+
+        ps.Play();
+        StartCoroutine(FuseEffect());
     }
 
+    private IEnumerator FuseEffect()
+    {
+        _renderer.material = FuseMat;
+        while (timer < spawnEffectTime)
+        {
+            timer += Time.deltaTime;
+            _renderer.material.SetFloat(shaderProperty, fadeOut.Evaluate(Mathf.InverseLerp(0, spawnEffectTime, timer)));
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.1f);
+        mapTile.ResetTile();
+    }
 }

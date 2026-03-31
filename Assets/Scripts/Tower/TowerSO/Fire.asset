@@ -27,7 +27,7 @@ MonoBehaviour:
     increaseAmount: 2
   - statToUpgrade: 5
     upgradeName: {fileID: 11400000, guid: ddf271618c820524bba43596cd5e5f51, type: 2}
-    increaseAmount: 100
+    increaseAmount: 11
   baseCost:
     amount: 100
     ressourceType: 1

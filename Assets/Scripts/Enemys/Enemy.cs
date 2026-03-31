@@ -122,15 +122,25 @@ public class Enemy : MonoBehaviour
 
     public float TakeDamage(float damage, DamageType dmgtype)
     {
+        if(currentHealth <= 0) return 0;
+        float electrifyDmg = 0;
         if (dmgtype == DamageType.weapon)
         {
-            damage *= 1 - (stats.amor * electrifyMultiplier)/100;
+            damage *= 1 - stats.amor/100;
+            if(statusEffectDatas[(int)StatusEffect.electrify].isActive)
+                electrifyDmg = damage * (1 - (stats.amor * electrifyMultiplier)/100) - damage;
+            Debug.Log("Electrify Dmg: " + electrifyDmg);
         }
         else if (dmgtype == DamageType.elemental)
         {
-            damage *= 1 - (stats.resistance * electrifyMultiplier)/ 100;
+            damage *= 1 - stats.resistance/ 100;
+            if (statusEffectDatas[(int)StatusEffect.electrify].isActive)
+                electrifyDmg = damage * (1 - (stats.resistance * electrifyMultiplier)/ 100) - damage;
+            Debug.Log("Electrify Dmg: " + electrifyDmg);
         }
-        currentHealth -= damage;
+        currentHealth -= damage + electrifyDmg;
+        if(electrifyDmg != 0)
+            statusEffectDatas[(int)StatusEffect.electrify].appliedBy.dmgDealt += electrifyDmg;
         if (currentHealth <= 0)
         {
             damage += currentHealth; 
@@ -139,7 +149,7 @@ public class Enemy : MonoBehaviour
         return damage;
     }
 
-    public void ApplyStatusEffect(StatusEffect effect, float duration, float effectiveness)
+    public void ApplyStatusEffect(BaseTower tower, StatusEffect effect, float duration, float effectiveness)
     {
         var data = statusEffectDatas[(int)effect];
 
@@ -157,6 +167,7 @@ public class Enemy : MonoBehaviour
         }
 
         // Runtime-Daten setzen
+        data.appliedBy = tower;
         data.isActive = true;
         data.duration = duration;
         data.effectiveness = effectiveness;
@@ -205,7 +216,7 @@ public class Enemy : MonoBehaviour
             switch (data.effect)
             {
                 case StatusEffect.burn:
-                    TakeDamage(data.effectiveness, DamageType.elemental);
+                    data.appliedBy.dmgDealt += TakeDamage(data.effectiveness, DamageType.elemental);
                     yield return new WaitForSeconds(0.2f);
                     timer += 0.2f;
                     break;
@@ -223,6 +234,7 @@ public class Enemy : MonoBehaviour
     {
         // Effekt zurücksetzen
         data.isActive = false;
+        data.appliedBy = null;
 
         if (data.particle != null)
         {
@@ -250,6 +262,7 @@ public class Enemy : MonoBehaviour
 [System.Serializable]
 public class StatusEffectData
 {
+    public BaseTower appliedBy;
     public StatusEffect effect;
     public float duration;
     public float effectiveness;

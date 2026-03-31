@@ -41,9 +41,14 @@ public abstract class Projectile : MonoBehaviour
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
             parentTower.TargetHit(targetEnemy);
-            if(!FindNextTarget())
-                pool.Release(this); // Return to pool after hitting the target
+            if (!FindNextTarget())
+                Disable();// Return to pool after hitting the target
         }
+    }
+
+    protected virtual void Disable()
+    {
+        pool.Release(this);
     }
 
     public abstract void SetTarget();

@@ -6,6 +6,8 @@ public class Catapult : BaseTower
     private float attackCooldown;
     [SerializeField] GameObject shuffel;
     [SerializeField] GameObject bomb;
+    [SerializeField] CatapultFusionSO[] fusions;
+    private ProjectileType projectile = ProjectileType.Bomb;
 
     public override void Initialize()
     {
@@ -31,19 +33,37 @@ public class Catapult : BaseTower
 
         if (attackCooldown > 0f)
             return;
-        ProjectileSpawnManager.instance.SpawnProjectile(ProjectileType.Bomb, this, targetEnemyData); // Spawn an arrow projectile
+        ProjectileSpawnManager.instance.SpawnProjectile(projectile, this, targetEnemyData); // Spawn an arrow projectile
         bomb.SetActive(false);
         StartCoroutine(AnimateShuffle());
         // Reset cooldown
         attackCooldown = 1f / attackSpeed;
     }
 
-
-    public override void OnFusion(BaseTower otherTower)
+    public override void Fuse(ElementalTower otherTower)
     {
-        // Fusion logic comes later
-    }
+        base.Fuse(otherTower);
+        CatapultFusionSO fusionTower = null;
+        switch (otherTower.elementalAttack)
+        {
+            case ParticleType.FireErruption:
+                fusionTower = Instantiate(fusions[0]);
+                projectile = ProjectileType.FireBomb;
+                break;
+            case ParticleType.IceErruption:
+                fusionTower = Instantiate(fusions[1]);
+                projectile = ProjectileType.IceBomb;
+                break;
+            case ParticleType.LightningStrike:
+                fusionTower = Instantiate(fusions[2]);
+                projectile = ProjectileType.LightningBomb;
+                break;
+        }
 
+        fusionTower.SetStats(this, otherTower);
+        stats = fusionTower;
+        Initialize();
+    }
 
     private IEnumerator AnimateShuffle()
     {

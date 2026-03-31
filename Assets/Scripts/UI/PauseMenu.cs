@@ -1,24 +1,23 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject[] menuPanel;
     private bool paused;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    
 
-    // Update is called once per frame
-    void Update()
+    public void TogglePause(InputAction.CallbackContext ctx)
     {
-        
-    }
+        if (!ctx.performed)
+            return;
+        if(GameManager.instance.gameState == GameState.Fusing)
+        {
+            GameManager.instance.CancelFusion();
+            return;
+        }
 
-    public void TogglePause()
-    {
         if (paused)
         {
             Time.timeScale = 1.0f;

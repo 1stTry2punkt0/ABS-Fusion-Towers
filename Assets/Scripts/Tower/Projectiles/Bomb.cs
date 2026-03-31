@@ -5,7 +5,7 @@ public class Bomb : Projectile
 {
     [SerializeField] AnimationCurve curve;
     [SerializeField] float arcHeight = 4f;
-    private ParticleType explosionEffect;
+    [SerializeField] ParticleType explosionEffect = ParticleType.DustExplosion;
     private Vector3 startPos;
 
     public override void Initialize(BaseTower tower, Enemy target)
@@ -14,11 +14,8 @@ public class Bomb : Projectile
         startPos = transform.position;
         targetPosition.y = 1;
         targetPosition += target.transform.forward;
-        SetExplosion(ParticleType.DustExplosion);
-    }
-    public void SetExplosion(ParticleType explosion)
-    {
-        explosionEffect = explosion;
+        arcHeight = Mathf.Max(3, Vector3.Distance(startPos, targetPosition) /2); // Adjust arc height based on distance
+        Debug.Log("Arc Height: " + arcHeight);
     }
 
     public override void SetTarget()

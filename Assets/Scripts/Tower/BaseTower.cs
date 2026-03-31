@@ -275,7 +275,7 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
     {
         if (enemy == null || enemy.isDead)
             return;
-        enemy.ApplyStatusEffect(stats.statusEffect, duration, effectiveness);
+        enemy.ApplyStatusEffect(this, stats.statusEffect, duration, effectiveness);
         dmgDealt += enemy.TakeDamage(damage, DamageType.weapon);
         if (isSelected)
             TowerMenu.instance.UpdateDmg();
@@ -283,8 +283,18 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
 
     // --- Abstract Methods (implemented by specific tower types) ---
     public abstract void Attack();
-    public abstract void OnFusion(BaseTower otherTower);
+    public virtual void Fuse(ElementalTower otherTower)
+    {
+        GameObject fusion = Instantiate(otherTower.FusionPrefab);
+        fusion.transform.position = transform.position;
+        fusion.transform.SetParent(transform);
+    }
 
+    public virtual void OnFusion()
+    {
+        // Fusion logic comes later
+        GameManager.instance.Fusion(this);
+    }
 
     public void OnSell()
     {
@@ -303,6 +313,16 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
 
     public void OnSelect()
     {
+        if(GameManager.instance.gameState == GameState.Fusing)
+        {
+            if(level != 6)
+            {
+                GameManager.instance.Invalid(GameManager.instance.invalidMessages[4]);
+                return;
+            }
+            OnFusion();
+            return;
+        }
         rangeIndicator.SetActive(true);
         TowerMenu.instance.OpenMenu(this);
         isSelected = true;

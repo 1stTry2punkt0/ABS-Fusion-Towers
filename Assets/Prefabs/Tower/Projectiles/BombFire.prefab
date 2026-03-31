@@ -82,7 +82,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  arcHeight: 6
+  arcHeight: 5
+  explosionEffect: 7
 --- !u!1001 &2328651188079500332
 PrefabInstance:
   m_ObjectHideFlags: 0
