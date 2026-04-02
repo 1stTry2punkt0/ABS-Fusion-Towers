@@ -4,11 +4,11 @@ using UnityEngine.Pool;
 public class ParticlePoolObj : MonoBehaviour
 {
     public ObjectPool<ParticlePoolObj> pool;
-    [SerializeField] ParticleSystem particle;
-    float duration = 0;
+    [SerializeField] protected ParticleSystem particle;
+    protected float duration = 0;
     [SerializeField] bool playOnce;
 
-    public void Awake()
+    protected virtual void Awake()
     {
         if (!playOnce) return;
         duration = particle.main.duration;
@@ -21,7 +21,7 @@ public class ParticlePoolObj : MonoBehaviour
         return duration;
     }
 
-    public void ScaleEffect(float scale)
+    public virtual void ScaleEffect(float scale)
     {
         particle.transform.localScale = Vector3.one * scale;
     }

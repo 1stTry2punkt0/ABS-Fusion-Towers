@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Catapult : BaseTower
 {
@@ -8,6 +9,7 @@ public class Catapult : BaseTower
     [SerializeField] GameObject bomb;
     [SerializeField] CatapultFusionSO[] fusions;
     private ProjectileType projectile = ProjectileType.Bomb;
+    public List<ElementalGround> activeGrounds = new List<ElementalGround>();
 
     public override void Initialize()
     {

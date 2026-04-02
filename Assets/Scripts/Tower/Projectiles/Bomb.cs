@@ -15,7 +15,6 @@ public class Bomb : Projectile
         targetPosition.y = 1;
         targetPosition += target.transform.forward;
         arcHeight = Mathf.Max(3, Vector3.Distance(startPos, targetPosition) /2); // Adjust arc height based on distance
-        Debug.Log("Arc Height: " + arcHeight);
     }
 
     public override void SetTarget()
@@ -27,6 +26,9 @@ public class Bomb : Projectile
     {
         ParticlePoolObj explosion = ParticleSpawnManager.instance.SpawnParticle(explosionEffect, transform.position);
         explosion.ScaleEffect(parentTower.damageRange / 2);
+        if(explosionEffect == ParticleType.IceExplosion)
+            explosion.GetComponent<ElementalGround>().Initialize(parentTower);
+
         foreach (Collider hit in Physics.OverlapSphere(transform.position, parentTower.damageRange, GameManager.instance.enemyLayer))
         {
             Enemy enemy = hit.GetComponent<Enemy>();

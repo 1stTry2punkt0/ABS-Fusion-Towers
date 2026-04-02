@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IceBallistaFusion
   m_EditorClassIdentifier: Assembly-CSharp::BallistaFusionSO
   towerName: 2
-  damageType: 0
+  damageType: 1
   statusEffect: 3
   duration: 0
   effectiveness: 0
@@ -39,5 +39,5 @@ MonoBehaviour:
   fusionCost:
     amount: 0
     ressourceType: 0
-  effectXdmgMultiplier: 0.1
+  effectXdmgMultiplier: 0.001
   dmgXeffectMultiplier: 20

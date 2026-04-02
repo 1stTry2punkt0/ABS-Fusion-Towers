@@ -149,6 +149,11 @@ public class Enemy : MonoBehaviour
         return damage;
     }
 
+    public bool HasStatusEffect(StatusEffect effect)
+    {
+        return statusEffectDatas[(int)effect].isActive;
+    }
+
     public void ApplyStatusEffect(BaseTower tower, StatusEffect effect, float duration, float effectiveness)
     {
         var data = statusEffectDatas[(int)effect];
@@ -227,6 +232,15 @@ public class Enemy : MonoBehaviour
                     break;
             }
         }
+        EndStatusEffect(data);
+    }
+
+    public void RemoveStatusEffect(StatusEffect effect, BaseTower tower)
+    {
+        var data = statusEffectDatas[(int)effect];
+        if (!data.isActive && data.appliedBy != tower) return;
+        if (data.resetRoutine != null)
+            StopCoroutine(data.resetRoutine);
         EndStatusEffect(data);
     }
 

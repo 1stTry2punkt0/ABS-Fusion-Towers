@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f051e970068b7546a3d4c720d5528d3, type: 3}
   m_Name: IceCatapultFusion
   m_EditorClassIdentifier: Assembly-CSharp::CatapultFusionSO
-  towerName: 0
-  damageType: 0
+  towerName: 1
+  damageType: 1
   statusEffect: 3
   duration: 0
   effectiveness: 0
@@ -39,5 +39,5 @@ MonoBehaviour:
   fusionCost:
     amount: 0
     ressourceType: 0
-  effectXdmgMultiplier: 0.1
+  effectXdmgMultiplier: 0.001
   dmgXeffectMultiplier: 20

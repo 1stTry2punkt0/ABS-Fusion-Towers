@@ -28,7 +28,8 @@ public class ElementalArrow : Arrow
     protected override void Disable()
     {
         hitTarget = true;
-        arrow.SetActive(false); // Hide the arrow immediately
+        if(arrow != null)
+            arrow.SetActive(false); // Hide the arrow immediately
         StartCoroutine(WaitForTrail());
     }
 
@@ -39,7 +40,8 @@ public class ElementalArrow : Arrow
             effect.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
         yield return new WaitForSeconds(0.7f); // Adjust the delay as needed
-        arrow.SetActive(true); // Reset the arrow for the next use
+        if (arrow != null)
+            arrow.SetActive(true); // Reset the arrow for the next use
         pool.Release(this);
     }
 }
