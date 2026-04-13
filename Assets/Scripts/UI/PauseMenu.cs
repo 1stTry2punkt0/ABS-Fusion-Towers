@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
     private bool paused;
     
 
-    public void TogglePause(InputAction.CallbackContext ctx)
+    public void OnEsc(InputAction.CallbackContext ctx)
     {
         if (!ctx.performed)
             return;
@@ -17,7 +17,11 @@ public class PauseMenu : MonoBehaviour
             GameManager.instance.CancelFusion();
             return;
         }
+        TogglePause();
+    }
 
+    public void TogglePause()
+    {
         if (paused)
         {
             Time.timeScale = 1.0f;

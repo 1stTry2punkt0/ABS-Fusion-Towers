@@ -19,14 +19,11 @@ public class Bolt : Projectile
             targetPosition.y = 1f; // Default height if no target or target is dead
             return;
         }
-        Vector3 position = targetEnemy.transform.position;
-        position.y += targetEnemy.heightOffset; // Aim for the upper part of the enemy
-        targetPosition = position;
+        targetPosition = targetEnemy.hitTransform.position;
     }
 
     protected override bool FindNextTarget()
     {
-        Debug.Log("Try Find new Target");
         if (pearcing <= 0) return false;
 
         RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, parentTower.damageRange, GameManager.instance.enemyLayer);
@@ -40,7 +37,6 @@ public class Bolt : Projectile
             Enemy e = hit.collider.gameObject.GetComponent<Enemy>();
             if (e == targetEnemy) continue;
             if (e == null) continue;
-            Debug.Log("Happened");
             pearcing--;
             targetEnemy = e;
             return true;

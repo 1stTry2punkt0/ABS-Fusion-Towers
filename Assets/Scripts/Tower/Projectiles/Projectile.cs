@@ -38,7 +38,7 @@ public abstract class Projectile : MonoBehaviour
         transform.position += dir * speed * Time.deltaTime;
 
         // Hit detection
-        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+        if (Vector3.Distance(transform.position, targetPosition) < 0.2f)
         {
             parentTower.TargetHit(targetEnemy);
             if (!FindNextTarget())

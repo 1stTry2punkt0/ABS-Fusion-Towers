@@ -271,12 +271,12 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
     }
 
 
-    public virtual void TargetHit(Enemy enemy)
+    public virtual void TargetHit(Enemy enemy, float multiplier = 1)
     {
         if (enemy == null || enemy.isDead)
             return;
         enemy.ApplyStatusEffect(this, stats.statusEffect, duration, effectiveness);
-        dmgDealt += enemy.TakeDamage(damage, DamageType.weapon);
+        dmgDealt += enemy.TakeDamage(damage * multiplier, DamageType.weapon);
         if (isSelected)
             TowerMenu.instance.UpdateDmg();
     }

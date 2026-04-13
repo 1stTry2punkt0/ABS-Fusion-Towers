@@ -26,14 +26,29 @@ public class Bomb : Projectile
     {
         ParticlePoolObj explosion = ParticleSpawnManager.instance.SpawnParticle(explosionEffect, transform.position);
         explosion.ScaleEffect(parentTower.damageRange / 2);
-        if(explosionEffect == ParticleType.IceExplosion)
-            explosion.GetComponent<ElementalGround>().Initialize(parentTower);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, parentTower.damageRange, GameManager.instance.enemyLayer);
+        float multiplier = 1;
+        if (explosionEffect != ParticleType.LightningExplosion)
+        {
+            explosion.GetComponent<ElementalGround>()?.Initialize(parentTower);
+        }
+        else
+        {
+            ChainLightUser.PlayChain(hitColliders, ChainBehavior.Ordered);
+            multiplier += hitColliders.Length * 0.1f; // Increase damage by 10% for each additional enemy hit
+            Debug.Log("Damage multiplier: " + multiplier);
+        }
 
-        foreach (Collider hit in Physics.OverlapSphere(transform.position, parentTower.damageRange, GameManager.instance.enemyLayer))
+        foreach (Collider hit in hitColliders)
         {
             Enemy enemy = hit.GetComponent<Enemy>();
-            if (enemy == null || enemy == targetEnemy) continue;
-            parentTower.TargetHit(hit.gameObject.GetComponent<Enemy>());
+            if (enemy == null || enemy == targetEnemy)
+            {
+                if (enemy == targetEnemy && explosionEffect == ParticleType.LightningExplosion)
+                    parentTower.TargetHit(enemy, multiplier -1);
+                continue;
+            }
+            parentTower.TargetHit(enemy, multiplier);
         }
         return false;
     }

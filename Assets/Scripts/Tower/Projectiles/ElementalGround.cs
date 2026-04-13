@@ -26,6 +26,11 @@ public class ElementalGround : MonoBehaviour
         duration = tower.duration;
         statusEffect = tower.stats.statusEffect;
         trigger.radius = tower.damageRange;
+        if(statusEffect == StatusEffect.burn)
+        {
+            var shape = effect.shape;
+            shape.radius = trigger.radius - 0.5f;
+        }
         if (effect != null)
         {
             var main = effect.main;

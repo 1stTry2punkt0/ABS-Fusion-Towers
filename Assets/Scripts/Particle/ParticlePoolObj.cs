@@ -17,7 +17,8 @@ public class ParticlePoolObj : MonoBehaviour
 
     public float Play()
     {
-        particle.Play();
+        if(particle != null)
+            particle.Play();
         return duration;
     }
 

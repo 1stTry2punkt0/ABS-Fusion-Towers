@@ -10,8 +10,6 @@ public class Arrow : Projectile
             targetPosition.y = 1f; // Default height if no target or target is dead
             return;
         }
-        Vector3 position = targetEnemy.transform.position;
-        position.y += targetEnemy.heightOffset; // Aim for the upper part of the enemy
-        targetPosition = position;
+        targetPosition = targetEnemy.hitTransform.position;
     }
 }

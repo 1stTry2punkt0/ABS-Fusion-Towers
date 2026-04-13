@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LightningFusionMat 1
+  m_Name: LightningFusionMat
   m_Shader: {fileID: -6465566751694194690, guid: 7b27f67f0d40c774ea6fed2a6e06bb97, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -109,7 +109,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Glow_Line_Thickness: 0.1
-    - _Intensity: 3
+    - _Intensity: 9
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005

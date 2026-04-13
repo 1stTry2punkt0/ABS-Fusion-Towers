@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     private float freezeMultiplier = 1;
     private StatusEffectData[] statusEffectDatas;
     private Transform meshTransform;
+    public Transform hitTransform;
 
 
     private void Awake()
@@ -43,6 +44,13 @@ public class Enemy : MonoBehaviour
             };
         }
         meshTransform = transform.GetChild(0);
+        if(hitTransform == null)
+        {
+            hitTransform = transform.GetChild(1);
+            Vector3 position = meshTransform.position;
+            position.y = heightOffset;
+            hitTransform.position = position;
+        }
     }
 
     // Update is called once per frame
@@ -180,7 +188,7 @@ public class Enemy : MonoBehaviour
         // Partikel starten
         Vector3 position = meshTransform.position;
         position.y = heightOffset;
-        data.particle = ParticleSpawnManager.instance.SpawnParticle(GetParticleType(effect), position);
+        data.particle = ParticleSpawnManager.instance.SpawnParticle(GetParticleType(effect), hitTransform.position);
         data.particle.transform.SetParent(transform);
 
         // Coroutine starten
