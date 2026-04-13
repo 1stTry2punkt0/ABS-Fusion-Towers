@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3638820654841712611}
   - component: {fileID: 1221812938738289054}
   - component: {fileID: 2022928542447658633}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PoolIceExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435d046afcf355a4da06303640639a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ElementalGround
+  enemies: []
   effect: {fileID: 1575149215213269174}
 --- !u!135 &2022928542447658633
 SphereCollider:

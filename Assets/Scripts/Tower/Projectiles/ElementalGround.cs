@@ -33,6 +33,7 @@ public class ElementalGround : MonoBehaviour
         }
         if (effect != null)
         {
+            effect.Stop();
             var main = effect.main;
             main.duration = duration;
             effect.Play();
