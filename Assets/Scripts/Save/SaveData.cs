@@ -14,4 +14,6 @@ public class SaveData
     public bool tutorial;
     public int mapIndex;
     public int difficultyIndex;
+    public bool autoplay;
+    public bool speedup;
 }

@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
 
     public LayerMask enemyLayer;
 
+    public float timeScale = 1f;
+
     private void Awake()
     {
         //make sure their is only one instance
@@ -47,7 +49,28 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ResetGame();
+        SwitchTimeScale(SaveDataHolder.instance.loadedState.speedup);
+        ApplyTimeScale();
     }
+
+    public void SwitchTimeScale(bool speedup)
+    {
+        if (speedup)
+        {
+            this.timeScale = 2.5f;
+        }
+        else
+        {
+            this.timeScale = 1f;
+        }
+        SaveDataHolder.instance.loadedState.speedup = speedup;
+    }
+
+    public void ApplyTimeScale()
+    {
+        Time.timeScale = this.timeScale;
+    }
+
 
     public void ResetGame()
     {

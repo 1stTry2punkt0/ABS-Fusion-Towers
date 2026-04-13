@@ -26,6 +26,17 @@ public class WaveManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+    private void Start()
+    {
+        autoplay = SaveDataHolder.instance.loadedState.autoplay;
+    }
+
+    public void SetAutoPlay(bool autoPlay)
+    {
+        autoplay = autoPlay;
+        SaveDataHolder.instance.loadedState.autoplay = autoPlay;
+    }
+
     public void NewGame()
     {
         foreach(EnemyGroup group in waves[currentWave].enemyGroups)

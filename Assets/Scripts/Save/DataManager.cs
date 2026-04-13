@@ -22,8 +22,9 @@ public static class DataManager
 
             tutorial = saveDataSO.tutorial,
             mapIndex = saveDataSO.mapIndex,
-            difficultyIndex = saveDataSO.difficultyIndex
-
+            difficultyIndex = saveDataSO.difficultyIndex,
+            autoplay = saveDataSO.autoplay,
+            speedup = saveDataSO.speedup
         };
         return saveData;
 
@@ -56,6 +57,8 @@ public static class DataManager
             saveDataSO.tutorial = true;
             saveDataSO.mapIndex = 1;
             saveDataSO.difficultyIndex = 0;
+            saveDataSO.autoplay = true;
+            saveDataSO.speedup = false;
             return saveDataSO;
         }
 
@@ -91,6 +94,8 @@ public static class DataManager
         newSaveState.tutorial = saveData.tutorial;
         newSaveState.mapIndex = saveData.mapIndex;
         newSaveState.difficultyIndex = saveData.difficultyIndex;
+        newSaveState.autoplay = saveData.autoplay;
+        newSaveState.speedup = saveData.speedup;
         return newSaveState;
     }
 }

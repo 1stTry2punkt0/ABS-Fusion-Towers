@@ -1,12 +1,21 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject[] menuPanel;
     private bool paused;
-    
+    [SerializeField] Toggle autoplay;
+    [SerializeField] Toggle speedup;
+
+    private void Start()
+    {
+        paused = false;
+        autoplay.isOn = SaveDataHolder.instance.loadedState.autoplay;
+        speedup.isOn = SaveDataHolder.instance.loadedState.speedup;
+    }
 
     public void OnEsc(InputAction.CallbackContext ctx)
     {
@@ -24,7 +33,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (paused)
         {
-            Time.timeScale = 1.0f;
+            Time.timeScale = GameManager.instance.timeScale;
             foreach (GameObject go in menuPanel)
             {
                 go.SetActive(false);
