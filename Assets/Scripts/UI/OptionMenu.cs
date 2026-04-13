@@ -36,7 +36,7 @@ public class OptionMenu : MonoBehaviour
         qualityDropdown.RefreshShownValue(); //Refresh the dropdown to show the current quality level
 
         //Set the language dropdown to the current language
-        languageDropdown.value = (int)TextManager.instance.currentLanguage;
+        languageDropdown.value = (int)SaveDataHolder.instance.loadedState.language;
         languageDropdown.RefreshShownValue(); //Refresh the dropdown to show the current language
 
         //Set the fullscreen toggle to the current fullscreen mode

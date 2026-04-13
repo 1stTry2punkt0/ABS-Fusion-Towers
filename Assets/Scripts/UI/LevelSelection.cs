@@ -10,6 +10,18 @@ public class LevelSelection : MonoBehaviour
     [SerializeField] TMP_Dropdown levelDropdown; //Reference to the dropdown that allows the player to select a level
     [SerializeField] TMP_Dropdown difficultyDropdown; //Reference to the dropdown that allows the player to select a difficulty level
 
+    private void Start()
+    {
+        //Initialize the level dropdown to the current map index stored in the loaded state (subtract 1 to match dropdown index)
+        levelDropdown.value = SaveDataHolder.instance.loadedState.mapIndex - 1;
+        levelDropdown.RefreshShownValue(); //Refresh the dropdown to show the current level selection
+        //Initialize the difficulty dropdown to the current difficulty index stored in the loaded state
+        difficultyDropdown.value = SaveDataHolder.instance.loadedState.difficultyIndex;
+        difficultyDropdown.RefreshShownValue(); //Refresh the dropdown to show the current difficulty selection
+        //Update the map preview image based on the initial level selection
+        mapPreviewImage.sprite = mapPreviews[SaveDataHolder.instance.loadedState.mapIndex - 1];
+    }
+
     public void OnLevelSelected(int index)
     {
         //Update the map preview image based on the selected level index
