@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Golem
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStatSO
   enemyType: 2
-  maxHp: 0
+  maxHp: 150
   baseHp: 150
   hpScale: 0.1
-  amor: 0
-  baseAmor: 15
+  amor: 40
+  baseAmor: 40
   amorScale: 0.1
-  resistance: 0
-  baseResistance: 5
+  resistance: 5
+  baseResistance: 30
   resistanceScale: 0.1
-  speed: 0
+  speed: 1.5
   baseSpeed: 1.5
   speedScale: 0
   moveType: 0

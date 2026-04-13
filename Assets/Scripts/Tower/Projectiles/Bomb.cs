@@ -12,8 +12,8 @@ public class Bomb : Projectile
     {
         base.Initialize(tower, target);
         startPos = transform.position;
-        targetPosition.y = 1;
         targetPosition += target.transform.forward;
+        targetPosition.y = 1;
         arcHeight = Mathf.Max(3, Vector3.Distance(startPos, targetPosition) /2); // Adjust arc height based on distance
     }
 
@@ -87,12 +87,15 @@ public class Bomb : Projectile
         // 5. Rotation optional
         transform.rotation = Quaternion.LookRotation(flatDir);
 
-        // 6. Hit detection
-        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+        // Hit detection
+        if (Vector3.Distance(transform.position, targetPosition) < 0.2f)
         {
-            parentTower.TargetHit(targetEnemy);
+            if (targetEnemy != null || !targetEnemy.isDead)
+            {
+                parentTower.TargetHit(targetEnemy);
+            }
             if (!FindNextTarget())
-                pool.Release(this);
+                Disable();// Return to pool after hitting the target
         }
     }
 }

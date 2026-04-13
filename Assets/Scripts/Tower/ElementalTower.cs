@@ -43,6 +43,11 @@ public class ElementalTower : BaseTower
     {
         attackLight.SetActive(true);
         yield return new WaitForSeconds(0.1f);
+        if (targetEnemyData == null)
+        {
+            attackLight.SetActive(false);
+            yield break;
+        }
         Vector3 prediction = targetEnemyData.transform.forward;
         Vector3 pos = targetEnemyData.transform.position;
         pos += prediction * offset;

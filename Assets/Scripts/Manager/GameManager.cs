@@ -263,7 +263,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (EnemySO enemy in enemySOs)
         {
-            enemy.SetLevel(wave);
+            enemy.SetLevel(wave + SaveDataHolder.instance.loadedState.difficultyIndex * 2);
         }
     }
 }

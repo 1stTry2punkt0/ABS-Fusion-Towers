@@ -3061,7 +3061,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 686558009092359484, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 168.33
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 686558009092359484, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_SizeDelta.y
@@ -5078,7 +5078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 686558009092359484, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 122.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 686558009092359484, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_SizeDelta.y
@@ -8499,7 +8499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 686558009092359484, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 179.07
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 686558009092359484, guid: 2c1f916dd3da4e14db369de6830a1a51, type: 3}
       propertyPath: m_SizeDelta.y
@@ -11072,11 +11072,11 @@ MonoBehaviour:
   waves:
   - delay: 6
     enemyGroups:
-    - enemyType: 1
+    - enemyType: 2
       firstSpawnDelay: 1
       spawnInterval: 1
       groupInterval: 3
-      groupSize: 10
+      groupSize: 1
       boss: 0
   - delay: 6
     enemyGroups:

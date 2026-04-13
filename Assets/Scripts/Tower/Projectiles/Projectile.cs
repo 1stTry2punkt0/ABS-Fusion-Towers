@@ -40,7 +40,10 @@ public abstract class Projectile : MonoBehaviour
         // Hit detection
         if (Vector3.Distance(transform.position, targetPosition) < 0.2f)
         {
-            parentTower.TargetHit(targetEnemy);
+            if (targetEnemy != null)
+            {
+                parentTower.TargetHit(targetEnemy);
+            }
             if (!FindNextTarget())
                 Disable();// Return to pool after hitting the target
         }

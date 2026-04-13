@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Burrow
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStatSO
   enemyType: 1
-  maxHp: 0
+  maxHp: 120
   baseHp: 100
   hpScale: 0.1
-  amor: 0
-  baseAmor: 5
+  amor: 5.1
+  baseAmor: 20
   amorScale: 0.01
-  resistance: 0
-  baseResistance: 7
+  resistance: 7.42
+  baseResistance: 20
   resistanceScale: 0.03
-  speed: 0
+  speed: 2
   baseSpeed: 2
-  speedScale: 0
+  speedScale: 0.04
   moveType: 0
   damage:
     amount: 1

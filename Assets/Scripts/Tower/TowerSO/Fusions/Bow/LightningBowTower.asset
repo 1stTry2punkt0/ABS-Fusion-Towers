@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LightningBowTower
   m_EditorClassIdentifier: Assembly-CSharp::FusionSO
   towerName: 0
-  damageType: 0
+  damageType: 2
   statusEffect: 1
   duration: 0
   effectiveness: 0

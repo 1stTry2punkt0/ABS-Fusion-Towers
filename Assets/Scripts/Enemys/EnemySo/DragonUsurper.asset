@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: DragonUsurper
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStatSO
   enemyType: 12
-  maxHp: 0
+  maxHp: 174
   baseHp: 150
   hpScale: 0.08
-  amor: 0
-  baseAmor: 6
+  amor: 6.72
+  baseAmor: 20
   amorScale: 0.06
-  resistance: 0
-  baseResistance: 12
+  resistance: 13.68
+  baseResistance: 60
   resistanceScale: 0.07
-  speed: 0
+  speed: 1.7
   baseSpeed: 1.7
-  speedScale: 0
+  speedScale: 0.1
   moveType: 1
   damage:
     amount: 1

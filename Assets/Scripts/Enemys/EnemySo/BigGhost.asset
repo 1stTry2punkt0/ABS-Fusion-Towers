@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: BigGhost
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStatSO
   enemyType: 7
-  maxHp: 70
+  maxHp: 110
   baseHp: 100
   hpScale: 0.05
-  amor: 50
-  baseAmor: 20
+  amor: 22.4
+  baseAmor: 50
   amorScale: 0.06
-  resistance: -10
-  baseResistance: -10
+  resistance: -10.2
+  baseResistance: 10
   resistanceScale: 0.01
   speed: 2
   baseSpeed: 2
-  speedScale: 0
+  speedScale: 0.03
   moveType: 0
   damage:
     amount: 1

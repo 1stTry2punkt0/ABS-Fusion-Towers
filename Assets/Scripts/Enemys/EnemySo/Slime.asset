@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Slime
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStatSO
   enemyType: 3
-  maxHp: 0
+  maxHp: 77
   baseHp: 70
   hpScale: 0.05
-  amor: 0
-  baseAmor: 15
+  amor: 16.5
+  baseAmor: 30
   amorScale: 0.05
-  resistance: 0
-  baseResistance: 15
+  resistance: 16.5
+  baseResistance: 30
   resistanceScale: 0.05
-  speed: 0
+  speed: 2
   baseSpeed: 2
-  speedScale: 0
+  speedScale: 0.02
   moveType: 0
   damage:
     amount: 1

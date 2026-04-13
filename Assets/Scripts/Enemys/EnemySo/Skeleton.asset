@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Skeleton
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStatSO
   enemyType: 0
-  maxHp: 0
+  maxHp: 102
   baseHp: 100
   hpScale: 0.01
-  amor: 0
-  baseAmor: 10
+  amor: 10.2
+  baseAmor: 30
   amorScale: 0.01
-  resistance: 0
-  baseResistance: 2
+  resistance: 2.04
+  baseResistance: 15
   resistanceScale: 0.01
-  speed: 0
+  speed: 2
   baseSpeed: 2
-  speedScale: 0
+  speedScale: 0.01
   moveType: 0
   damage:
     amount: 1

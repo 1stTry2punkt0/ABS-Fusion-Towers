@@ -33,7 +33,7 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
     public targetSelection targetSelectionType = targetSelection.first; // Targeting mode
     public Enemy targetEnemyData;     // Currently selected target
 
-    public float dmgDealt = 0f;
+    public ulong dmgDealt = 0;
     protected bool isSelected;
 
     // --- Unity Lifecycle ---
@@ -276,7 +276,7 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
         if (enemy == null || enemy.isDead)
             return;
         enemy.ApplyStatusEffect(this, stats.statusEffect, duration, effectiveness);
-        dmgDealt += enemy.TakeDamage(damage * multiplier, DamageType.weapon);
+        dmgDealt += (ulong)enemy.TakeDamage(damage * multiplier, stats.damageType);
         if (isSelected)
             TowerMenu.instance.UpdateDmg();
     }

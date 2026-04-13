@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: DragonSoulEater
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStatSO
   enemyType: 10
-  maxHp: 0
+  maxHp: 216
   baseHp: 180
   hpScale: 0.1
-  amor: 0
-  baseAmor: 8
+  amor: 9.6
+  baseAmor: 35
   amorScale: 0.1
-  resistance: 0
-  baseResistance: 12
+  resistance: 14.4
+  baseResistance: 45
   resistanceScale: 0.1
-  speed: 0
+  speed: 2
   baseSpeed: 2
-  speedScale: 0
+  speedScale: 0.1
   moveType: 0
   damage:
     amount: 1

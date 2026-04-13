@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LightningBallistaFusion
   m_EditorClassIdentifier: Assembly-CSharp::BallistaFusionSO
   towerName: 2
-  damageType: 0
+  damageType: 2
   statusEffect: 1
   duration: 0
   effectiveness: 0

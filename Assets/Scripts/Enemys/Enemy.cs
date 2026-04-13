@@ -134,26 +134,34 @@ public class Enemy : MonoBehaviour
         float electrifyDmg = 0;
         if (dmgtype == DamageType.weapon)
         {
-            damage *= 1 - stats.amor/100;
             if(statusEffectDatas[(int)StatusEffect.electrify].isActive)
-                electrifyDmg = damage * (1 - (stats.amor * electrifyMultiplier)/100) - damage;
-            Debug.Log("Electrify Dmg: " + electrifyDmg);
+                electrifyDmg = damage * (1 - (stats.amor * electrifyMultiplier)/100) - damage * (1- stats.amor/100);
+            Debug.Log("Electrify Dmg: " + electrifyDmg + ",amor is reduced from " + stats.amor + " to " + (stats.amor * electrifyMultiplier));
+            Debug.Log("Damage before armor: " + damage);
+            damage *= 1 - stats.amor/100;
+
+
         }
         else if (dmgtype == DamageType.elemental)
         {
-            damage *= 1 - stats.resistance/ 100;
             if (statusEffectDatas[(int)StatusEffect.electrify].isActive)
-                electrifyDmg = damage * (1 - (stats.resistance * electrifyMultiplier)/ 100) - damage;
-            Debug.Log("Electrify Dmg: " + electrifyDmg);
+                electrifyDmg = damage * (1 - (stats.resistance * electrifyMultiplier)/ 100) - damage * (1 - stats.resistance / 100);
+            Debug.Log("Electrify Dmg: " + electrifyDmg + ",resistence is reduced from " + stats.resistance + " to " + (stats.resistance * electrifyMultiplier));
+            damage *= 1 - stats.resistance/ 100;
+        }
+        if(damage > currentHealth)
+        {
+            damage = currentHealth;
+            electrifyDmg = 0;
         }
         currentHealth -= damage + electrifyDmg;
         if(electrifyDmg != 0)
-            statusEffectDatas[(int)StatusEffect.electrify].appliedBy.dmgDealt += electrifyDmg;
+            statusEffectDatas[(int)StatusEffect.electrify].appliedBy.dmgDealt += (ulong)electrifyDmg;
         if (currentHealth <= 0)
         {
-            damage += currentHealth; 
             Die();
         }
+        Debug.Log("Enemy took " + damage);
         return damage;
     }
 
@@ -215,7 +223,7 @@ public class Enemy : MonoBehaviour
         switch (data.effect)
         {
             case StatusEffect.electrify:
-                electrifyMultiplier = 1 - data.effectiveness;
+                electrifyMultiplier = 1 - data.effectiveness / 100;
                 break;
             case StatusEffect.freeze:
                 freezeMultiplier = 1 - data.effectiveness;
@@ -229,7 +237,7 @@ public class Enemy : MonoBehaviour
             switch (data.effect)
             {
                 case StatusEffect.burn:
-                    data.appliedBy.dmgDealt += TakeDamage(data.effectiveness, DamageType.elemental);
+                    data.appliedBy.dmgDealt += (ulong)TakeDamage(data.effectiveness, DamageType.elemental);
                     yield return new WaitForSeconds(0.2f);
                     timer += 0.2f;
                     break;

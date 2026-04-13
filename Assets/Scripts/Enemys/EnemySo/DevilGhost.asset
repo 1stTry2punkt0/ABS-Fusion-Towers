@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: DevilGhost
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStatSO
   enemyType: 8
-  maxHp: 70
+  maxHp: 81.6
   baseHp: 80
   hpScale: 0.01
-  amor: 50
-  baseAmor: 20
+  amor: 24
+  baseAmor: 50
   amorScale: 0.1
-  resistance: -10
-  baseResistance: -8
+  resistance: -8.16
+  baseResistance: 10
   resistanceScale: 0.01
   speed: 2
   baseSpeed: 2
-  speedScale: 0
+  speedScale: 0.03
   moveType: 0
   damage:
     amount: 1

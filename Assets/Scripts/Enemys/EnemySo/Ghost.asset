@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Ghost
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStatSO
   enemyType: 6
-  maxHp: 70
+  maxHp: 60
   baseHp: 50
   hpScale: 0.1
-  amor: 50
-  baseAmor: 50
+  amor: 60
+  baseAmor: 80
   amorScale: 0.1
-  resistance: -10
-  baseResistance: -1
-  resistanceScale: 0.1
+  resistance: -1.2
+  baseResistance: 0
+  resistanceScale: 0
   speed: 2
   baseSpeed: 2
-  speedScale: 0
+  speedScale: 0.01
   moveType: 1
   damage:
     amount: 1

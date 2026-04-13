@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LightningCatapultFusion
   m_EditorClassIdentifier: Assembly-CSharp::CatapultFusionSO
   towerName: 1
-  damageType: 0
+  damageType: 2
   statusEffect: 1
   duration: 0
   effectiveness: 0

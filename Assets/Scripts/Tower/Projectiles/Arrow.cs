@@ -4,12 +4,15 @@ public class Arrow : Projectile
 {
     public override void SetTarget()
     {
-        if (targetEnemy == null || targetEnemy.isDead)
+        if (targetEnemy != null)
         {
-            targetEnemy = null;
-            targetPosition.y = 1f; // Default height if no target or target is dead
-            return;
+            if (!targetEnemy.isDead)
+            {
+                targetPosition = targetEnemy.hitTransform.position;
+                return;
+            }
         }
-        targetPosition = targetEnemy.hitTransform.position;
+        targetEnemy = null;
+        targetPosition.y = 1f; // Default height if no target or target is dead
     }
 }
