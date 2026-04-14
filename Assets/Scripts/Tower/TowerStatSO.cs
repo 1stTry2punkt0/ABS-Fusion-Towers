@@ -6,8 +6,10 @@ public class TowerStatSO : ScriptableObject
     public TowerType towerName;
     public DamageType damageType;
     public StatusEffect statusEffect;
-    public float duration;
-    public float effectiveness;
+    [HideInInspector] public float duration;
+    [HideInInspector] public float effectiveness;
+    [SerializeField] float baseEffectiveness;
+    [SerializeField] float baseDuration;
 
     [Header("Base Stats")]
     public float baseDamage;
@@ -21,6 +23,16 @@ public class TowerStatSO : ScriptableObject
     public Cost[] upgradeCosts;
     public Cost fusionCost;
 
+
+    public void SetMapStats(bool enhanced)
+    {
+        effectiveness = enhanced ? baseEffectiveness * 1.25f : baseEffectiveness;
+        duration = enhanced ? baseDuration * 1.25f : baseDuration;
+        foreach (UpgradeOption option in upgradeOption)
+        {
+            option.increaseAmount = enhanced ? option.baseIncreaseAmount * 1.2f : option.baseIncreaseAmount;
+        }
+    }
 }
 
 public enum DamageType
@@ -37,6 +49,7 @@ public class UpgradeOption
     public TextSO upgradeName; // Name of the upgrade option for display purposes
     [Tooltip("The amount for the first 5 upgrades in total")]
     public float increaseAmount; // The amount by which the stat will increase when upgraded
+    public float baseIncreaseAmount;
 }
 
 [System.Serializable]

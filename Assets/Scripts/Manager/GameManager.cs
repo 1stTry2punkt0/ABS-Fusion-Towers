@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
 
     public float timeScale = 1f;
 
+    [SerializeField] TowerStatSO[] elementalStats;
+
     private void Awake()
     {
         //make sure their is only one instance
@@ -51,6 +53,15 @@ public class GameManager : MonoBehaviour
         ResetGame();
         SwitchTimeScale(SaveDataHolder.instance.loadedState.speedup);
         ApplyTimeScale();
+        ApplyMapStats();
+    }
+
+    private void ApplyMapStats()
+    {
+        for (int i = 0; i < elementalStats.Length; i++)
+        {
+            elementalStats[i].SetMapStats(i == SaveDataHolder.instance.loadedState.mapIndex - 1);
+        }
     }
 
     public void SwitchTimeScale(bool speedup)

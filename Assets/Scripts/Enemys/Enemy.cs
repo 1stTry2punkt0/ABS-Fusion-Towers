@@ -226,7 +226,7 @@ public class Enemy : MonoBehaviour
                 electrifyMultiplier = 1 - data.effectiveness / 100;
                 break;
             case StatusEffect.freeze:
-                freezeMultiplier = 1 - data.effectiveness;
+                freezeMultiplier = 1 - data.effectiveness / 100;
                 break;
             default:
                 break;

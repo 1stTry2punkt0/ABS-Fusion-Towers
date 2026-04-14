@@ -15,8 +15,10 @@ MonoBehaviour:
   towerName: 5
   damageType: 1
   statusEffect: 3
-  duration: 2
-  effectiveness: 0.2
+  duration: 0
+  effectiveness: 0
+  baseEffectiveness: 10
+  baseDuration: 1
   baseDamage: 15
   baseAttackSpeed: 0.4
   baseRange: 10
@@ -27,7 +29,7 @@ MonoBehaviour:
     increaseAmount: 3
   - statToUpgrade: 5
     upgradeName: {fileID: 11400000, guid: ddf271618c820524bba43596cd5e5f51, type: 2}
-    increaseAmount: 0.3
+    increaseAmount: 30
   baseCost:
     amount: 100
     ressourceType: 1
