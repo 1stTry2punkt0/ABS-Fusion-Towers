@@ -24,6 +24,17 @@ public class MapTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     private bool keepHighlighted = false;
 
 
+    //void Start()
+    //{
+    //    if (onTopObj != null)
+    //    {
+    //        Destroy(onTopObj);
+    //        onTopObj = null;
+    //    }
+    //    SetTileType(TileType.blocked);
+    //    GetRandomBlocker();
+    //}
+
     //Method to change the tile type and set its mesh
     public void SetTileType(TileType newType, GameObject prefab = null)
     {
