@@ -183,6 +183,7 @@ public class GameManager : MonoBehaviour
 
         selectedTile.SetTileType(TileType.free, building);
         SelectTile(selectedTile);
+        
         Destroy(building);
     }
 

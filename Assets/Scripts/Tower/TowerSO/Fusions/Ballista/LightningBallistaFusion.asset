@@ -27,9 +27,11 @@ MonoBehaviour:
   - statToUpgrade: 0
     upgradeName: {fileID: 11400000, guid: 25b8e3fc8942a3342ae9501c78fee562, type: 2}
     increaseAmount: 90
+    baseIncreaseAmount: 90
   - statToUpgrade: 4
     upgradeName: {fileID: 11400000, guid: c85ed51885086364ca68789205373abd, type: 2}
     increaseAmount: 2
+    baseIncreaseAmount: 2
   baseCost:
     amount: 0
     ressourceType: 0
@@ -42,4 +44,4 @@ MonoBehaviour:
     amount: 0
     ressourceType: 0
   dmgMultiplierForEffect: 0.01
-  effectMultiplierForDmg: 2
+  effectMultiplierForDmg: 1

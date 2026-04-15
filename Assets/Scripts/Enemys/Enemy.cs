@@ -237,7 +237,7 @@ public class Enemy : MonoBehaviour
             switch (data.effect)
             {
                 case StatusEffect.burn:
-                    data.appliedBy.dmgDealt += (ulong)TakeDamage(data.effectiveness, DamageType.elemental);
+                    data.appliedBy.dmgDealt += (ulong)TakeDamage(data.effectiveness * 0.2f, DamageType.elemental);
                     yield return new WaitForSeconds(0.2f);
                     timer += 0.2f;
                     break;

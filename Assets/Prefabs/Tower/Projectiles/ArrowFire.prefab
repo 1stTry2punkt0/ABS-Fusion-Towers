@@ -49,8 +49,11 @@ MonoBehaviour:
   parentTower: {fileID: 0}
   speed: 20
   isActive: 0
+  hitSound: {fileID: 8300000, guid: b919cc834e44d8841b9f46cdf89cf302, type: 3}
+  volume: 1
   effect: {fileID: 4203563548613173741}
   arrow: {fileID: 9194168560198291032}
+  effectDuration: 0.7
 --- !u!1001 &3110673416259320152
 PrefabInstance:
   m_ObjectHideFlags: 0

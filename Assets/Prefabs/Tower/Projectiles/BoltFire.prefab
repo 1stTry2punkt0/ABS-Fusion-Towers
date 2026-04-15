@@ -49,6 +49,8 @@ MonoBehaviour:
   parentTower: {fileID: 0}
   speed: 40
   isActive: 0
+  hitSound: {fileID: 8300000, guid: dd5b58b5a8f9b184e886b574f1379ff8, type: 3}
+  volume: 1
   pearcing: 2
   effect: {fileID: 2749928069961474503}
   arrow: {fileID: 8834110651835257174}

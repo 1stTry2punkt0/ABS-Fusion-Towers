@@ -25,6 +25,7 @@ public class Bomb : Projectile
     protected override bool FindNextTarget()
     {
         ParticlePoolObj explosion = ParticleSpawnManager.instance.SpawnParticle(explosionEffect, transform.position);
+        PlayHitSound();
         explosion.ScaleEffect(parentTower.damageRange / 2);
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, parentTower.damageRange, GameManager.instance.enemyLayer);
         float multiplier = 1;

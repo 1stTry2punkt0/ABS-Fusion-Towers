@@ -23,6 +23,8 @@ public class MapTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     [SerializeField] Material invalidMat; 
     private bool keepHighlighted = false;
 
+    [SerializeField] AudioClip clickSound;
+
 
     //void Start()
     //{
@@ -142,7 +144,8 @@ public class MapTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     //Method to Handle Click
     public void OnPointerDown(PointerEventData eventData)
     {
-        if(tileType == TileType.blocked || tileType == TileType.road)
+        AudioManager.instance.PlaySoundFXClip(clickSound, transform, 1f);
+        if (tileType == TileType.blocked || tileType == TileType.road)
         {
             Invalid();
             return;

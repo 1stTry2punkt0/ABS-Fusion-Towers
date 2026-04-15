@@ -15,21 +15,23 @@ MonoBehaviour:
   towerName: 3
   damageType: 1
   statusEffect: 1
-  duration: 0
-  effectiveness: 0
-  baseEffectiveness: 5
-  baseDuration: 1
-  baseDamage: 5
+  duration: 3
+  effectiveness: 10
+  baseEffectiveness: 10
+  baseDuration: 3
+  baseDamage: 15
   baseAttackSpeed: 1
   baseRange: 10
   baseDamageRange: 0
   upgradeOption:
   - statToUpgrade: 4
     upgradeName: {fileID: 11400000, guid: c85ed51885086364ca68789205373abd, type: 2}
-    increaseAmount: 2
+    increaseAmount: 3
+    baseIncreaseAmount: 3
   - statToUpgrade: 5
     upgradeName: {fileID: 11400000, guid: ddf271618c820524bba43596cd5e5f51, type: 2}
-    increaseAmount: 20
+    increaseAmount: 15
+    baseIncreaseAmount: 15
   baseCost:
     amount: 100
     ressourceType: 1

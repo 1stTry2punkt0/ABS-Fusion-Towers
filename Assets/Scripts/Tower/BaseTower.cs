@@ -307,6 +307,7 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
         {
             RessourceManager.instance.GainRessource(sellValue);
         }
+        TowerMenu.instance.CloseMenu(false, this);
         GameManager.instance.towerList.Remove(this);
         GameManager.instance.SellBuilding(gameObject);
     }

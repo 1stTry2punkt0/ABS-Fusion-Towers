@@ -48,6 +48,8 @@ MonoBehaviour:
   parentTower: {fileID: 0}
   speed: 20
   isActive: 0
+  hitSound: {fileID: 8300000, guid: 28d5917dd95162340b681e23ea2e8c4b, type: 3}
+  volume: 1
 --- !u!1001 &8311769447541125897
 PrefabInstance:
   m_ObjectHideFlags: 0

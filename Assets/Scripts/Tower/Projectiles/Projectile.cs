@@ -12,6 +12,9 @@ public abstract class Projectile : MonoBehaviour
     [SerializeField] protected float speed; // Speed at which the projectile moves towards its target
     public bool isActive = false; // Indicates whether the projectile is currently active in the scene
 
+    [SerializeField] AudioClip hitSound;
+    [SerializeField] float volume = 1;
+
     public virtual void Initialize(BaseTower tower, Enemy target)
     {
         parentTower = tower;
@@ -40,6 +43,7 @@ public abstract class Projectile : MonoBehaviour
         // Hit detection
         if (Vector3.Distance(transform.position, targetPosition) < 0.2f)
         {
+            PlayHitSound();
             if (targetEnemy != null)
             {
                 parentTower.TargetHit(targetEnemy);
@@ -47,6 +51,12 @@ public abstract class Projectile : MonoBehaviour
             if (!FindNextTarget())
                 Disable();// Return to pool after hitting the target
         }
+    }
+
+    protected virtual void PlayHitSound()
+    {
+        if (hitSound != null)
+            AudioManager.instance.PlaySoundFXClip(hitSound, transform, volume);
     }
 
     protected virtual void Disable()

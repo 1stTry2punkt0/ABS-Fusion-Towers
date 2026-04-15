@@ -197,6 +197,8 @@ MonoBehaviour:
   attackLight: {fileID: 3447106695192159916}
   FuseMat: {fileID: 2100000, guid: 347f0c522966dd1429228b6e297c7bb4, type: 2}
   FusionPrefab: {fileID: 5054886109859964786, guid: ea24ae50b96271f47b4b0f5bdec4f3a1, type: 3}
+  elementalAttackSound: {fileID: 8300000, guid: 3f3650405c7c04445aa0cdee3469026d, type: 3}
+  volume: 0.5
   spawnEffectTime: 3
   fadeOut:
     serializedVersion: 2

@@ -126,10 +126,12 @@ MonoBehaviour:
   - {x: 6, y: 1.75}
   - {x: 8, y: 2}
   - {x: 10, y: 3}
+  onTopObj: {fileID: 0}
   feedbackObj: {fileID: 3588048586099850032}
   hoveredMat: {fileID: 2100000, guid: 2bae44fb44b29d949b5141d80f615cc1, type: 2}
   selectedMat: {fileID: 2100000, guid: 795a5eefc035df24a82216c107b79afd, type: 2}
   invalidMat: {fileID: 2100000, guid: 638b40241c6cd3d45ad5b167407e4a4b, type: 2}
+  clickSound: {fileID: 8300000, guid: 17915f7b10589c4489f325b00dcafd18, type: 3}
 --- !u!65 &15578706473790613
 BoxCollider:
   m_ObjectHideFlags: 0

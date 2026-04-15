@@ -10,6 +10,9 @@ public class ElementalTower : BaseTower
     [SerializeField] Material FuseMat;
     public GameObject FusionPrefab;
 
+    [SerializeField] AudioClip elementalAttackSound;
+    [SerializeField] float volume = 1;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -53,6 +56,7 @@ public class ElementalTower : BaseTower
         pos += prediction * offset;
         pos.y = 1;
         ParticleSpawnManager.instance.SpawnParticle(elementalAttack, pos);
+        AudioManager.instance.PlaySoundFXClip(elementalAttackSound, targetEnemyData.transform, volume);
         yield return new WaitForSeconds(0.1f);
         if (targetEnemyData != null)
             TargetHit(targetEnemyData);

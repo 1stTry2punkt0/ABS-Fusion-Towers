@@ -49,6 +49,8 @@ MonoBehaviour:
   parentTower: {fileID: 0}
   speed: 10
   isActive: 0
+  hitSound: {fileID: 8300000, guid: c01bbab8442e45146be860df82582360, type: 3}
+  volume: 1
   curve:
     serializedVersion: 2
     m_Curve:
