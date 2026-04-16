@@ -41,14 +41,14 @@ public class RessourceManager : MonoBehaviour
                 health = maxHealth;
                 break;
             case 1:
-                gold = 500;
-                faith = 500;
+                gold = 900;
+                faith = 900;
                 maxHealth = 100;
                 health = maxHealth;
                 break;
             case 2:
-                gold = 250;
-                faith = 250;
+                gold = 800;
+                faith = 800;
                 maxHealth = 50;
                 health = maxHealth;
                 break;

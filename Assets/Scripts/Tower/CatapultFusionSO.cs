@@ -9,16 +9,16 @@ public class CatapultFusionSO : TowerStatSO
     public void SetStats(BaseTower tower, ElementalTower elemental)
     {
         baseDamage = tower.damage + elemental.effectiveness * effectMultiplierForDmg;
-        Debug.Log("Base Damage Increase: " + elemental.effectiveness * effectMultiplierForDmg);
+        Debug.Log("Base Damage Increase by: " + elemental.effectiveness * effectMultiplierForDmg + " to: " + baseDamage);
         baseAttackSpeed = tower.attackSpeed ;
         baseRange = tower.range;
 
-        baseDamageRange = tower.damageRange + duration * 0.5f;
-        Debug.Log("Base Damage Range Increase: " + duration * 0.5f);
+        baseDamageRange = tower.damageRange + elemental.duration * 0.5f;
+        Debug.Log("Base Damage Range Increase by: " + elemental.duration * 0.5f + " to: " + baseDamageRange);
 
         duration = elemental.duration + tower.damageRange * 0.5f;
-        Debug.Log("Duration Increase: " + tower.damageRange * 0.5f);
+        Debug.Log("Duration Increase by: " + tower.damageRange * 0.5f + " to: " + duration);
         effectiveness = elemental.effectiveness + tower.damage * dmgMultiplierForEffect;
-        Debug.Log("Effectiveness Increase: " + tower.damage * dmgMultiplierForEffect);
+        Debug.Log("Effectiveness Increase by: " + tower.damage * dmgMultiplierForEffect + " to: " + effectiveness);
     }
 }

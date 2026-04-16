@@ -20,16 +20,18 @@ MonoBehaviour:
   baseEffectiveness: 0
   baseDuration: 0
   baseDamage: 50
-  baseAttackSpeed: 0.3
+  baseAttackSpeed: 0.6
   baseRange: 21
   baseDamageRange: 2.5
   upgradeOption:
   - statToUpgrade: 0
     upgradeName: {fileID: 11400000, guid: 25b8e3fc8942a3342ae9501c78fee562, type: 2}
     increaseAmount: 50
+    baseIncreaseAmount: 0
   - statToUpgrade: 2
     upgradeName: {fileID: 11400000, guid: 14c4baf8874966f4bb6b80d974d43c86, type: 2}
     increaseAmount: 7
+    baseIncreaseAmount: 0
   baseCost:
     amount: 300
     ressourceType: 0

@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Rabbit
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStatSO
   enemyType: 4
-  maxHp: 120
+  maxHp: 630
   baseHp: 100
   hpScale: 0.1
-  amor: 5.5
+  amor: 54.75
   baseAmor: 15
   amorScale: 0.05
-  resistance: 11
+  resistance: 73
   baseResistance: 20
   resistanceScale: 0.05
-  speed: 2.4
+  speed: 12.6
   baseSpeed: 2
-  speedScale: 0.1
+  speedScale: 0.0608
   moveType: 0
   damage:
     amount: 1

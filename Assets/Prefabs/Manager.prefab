@@ -235,109 +235,2975 @@ MonoBehaviour:
   waves:
   - delay: 6
     enemyGroups:
+    - enemyType: 0
+      firstSpawnDelay: 0
+      spawnInterval: 1.2
+      groupInterval: 4
+      groupSize: 5
+      boss: 0
     - enemyType: 1
-      firstSpawnDelay: 1
-      spawnInterval: 0.75
-      groupInterval: 2
-      groupSize: 4
+      firstSpawnDelay: 1.2
+      spawnInterval: 1.2
+      groupInterval: 5
+      groupSize: 6
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 1
+      firstSpawnDelay: 0
+      spawnInterval: 1.19
+      groupInterval: 4
+      groupSize: 5
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 1.2
+      spawnInterval: 4.76
+      groupInterval: 5
+      groupSize: 6
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 2
+      firstSpawnDelay: 0
+      spawnInterval: 4.7200003
+      groupInterval: 4
+      groupSize: 6
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 1.2
+      spawnInterval: 1.1800001
+      groupInterval: 5
+      groupSize: 7
       boss: 0
   - delay: 6
     enemyGroups:
     - enemyType: 3
-      firstSpawnDelay: 1
-      spawnInterval: 1
-      groupInterval: 3
+      firstSpawnDelay: 0
+      spawnInterval: 1.1700001
+      groupInterval: 4
       groupSize: 6
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 1.2
+      spawnInterval: 1.1700001
+      groupInterval: 5
+      groupSize: 7
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 4
+      firstSpawnDelay: 0
+      spawnInterval: 1.1600001
+      groupInterval: 4
+      groupSize: 7
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 1.2
+      spawnInterval: 1.1600001
+      groupInterval: 5
+      groupSize: 8
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 5
+      firstSpawnDelay: 0
+      spawnInterval: 1.1500001
+      groupInterval: 4
+      groupSize: 7
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 1.2
+      spawnInterval: 1.1500001
+      groupInterval: 5
+      groupSize: 8
       boss: 0
   - delay: 6
     enemyGroups:
     - enemyType: 6
-      firstSpawnDelay: 1
-      spawnInterval: 0.75
-      groupInterval: 1.5
-      groupSize: 3
+      firstSpawnDelay: 0
+      spawnInterval: 1.1400001
+      groupInterval: 4
+      groupSize: 8
       boss: 0
-  - delay: 6
-    enemyGroups:
-    - enemyType: 3
-      firstSpawnDelay: 1
-      spawnInterval: 1
-      groupInterval: 1.5
-      groupSize: 1
-      boss: 0
-  - delay: 6
-    enemyGroups:
-    - enemyType: 4
-      firstSpawnDelay: 3
-      spawnInterval: 0.75
-      groupInterval: 1.5
-      groupSize: 3
-      boss: 0
-  - delay: 6
-    enemyGroups:
-    - enemyType: 5
-      firstSpawnDelay: 1
-      spawnInterval: 1
+    - enemyType: 7
+      firstSpawnDelay: 1.2
+      spawnInterval: 1.1400001
       groupInterval: 5
-      groupSize: 4
+      groupSize: 9
       boss: 0
-  - delay: 6
+  - delay: 7.5
     enemyGroups:
     - enemyType: 7
-      firstSpawnDelay: 1
-      spawnInterval: 1
-      groupInterval: 3
-      groupSize: 4
-      boss: 0
-  - delay: 6
-    enemyGroups:
-    - enemyType: 0
-      firstSpawnDelay: 1
-      spawnInterval: 0.5
-      groupInterval: 2
-      groupSize: 4
-      boss: 0
-  - delay: 6
-    enemyGroups:
-    - enemyType: 2
       firstSpawnDelay: 0
-      spawnInterval: 2
-      groupInterval: 6
-      groupSize: 2
+      spawnInterval: 1.13
+      groupInterval: 4
+      groupSize: 8
       boss: 0
-    - enemyType: 3
-      firstSpawnDelay: 1
-      spawnInterval: 1
-      groupInterval: 2
-      groupSize: 3
+    - enemyType: 8
+      firstSpawnDelay: 1.2
+      spawnInterval: 1.13
+      groupInterval: 5
+      groupSize: 9
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 8
+      firstSpawnDelay: 0
+      spawnInterval: 1.12
+      groupInterval: 4
+      groupSize: 9
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 1.2
+      spawnInterval: 1.12
+      groupInterval: 5
+      groupSize: 10
       boss: 0
   - delay: 6
     enemyGroups:
     - enemyType: 9
       firstSpawnDelay: 1
-      spawnInterval: 2
-      groupInterval: 6
+      spawnInterval: 0
+      groupInterval: 999
       groupSize: 1
       boss: 1
     - enemyType: 1
       firstSpawnDelay: 1
-      spawnInterval: 0.75
-      groupInterval: 2
-      groupSize: 4
+      spawnInterval: 0.91
+      groupInterval: 5
+      groupSize: 9
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 1
+      firstSpawnDelay: 0
+      spawnInterval: 1.1
+      groupInterval: 4
+      groupSize: 10
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 1.2
+      spawnInterval: 4.4
+      groupInterval: 5
+      groupSize: 11
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 2.4
+      spawnInterval: 1.1
+      groupInterval: 6
+      groupSize: 12
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 2
+      firstSpawnDelay: 0
+      spawnInterval: 4.36
+      groupInterval: 4
+      groupSize: 10
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 1.2
+      spawnInterval: 1.09
+      groupInterval: 5
+      groupSize: 11
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 2.4
+      spawnInterval: 1.09
+      groupInterval: 6
+      groupSize: 12
       boss: 0
   - delay: 6
     enemyGroups:
+    - enemyType: 3
+      firstSpawnDelay: 0
+      spawnInterval: 1.08
+      groupInterval: 4
+      groupSize: 11
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 1.2
+      spawnInterval: 1.08
+      groupInterval: 5
+      groupSize: 12
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 2.4
+      spawnInterval: 1.08
+      groupInterval: 6
+      groupSize: 13
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 4
+      firstSpawnDelay: 0
+      spawnInterval: 1.07
+      groupInterval: 4
+      groupSize: 11
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 1.2
+      spawnInterval: 1.07
+      groupInterval: 5
+      groupSize: 12
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 2.4
+      spawnInterval: 1.07
+      groupInterval: 6
+      groupSize: 13
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 5
+      firstSpawnDelay: 0
+      spawnInterval: 1.0600001
+      groupInterval: 4
+      groupSize: 12
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 1.2
+      spawnInterval: 1.0600001
+      groupInterval: 5
+      groupSize: 13
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 2.4
+      spawnInterval: 1.0600001
+      groupInterval: 6
+      groupSize: 14
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 6
+      firstSpawnDelay: 0
+      spawnInterval: 1.0500001
+      groupInterval: 4
+      groupSize: 12
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 1.2
+      spawnInterval: 1.0500001
+      groupInterval: 5
+      groupSize: 13
+      boss: 0
     - enemyType: 8
+      firstSpawnDelay: 2.4
+      spawnInterval: 1.0500001
+      groupInterval: 6
+      groupSize: 14
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 7
+      firstSpawnDelay: 0
+      spawnInterval: 1.0400001
+      groupInterval: 4
+      groupSize: 13
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 1.2
+      spawnInterval: 1.0400001
+      groupInterval: 5
+      groupSize: 14
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 2.4
+      spawnInterval: 1.0400001
+      groupInterval: 6
+      groupSize: 15
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 8
+      firstSpawnDelay: 0
+      spawnInterval: 1.0300001
+      groupInterval: 4
+      groupSize: 13
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 1.2
+      spawnInterval: 1.0300001
+      groupInterval: 5
+      groupSize: 14
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 2.4
+      spawnInterval: 1.0300001
+      groupInterval: 6
+      groupSize: 15
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 0
+      firstSpawnDelay: 0
+      spawnInterval: 1.0200001
+      groupInterval: 4
+      groupSize: 14
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 1.2
+      spawnInterval: 1.0200001
+      groupInterval: 5
+      groupSize: 15
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 2.4
+      spawnInterval: 4.0800004
+      groupInterval: 6
+      groupSize: 16
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 10
       firstSpawnDelay: 1
+      spawnInterval: 0
+      groupInterval: 999
+      groupSize: 1
+      boss: 1
+    - enemyType: 2
+      firstSpawnDelay: 1
+      spawnInterval: 3.24
+      groupInterval: 5
+      groupSize: 12
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 2
+      spawnInterval: 0.81
+      groupInterval: 6
+      groupSize: 12
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 2
+      firstSpawnDelay: 0
+      spawnInterval: 4
+      groupInterval: 4
+      groupSize: 15
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 1.2
       spawnInterval: 1
-      groupInterval: 3
-      groupSize: 3
+      groupInterval: 5
+      groupSize: 16
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 2.4
+      spawnInterval: 1
+      groupInterval: 6
+      groupSize: 17
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 1
+      groupInterval: 7
+      groupSize: 18
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 3
+      firstSpawnDelay: 0
+      spawnInterval: 0.99000007
+      groupInterval: 4
+      groupSize: 15
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.99000007
+      groupInterval: 5
+      groupSize: 16
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.99000007
+      groupInterval: 6
+      groupSize: 17
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.99000007
+      groupInterval: 7
+      groupSize: 18
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 4
+      firstSpawnDelay: 0
+      spawnInterval: 0.9800001
+      groupInterval: 4
+      groupSize: 16
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.9800001
+      groupInterval: 5
+      groupSize: 17
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.9800001
+      groupInterval: 6
+      groupSize: 18
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.9800001
+      groupInterval: 7
+      groupSize: 19
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 5
+      firstSpawnDelay: 0
+      spawnInterval: 0.97
+      groupInterval: 4
+      groupSize: 16
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.97
+      groupInterval: 5
+      groupSize: 17
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.97
+      groupInterval: 6
+      groupSize: 18
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.97
+      groupInterval: 7
+      groupSize: 19
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 6
+      firstSpawnDelay: 0
+      spawnInterval: 0.96000004
+      groupInterval: 4
+      groupSize: 17
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.96000004
+      groupInterval: 5
+      groupSize: 18
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.96000004
+      groupInterval: 6
+      groupSize: 19
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.96000004
+      groupInterval: 7
+      groupSize: 20
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 7
+      firstSpawnDelay: 0
+      spawnInterval: 0.95000005
+      groupInterval: 4
+      groupSize: 17
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.95000005
+      groupInterval: 5
+      groupSize: 18
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.95000005
+      groupInterval: 6
+      groupSize: 19
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.95000005
+      groupInterval: 7
+      groupSize: 20
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 8
+      firstSpawnDelay: 0
+      spawnInterval: 0.94000006
+      groupInterval: 4
+      groupSize: 18
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.94000006
+      groupInterval: 5
+      groupSize: 19
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.94000006
+      groupInterval: 6
+      groupSize: 20
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 3.7600002
+      groupInterval: 7
+      groupSize: 21
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 0
+      firstSpawnDelay: 0
+      spawnInterval: 0.93000007
+      groupInterval: 4
+      groupSize: 18
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.93000007
+      groupInterval: 5
+      groupSize: 19
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 2.4
+      spawnInterval: 3.7200003
+      groupInterval: 6
+      groupSize: 20
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.93000007
+      groupInterval: 7
+      groupSize: 21
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 1
+      firstSpawnDelay: 0
+      spawnInterval: 0.9200001
+      groupInterval: 4
+      groupSize: 19
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 1.2
+      spawnInterval: 3.6800003
+      groupInterval: 5
+      groupSize: 20
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.9200001
+      groupInterval: 6
+      groupSize: 21
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.9200001
+      groupInterval: 7
+      groupSize: 22
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 11
+      firstSpawnDelay: 1
+      spawnInterval: 0
+      groupInterval: 999
+      groupSize: 1
+      boss: 1
+    - enemyType: 3
+      firstSpawnDelay: 1
+      spawnInterval: 0.71
+      groupInterval: 5
+      groupSize: 15
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 2
+      spawnInterval: 0.71
+      groupInterval: 6
+      groupSize: 15
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 3
+      spawnInterval: 0.71
+      groupInterval: 4
+      groupSize: 15
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 3
+      firstSpawnDelay: 0
+      spawnInterval: 0.90000004
+      groupInterval: 4
+      groupSize: 20
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.90000004
+      groupInterval: 5
+      groupSize: 21
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.90000004
+      groupInterval: 6
+      groupSize: 22
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.90000004
+      groupInterval: 7
+      groupSize: 23
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 4
+      firstSpawnDelay: 0
+      spawnInterval: 0.89000005
+      groupInterval: 4
+      groupSize: 20
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.89000005
+      groupInterval: 5
+      groupSize: 21
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.89000005
+      groupInterval: 6
+      groupSize: 22
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.89000005
+      groupInterval: 7
+      groupSize: 23
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 5
+      firstSpawnDelay: 0
+      spawnInterval: 0.88000005
+      groupInterval: 4
+      groupSize: 21
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.88000005
+      groupInterval: 5
+      groupSize: 22
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.88000005
+      groupInterval: 6
+      groupSize: 23
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.88000005
+      groupInterval: 7
+      groupSize: 24
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 6
+      firstSpawnDelay: 0
+      spawnInterval: 0.87000006
+      groupInterval: 4
+      groupSize: 21
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.87000006
+      groupInterval: 5
+      groupSize: 22
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.87000006
+      groupInterval: 6
+      groupSize: 23
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.87000006
+      groupInterval: 7
+      groupSize: 24
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 7
+      firstSpawnDelay: 0
+      spawnInterval: 0.8600001
+      groupInterval: 4
+      groupSize: 22
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.8600001
+      groupInterval: 5
+      groupSize: 23
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.8600001
+      groupInterval: 6
+      groupSize: 24
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.8600001
+      groupInterval: 7
+      groupSize: 25
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 8
+      firstSpawnDelay: 0
+      spawnInterval: 0.8500001
+      groupInterval: 4
+      groupSize: 22
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.8500001
+      groupInterval: 5
+      groupSize: 23
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.8500001
+      groupInterval: 6
+      groupSize: 24
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 3.4000003
+      groupInterval: 7
+      groupSize: 25
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 0
+      firstSpawnDelay: 0
+      spawnInterval: 0.84000003
+      groupInterval: 4
+      groupSize: 23
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.84000003
+      groupInterval: 5
+      groupSize: 24
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 2.4
+      spawnInterval: 3.3600001
+      groupInterval: 6
+      groupSize: 25
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.84000003
+      groupInterval: 7
+      groupSize: 26
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 1
+      firstSpawnDelay: 0
+      spawnInterval: 0.83000004
+      groupInterval: 4
+      groupSize: 23
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 1.2
+      spawnInterval: 3.3200002
+      groupInterval: 5
+      groupSize: 24
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.83000004
+      groupInterval: 6
+      groupSize: 25
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.83000004
+      groupInterval: 7
+      groupSize: 26
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 2
+      firstSpawnDelay: 0
+      spawnInterval: 3.2800002
+      groupInterval: 4
+      groupSize: 24
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.82000005
+      groupInterval: 5
+      groupSize: 25
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.82000005
+      groupInterval: 6
+      groupSize: 26
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.82000005
+      groupInterval: 7
+      groupSize: 27
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 12
+      firstSpawnDelay: 1
+      spawnInterval: 0
+      groupInterval: 999
+      groupSize: 1
+      boss: 1
+    - enemyType: 4
+      firstSpawnDelay: 1
+      spawnInterval: 0.61
+      groupInterval: 5
+      groupSize: 19
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 2
+      spawnInterval: 0.61
+      groupInterval: 6
+      groupSize: 19
       boss: 0
     - enemyType: 6
       firstSpawnDelay: 3
-      spawnInterval: 0.75
-      groupInterval: 2
-      groupSize: 4
+      spawnInterval: 0.61
+      groupInterval: 4
+      groupSize: 19
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 4
+      firstSpawnDelay: 0
+      spawnInterval: 0.8000001
+      groupInterval: 4
+      groupSize: 25
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.8000001
+      groupInterval: 5
+      groupSize: 26
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.8000001
+      groupInterval: 6
+      groupSize: 27
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.8000001
+      groupInterval: 7
+      groupSize: 28
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.8000001
+      groupInterval: 4
+      groupSize: 29
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 5
+      firstSpawnDelay: 0
+      spawnInterval: 0.7900001
+      groupInterval: 4
+      groupSize: 25
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.7900001
+      groupInterval: 5
+      groupSize: 26
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.7900001
+      groupInterval: 6
+      groupSize: 27
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.7900001
+      groupInterval: 7
+      groupSize: 28
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.7900001
+      groupInterval: 4
+      groupSize: 29
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 6
+      firstSpawnDelay: 0
+      spawnInterval: 0.78000003
+      groupInterval: 4
+      groupSize: 26
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.78000003
+      groupInterval: 5
+      groupSize: 27
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.78000003
+      groupInterval: 6
+      groupSize: 28
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.78000003
+      groupInterval: 7
+      groupSize: 29
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.78000003
+      groupInterval: 4
+      groupSize: 30
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 7
+      firstSpawnDelay: 0
+      spawnInterval: 0.77000004
+      groupInterval: 4
+      groupSize: 26
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.77000004
+      groupInterval: 5
+      groupSize: 27
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.77000004
+      groupInterval: 6
+      groupSize: 28
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.77000004
+      groupInterval: 7
+      groupSize: 29
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 4.8
+      spawnInterval: 3.0800002
+      groupInterval: 4
+      groupSize: 30
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 8
+      firstSpawnDelay: 0
+      spawnInterval: 0.76000005
+      groupInterval: 4
+      groupSize: 27
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.76000005
+      groupInterval: 5
+      groupSize: 28
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.76000005
+      groupInterval: 6
+      groupSize: 29
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 3.0400002
+      groupInterval: 7
+      groupSize: 30
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.76000005
+      groupInterval: 4
+      groupSize: 31
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 0
+      firstSpawnDelay: 0
+      spawnInterval: 0.75000006
+      groupInterval: 4
+      groupSize: 27
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.75000006
+      groupInterval: 5
+      groupSize: 28
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 2.4
+      spawnInterval: 3.0000002
+      groupInterval: 6
+      groupSize: 29
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.75000006
+      groupInterval: 7
+      groupSize: 30
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.75000006
+      groupInterval: 4
+      groupSize: 31
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 1
+      firstSpawnDelay: 0
+      spawnInterval: 0.74000007
+      groupInterval: 4
+      groupSize: 28
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 1.2
+      spawnInterval: 2.9600003
+      groupInterval: 5
+      groupSize: 29
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.74000007
+      groupInterval: 6
+      groupSize: 30
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.74000007
+      groupInterval: 7
+      groupSize: 31
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.74000007
+      groupInterval: 4
+      groupSize: 32
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 2
+      firstSpawnDelay: 0
+      spawnInterval: 2.9200003
+      groupInterval: 4
+      groupSize: 28
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.7300001
+      groupInterval: 5
+      groupSize: 29
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.7300001
+      groupInterval: 6
+      groupSize: 30
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.7300001
+      groupInterval: 7
+      groupSize: 31
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.7300001
+      groupInterval: 4
+      groupSize: 32
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 3
+      firstSpawnDelay: 0
+      spawnInterval: 0.72
+      groupInterval: 4
+      groupSize: 29
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.72
+      groupInterval: 5
+      groupSize: 30
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.72
+      groupInterval: 6
+      groupSize: 31
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.72
+      groupInterval: 7
+      groupSize: 32
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.72
+      groupInterval: 4
+      groupSize: 33
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 9
+      firstSpawnDelay: 1
+      spawnInterval: 0
+      groupInterval: 999
+      groupSize: 1
+      boss: 1
+    - enemyType: 5
+      firstSpawnDelay: 1
+      spawnInterval: 0.51
+      groupInterval: 5
+      groupSize: 22
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 2
+      spawnInterval: 0.51
+      groupInterval: 6
+      groupSize: 22
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 3
+      spawnInterval: 0.51
+      groupInterval: 4
+      groupSize: 22
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 4
+      spawnInterval: 0.51
+      groupInterval: 5
+      groupSize: 22
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 5
+      firstSpawnDelay: 0
+      spawnInterval: 0.70000005
+      groupInterval: 4
+      groupSize: 30
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.70000005
+      groupInterval: 5
+      groupSize: 31
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.70000005
+      groupInterval: 6
+      groupSize: 32
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.70000005
+      groupInterval: 7
+      groupSize: 33
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.70000005
+      groupInterval: 4
+      groupSize: 34
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 6
+      firstSpawnDelay: 0
+      spawnInterval: 0.69000006
+      groupInterval: 4
+      groupSize: 30
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.69000006
+      groupInterval: 5
+      groupSize: 31
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.69000006
+      groupInterval: 6
+      groupSize: 32
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.69000006
+      groupInterval: 7
+      groupSize: 33
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.69000006
+      groupInterval: 4
+      groupSize: 34
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 7
+      firstSpawnDelay: 0
+      spawnInterval: 0.68000007
+      groupInterval: 4
+      groupSize: 31
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.68000007
+      groupInterval: 5
+      groupSize: 32
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.68000007
+      groupInterval: 6
+      groupSize: 33
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.68000007
+      groupInterval: 7
+      groupSize: 34
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 4.8
+      spawnInterval: 2.7200003
+      groupInterval: 4
+      groupSize: 35
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 8
+      firstSpawnDelay: 0
+      spawnInterval: 0.6700001
+      groupInterval: 4
+      groupSize: 31
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.6700001
+      groupInterval: 5
+      groupSize: 32
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.6700001
+      groupInterval: 6
+      groupSize: 33
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 2.6800003
+      groupInterval: 7
+      groupSize: 34
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.6700001
+      groupInterval: 4
+      groupSize: 35
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 0
+      firstSpawnDelay: 0
+      spawnInterval: 0.6600001
+      groupInterval: 4
+      groupSize: 32
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.6600001
+      groupInterval: 5
+      groupSize: 33
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 2.4
+      spawnInterval: 2.6400003
+      groupInterval: 6
+      groupSize: 34
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.6600001
+      groupInterval: 7
+      groupSize: 35
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.6600001
+      groupInterval: 4
+      groupSize: 36
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 1
+      firstSpawnDelay: 0
+      spawnInterval: 0.65000004
+      groupInterval: 4
+      groupSize: 32
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 1.2
+      spawnInterval: 2.6000001
+      groupInterval: 5
+      groupSize: 33
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.65000004
+      groupInterval: 6
+      groupSize: 34
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.65000004
+      groupInterval: 7
+      groupSize: 35
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.65000004
+      groupInterval: 4
+      groupSize: 36
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 2
+      firstSpawnDelay: 0
+      spawnInterval: 2.5600002
+      groupInterval: 4
+      groupSize: 33
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.64000005
+      groupInterval: 5
+      groupSize: 34
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.64000005
+      groupInterval: 6
+      groupSize: 35
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.64000005
+      groupInterval: 7
+      groupSize: 36
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.64000005
+      groupInterval: 4
+      groupSize: 37
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 3
+      firstSpawnDelay: 0
+      spawnInterval: 0.63000005
+      groupInterval: 4
+      groupSize: 33
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.63000005
+      groupInterval: 5
+      groupSize: 34
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.63000005
+      groupInterval: 6
+      groupSize: 35
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.63000005
+      groupInterval: 7
+      groupSize: 36
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.63000005
+      groupInterval: 4
+      groupSize: 37
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 4
+      firstSpawnDelay: 0
+      spawnInterval: 0.62000006
+      groupInterval: 4
+      groupSize: 34
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.62000006
+      groupInterval: 5
+      groupSize: 35
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.62000006
+      groupInterval: 6
+      groupSize: 36
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.62000006
+      groupInterval: 7
+      groupSize: 37
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.62000006
+      groupInterval: 4
+      groupSize: 38
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 10
+      firstSpawnDelay: 1
+      spawnInterval: 0
+      groupInterval: 999
+      groupSize: 1
+      boss: 1
+    - enemyType: 6
+      firstSpawnDelay: 1
+      spawnInterval: 0.41000003
+      groupInterval: 5
+      groupSize: 25
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 2
+      spawnInterval: 0.41000003
+      groupInterval: 6
+      groupSize: 25
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 3
+      spawnInterval: 0.41000003
+      groupInterval: 4
+      groupSize: 25
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 4
+      spawnInterval: 0.41000003
+      groupInterval: 5
+      groupSize: 25
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 6
+      firstSpawnDelay: 0
+      spawnInterval: 0.6000001
+      groupInterval: 4
+      groupSize: 35
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.6000001
+      groupInterval: 5
+      groupSize: 36
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.6000001
+      groupInterval: 6
+      groupSize: 37
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.6000001
+      groupInterval: 7
+      groupSize: 38
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.6000001
+      groupInterval: 4
+      groupSize: 39
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 7
+      firstSpawnDelay: 0
+      spawnInterval: 0.59000003
+      groupInterval: 4
+      groupSize: 35
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.59000003
+      groupInterval: 5
+      groupSize: 36
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.59000003
+      groupInterval: 6
+      groupSize: 37
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.59000003
+      groupInterval: 7
+      groupSize: 38
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 4.8
+      spawnInterval: 2.3600001
+      groupInterval: 4
+      groupSize: 39
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 8
+      firstSpawnDelay: 0
+      spawnInterval: 0.58000004
+      groupInterval: 4
+      groupSize: 36
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.58000004
+      groupInterval: 5
+      groupSize: 37
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.58000004
+      groupInterval: 6
+      groupSize: 38
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 2.3200002
+      groupInterval: 7
+      groupSize: 39
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.58000004
+      groupInterval: 4
+      groupSize: 40
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 0
+      firstSpawnDelay: 0
+      spawnInterval: 0.57000005
+      groupInterval: 4
+      groupSize: 36
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.57000005
+      groupInterval: 5
+      groupSize: 37
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 2.4
+      spawnInterval: 2.2800002
+      groupInterval: 6
+      groupSize: 38
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.57000005
+      groupInterval: 7
+      groupSize: 39
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.57000005
+      groupInterval: 4
+      groupSize: 40
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 1
+      firstSpawnDelay: 0
+      spawnInterval: 0.56000006
+      groupInterval: 4
+      groupSize: 37
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 1.2
+      spawnInterval: 2.2400002
+      groupInterval: 5
+      groupSize: 38
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.56000006
+      groupInterval: 6
+      groupSize: 39
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.56000006
+      groupInterval: 7
+      groupSize: 40
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.56000006
+      groupInterval: 4
+      groupSize: 41
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 2
+      firstSpawnDelay: 0
+      spawnInterval: 2.2000003
+      groupInterval: 4
+      groupSize: 37
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.5500001
+      groupInterval: 5
+      groupSize: 38
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.5500001
+      groupInterval: 6
+      groupSize: 39
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.5500001
+      groupInterval: 7
+      groupSize: 40
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.5500001
+      groupInterval: 4
+      groupSize: 41
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 3
+      firstSpawnDelay: 0
+      spawnInterval: 0.5400001
+      groupInterval: 4
+      groupSize: 38
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.5400001
+      groupInterval: 5
+      groupSize: 39
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.5400001
+      groupInterval: 6
+      groupSize: 40
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.5400001
+      groupInterval: 7
+      groupSize: 41
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.5400001
+      groupInterval: 4
+      groupSize: 42
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 4
+      firstSpawnDelay: 0
+      spawnInterval: 0.5300001
+      groupInterval: 4
+      groupSize: 38
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.5300001
+      groupInterval: 5
+      groupSize: 39
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.5300001
+      groupInterval: 6
+      groupSize: 40
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.5300001
+      groupInterval: 7
+      groupSize: 41
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.5300001
+      groupInterval: 4
+      groupSize: 42
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 5
+      firstSpawnDelay: 0
+      spawnInterval: 0.52000004
+      groupInterval: 4
+      groupSize: 39
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.52000004
+      groupInterval: 5
+      groupSize: 40
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.52000004
+      groupInterval: 6
+      groupSize: 41
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.52000004
+      groupInterval: 7
+      groupSize: 42
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.52000004
+      groupInterval: 4
+      groupSize: 43
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 11
+      firstSpawnDelay: 1
+      spawnInterval: 0
+      groupInterval: 999
+      groupSize: 1
+      boss: 1
+    - enemyType: 7
+      firstSpawnDelay: 1
+      spawnInterval: 0.31
+      groupInterval: 5
+      groupSize: 29
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 2
+      spawnInterval: 0.31
+      groupInterval: 6
+      groupSize: 29
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 3
+      spawnInterval: 0.31
+      groupInterval: 4
+      groupSize: 29
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 4
+      spawnInterval: 0.31
+      groupInterval: 5
+      groupSize: 29
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 7
+      firstSpawnDelay: 0
+      spawnInterval: 0.50000006
+      groupInterval: 4
+      groupSize: 40
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.50000006
+      groupInterval: 5
+      groupSize: 41
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.50000006
+      groupInterval: 6
+      groupSize: 42
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.50000006
+      groupInterval: 7
+      groupSize: 43
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 4.8
+      spawnInterval: 2.0000002
+      groupInterval: 4
+      groupSize: 44
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 6
+      spawnInterval: 0.50000006
+      groupInterval: 5
+      groupSize: 45
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 8
+      firstSpawnDelay: 0
+      spawnInterval: 0.49000007
+      groupInterval: 4
+      groupSize: 40
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.49000007
+      groupInterval: 5
+      groupSize: 41
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.49000007
+      groupInterval: 6
+      groupSize: 42
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 1.9600003
+      groupInterval: 7
+      groupSize: 43
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.49000007
+      groupInterval: 4
+      groupSize: 44
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 6
+      spawnInterval: 0.49000007
+      groupInterval: 5
+      groupSize: 45
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 0
+      firstSpawnDelay: 0
+      spawnInterval: 0.48000008
+      groupInterval: 4
+      groupSize: 41
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.48000008
+      groupInterval: 5
+      groupSize: 42
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 2.4
+      spawnInterval: 1.9200003
+      groupInterval: 6
+      groupSize: 43
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.48000008
+      groupInterval: 7
+      groupSize: 44
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.48000008
+      groupInterval: 4
+      groupSize: 45
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 6
+      spawnInterval: 0.48000008
+      groupInterval: 5
+      groupSize: 46
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 1
+      firstSpawnDelay: 0
+      spawnInterval: 0.47000006
+      groupInterval: 4
+      groupSize: 41
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 1.2
+      spawnInterval: 1.8800002
+      groupInterval: 5
+      groupSize: 42
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.47000006
+      groupInterval: 6
+      groupSize: 43
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.47000006
+      groupInterval: 7
+      groupSize: 44
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.47000006
+      groupInterval: 4
+      groupSize: 45
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 6
+      spawnInterval: 0.47000006
+      groupInterval: 5
+      groupSize: 46
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 2
+      firstSpawnDelay: 0
+      spawnInterval: 1.8400003
+      groupInterval: 4
+      groupSize: 42
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.46000007
+      groupInterval: 5
+      groupSize: 43
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.46000007
+      groupInterval: 6
+      groupSize: 44
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.46000007
+      groupInterval: 7
+      groupSize: 45
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.46000007
+      groupInterval: 4
+      groupSize: 46
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 6
+      spawnInterval: 0.46000007
+      groupInterval: 5
+      groupSize: 47
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 3
+      firstSpawnDelay: 0
+      spawnInterval: 0.45000008
+      groupInterval: 4
+      groupSize: 42
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.45000008
+      groupInterval: 5
+      groupSize: 43
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.45000008
+      groupInterval: 6
+      groupSize: 44
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.45000008
+      groupInterval: 7
+      groupSize: 45
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.45000008
+      groupInterval: 4
+      groupSize: 46
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 6
+      spawnInterval: 0.45000008
+      groupInterval: 5
+      groupSize: 47
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 4
+      firstSpawnDelay: 0
+      spawnInterval: 0.44000006
+      groupInterval: 4
+      groupSize: 43
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.44000006
+      groupInterval: 5
+      groupSize: 44
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.44000006
+      groupInterval: 6
+      groupSize: 45
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.44000006
+      groupInterval: 7
+      groupSize: 46
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.44000006
+      groupInterval: 4
+      groupSize: 47
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 6
+      spawnInterval: 0.44000006
+      groupInterval: 5
+      groupSize: 48
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 5
+      firstSpawnDelay: 0
+      spawnInterval: 0.43000007
+      groupInterval: 4
+      groupSize: 43
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.43000007
+      groupInterval: 5
+      groupSize: 44
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.43000007
+      groupInterval: 6
+      groupSize: 45
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.43000007
+      groupInterval: 7
+      groupSize: 46
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.43000007
+      groupInterval: 4
+      groupSize: 47
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 6
+      spawnInterval: 0.43000007
+      groupInterval: 5
+      groupSize: 48
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 6
+      firstSpawnDelay: 0
+      spawnInterval: 0.42000008
+      groupInterval: 4
+      groupSize: 44
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.42000008
+      groupInterval: 5
+      groupSize: 45
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.42000008
+      groupInterval: 6
+      groupSize: 46
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.42000008
+      groupInterval: 7
+      groupSize: 47
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.42000008
+      groupInterval: 4
+      groupSize: 48
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 6
+      spawnInterval: 1.6800003
+      groupInterval: 5
+      groupSize: 49
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 12
+      firstSpawnDelay: 1
+      spawnInterval: 0
+      groupInterval: 999
+      groupSize: 1
+      boss: 1
+    - enemyType: 8
+      firstSpawnDelay: 1
+      spawnInterval: 0.21000002
+      groupInterval: 5
+      groupSize: 32
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 2
+      spawnInterval: 0.21000002
+      groupInterval: 6
+      groupSize: 32
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 3
+      spawnInterval: 0.21000002
+      groupInterval: 4
+      groupSize: 32
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 4
+      spawnInterval: 0.8400001
+      groupInterval: 5
+      groupSize: 32
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 5
+      spawnInterval: 0.21000002
+      groupInterval: 6
+      groupSize: 32
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 8
+      firstSpawnDelay: 0
+      spawnInterval: 0.40000007
+      groupInterval: 4
+      groupSize: 45
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.40000007
+      groupInterval: 5
+      groupSize: 46
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.40000007
+      groupInterval: 6
+      groupSize: 47
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 1.6000003
+      groupInterval: 7
+      groupSize: 48
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.40000007
+      groupInterval: 4
+      groupSize: 49
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 6
+      spawnInterval: 0.40000007
+      groupInterval: 5
+      groupSize: 50
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 0
+      firstSpawnDelay: 0
+      spawnInterval: 0.39000008
+      groupInterval: 4
+      groupSize: 45
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.39000008
+      groupInterval: 5
+      groupSize: 46
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 2.4
+      spawnInterval: 1.5600003
+      groupInterval: 6
+      groupSize: 47
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.39000008
+      groupInterval: 7
+      groupSize: 48
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.39000008
+      groupInterval: 4
+      groupSize: 49
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 6
+      spawnInterval: 0.39000008
+      groupInterval: 5
+      groupSize: 50
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 1
+      firstSpawnDelay: 0
+      spawnInterval: 0.38000005
+      groupInterval: 4
+      groupSize: 46
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 1.2
+      spawnInterval: 1.5200002
+      groupInterval: 5
+      groupSize: 47
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.38000005
+      groupInterval: 6
+      groupSize: 48
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.38000005
+      groupInterval: 7
+      groupSize: 49
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.38000005
+      groupInterval: 4
+      groupSize: 50
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 6
+      spawnInterval: 0.38000005
+      groupInterval: 5
+      groupSize: 51
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 2
+      firstSpawnDelay: 0
+      spawnInterval: 1.4800003
+      groupInterval: 4
+      groupSize: 46
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.37000006
+      groupInterval: 5
+      groupSize: 47
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.37000006
+      groupInterval: 6
+      groupSize: 48
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.37000006
+      groupInterval: 7
+      groupSize: 49
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.37000006
+      groupInterval: 4
+      groupSize: 50
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 6
+      spawnInterval: 0.37000006
+      groupInterval: 5
+      groupSize: 51
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 3
+      firstSpawnDelay: 0
+      spawnInterval: 0.36000007
+      groupInterval: 4
+      groupSize: 47
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.36000007
+      groupInterval: 5
+      groupSize: 48
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.36000007
+      groupInterval: 6
+      groupSize: 49
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.36000007
+      groupInterval: 7
+      groupSize: 50
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.36000007
+      groupInterval: 4
+      groupSize: 51
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 6
+      spawnInterval: 0.36000007
+      groupInterval: 5
+      groupSize: 52
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 4
+      firstSpawnDelay: 0
+      spawnInterval: 0.35000005
+      groupInterval: 4
+      groupSize: 47
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.35000005
+      groupInterval: 5
+      groupSize: 48
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.35000005
+      groupInterval: 6
+      groupSize: 49
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.35000005
+      groupInterval: 7
+      groupSize: 50
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.35000005
+      groupInterval: 4
+      groupSize: 51
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 6
+      spawnInterval: 0.35000005
+      groupInterval: 5
+      groupSize: 52
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 5
+      firstSpawnDelay: 0
+      spawnInterval: 0.34000006
+      groupInterval: 4
+      groupSize: 48
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.34000006
+      groupInterval: 5
+      groupSize: 49
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.34000006
+      groupInterval: 6
+      groupSize: 50
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.34000006
+      groupInterval: 7
+      groupSize: 51
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.34000006
+      groupInterval: 4
+      groupSize: 52
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 6
+      spawnInterval: 0.34000006
+      groupInterval: 5
+      groupSize: 53
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 6
+      firstSpawnDelay: 0
+      spawnInterval: 0.33000007
+      groupInterval: 4
+      groupSize: 48
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.33000007
+      groupInterval: 5
+      groupSize: 49
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.33000007
+      groupInterval: 6
+      groupSize: 50
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.33000007
+      groupInterval: 7
+      groupSize: 51
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.33000007
+      groupInterval: 4
+      groupSize: 52
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 6
+      spawnInterval: 1.3200003
+      groupInterval: 5
+      groupSize: 53
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 7
+      firstSpawnDelay: 0
+      spawnInterval: 0.32000005
+      groupInterval: 4
+      groupSize: 49
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.32000005
+      groupInterval: 5
+      groupSize: 50
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.32000005
+      groupInterval: 6
+      groupSize: 51
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.32000005
+      groupInterval: 7
+      groupSize: 52
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 4.8
+      spawnInterval: 1.2800002
+      groupInterval: 4
+      groupSize: 53
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 6
+      spawnInterval: 0.32000005
+      groupInterval: 5
+      groupSize: 54
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 9
+      firstSpawnDelay: 1
+      spawnInterval: 0
+      groupInterval: 999
+      groupSize: 1
+      boss: 1
+    - enemyType: 0
+      firstSpawnDelay: 1
+      spawnInterval: 0.2
+      groupInterval: 5
+      groupSize: 35
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 2
+      spawnInterval: 0.2
+      groupInterval: 6
+      groupSize: 35
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 3
+      spawnInterval: 0.8
+      groupInterval: 4
+      groupSize: 35
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 4
+      spawnInterval: 0.2
+      groupInterval: 5
+      groupSize: 35
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 5
+      spawnInterval: 0.2
+      groupInterval: 6
+      groupSize: 35
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 0
+      firstSpawnDelay: 0
+      spawnInterval: 0.30000007
+      groupInterval: 4
+      groupSize: 50
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.30000007
+      groupInterval: 5
+      groupSize: 51
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 2.4
+      spawnInterval: 1.2000003
+      groupInterval: 6
+      groupSize: 52
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.30000007
+      groupInterval: 7
+      groupSize: 53
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.30000007
+      groupInterval: 4
+      groupSize: 54
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 6
+      spawnInterval: 0.30000007
+      groupInterval: 5
+      groupSize: 55
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 1
+      firstSpawnDelay: 0
+      spawnInterval: 0.29000008
+      groupInterval: 4
+      groupSize: 50
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 1.2
+      spawnInterval: 1.1600003
+      groupInterval: 5
+      groupSize: 51
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.29000008
+      groupInterval: 6
+      groupSize: 52
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.29000008
+      groupInterval: 7
+      groupSize: 53
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.29000008
+      groupInterval: 4
+      groupSize: 54
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 6
+      spawnInterval: 0.29000008
+      groupInterval: 5
+      groupSize: 55
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 2
+      firstSpawnDelay: 0
+      spawnInterval: 1.1200002
+      groupInterval: 4
+      groupSize: 51
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.28000006
+      groupInterval: 5
+      groupSize: 52
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.28000006
+      groupInterval: 6
+      groupSize: 53
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.28000006
+      groupInterval: 7
+      groupSize: 54
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.28000006
+      groupInterval: 4
+      groupSize: 55
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 6
+      spawnInterval: 0.28000006
+      groupInterval: 5
+      groupSize: 56
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 3
+      firstSpawnDelay: 0
+      spawnInterval: 0.27000007
+      groupInterval: 4
+      groupSize: 51
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.27000007
+      groupInterval: 5
+      groupSize: 52
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.27000007
+      groupInterval: 6
+      groupSize: 53
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.27000007
+      groupInterval: 7
+      groupSize: 54
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.27000007
+      groupInterval: 4
+      groupSize: 55
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 6
+      spawnInterval: 0.27000007
+      groupInterval: 5
+      groupSize: 56
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 4
+      firstSpawnDelay: 0
+      spawnInterval: 0.26000008
+      groupInterval: 4
+      groupSize: 52
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.26000008
+      groupInterval: 5
+      groupSize: 53
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.26000008
+      groupInterval: 6
+      groupSize: 54
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.26000008
+      groupInterval: 7
+      groupSize: 55
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.26000008
+      groupInterval: 4
+      groupSize: 56
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 6
+      spawnInterval: 0.26000008
+      groupInterval: 5
+      groupSize: 57
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 5
+      firstSpawnDelay: 0
+      spawnInterval: 0.25000006
+      groupInterval: 4
+      groupSize: 52
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.25000006
+      groupInterval: 5
+      groupSize: 53
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.25000006
+      groupInterval: 6
+      groupSize: 54
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.25000006
+      groupInterval: 7
+      groupSize: 55
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.25000006
+      groupInterval: 4
+      groupSize: 56
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 6
+      spawnInterval: 0.25000006
+      groupInterval: 5
+      groupSize: 57
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 6
+      firstSpawnDelay: 0
+      spawnInterval: 0.24000007
+      groupInterval: 4
+      groupSize: 53
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.24000007
+      groupInterval: 5
+      groupSize: 54
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.24000007
+      groupInterval: 6
+      groupSize: 55
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.24000007
+      groupInterval: 7
+      groupSize: 56
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.24000007
+      groupInterval: 4
+      groupSize: 57
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 6
+      spawnInterval: 0.9600003
+      groupInterval: 5
+      groupSize: 58
+      boss: 0
+  - delay: 7.5
+    enemyGroups:
+    - enemyType: 7
+      firstSpawnDelay: 0
+      spawnInterval: 0.23000006
+      groupInterval: 4
+      groupSize: 53
+      boss: 0
+    - enemyType: 8
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.23000006
+      groupInterval: 5
+      groupSize: 54
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.23000006
+      groupInterval: 6
+      groupSize: 55
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.23000006
+      groupInterval: 7
+      groupSize: 56
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.92000026
+      groupInterval: 4
+      groupSize: 57
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 6
+      spawnInterval: 0.23000006
+      groupInterval: 5
+      groupSize: 58
+      boss: 0
+  - delay: 9
+    enemyGroups:
+    - enemyType: 8
+      firstSpawnDelay: 0
+      spawnInterval: 0.22000007
+      groupInterval: 4
+      groupSize: 54
+      boss: 0
+    - enemyType: 0
+      firstSpawnDelay: 1.2
+      spawnInterval: 0.22000007
+      groupInterval: 5
+      groupSize: 55
+      boss: 0
+    - enemyType: 1
+      firstSpawnDelay: 2.4
+      spawnInterval: 0.22000007
+      groupInterval: 6
+      groupSize: 56
+      boss: 0
+    - enemyType: 2
+      firstSpawnDelay: 3.6000001
+      spawnInterval: 0.8800003
+      groupInterval: 7
+      groupSize: 57
+      boss: 0
+    - enemyType: 3
+      firstSpawnDelay: 4.8
+      spawnInterval: 0.22000007
+      groupInterval: 4
+      groupSize: 58
+      boss: 0
+    - enemyType: 4
+      firstSpawnDelay: 6
+      spawnInterval: 0.22000007
+      groupInterval: 5
+      groupSize: 59
+      boss: 0
+  - delay: 6
+    enemyGroups:
+    - enemyType: 9
+      firstSpawnDelay: 0
+      spawnInterval: 0
+      groupInterval: 999
+      groupSize: 1
+      boss: 1
+    - enemyType: 10
+      firstSpawnDelay: 2
+      spawnInterval: 0
+      groupInterval: 999
+      groupSize: 1
+      boss: 1
+    - enemyType: 11
+      firstSpawnDelay: 4
+      spawnInterval: 0
+      groupInterval: 999
+      groupSize: 1
+      boss: 1
+    - enemyType: 12
+      firstSpawnDelay: 6
+      spawnInterval: 0
+      groupInterval: 999
+      groupSize: 1
+      boss: 1
+    - enemyType: 4
+      firstSpawnDelay: 0
+      spawnInterval: 0.4
+      groupInterval: 4
+      groupSize: 53
+      boss: 0
+    - enemyType: 5
+      firstSpawnDelay: 1.5
+      spawnInterval: 0.4
+      groupInterval: 4
+      groupSize: 53
+      boss: 0
+    - enemyType: 6
+      firstSpawnDelay: 3
+      spawnInterval: 0.4
+      groupInterval: 4
+      groupSize: 53
+      boss: 0
+    - enemyType: 7
+      firstSpawnDelay: 4.5
+      spawnInterval: 0.4
+      groupInterval: 4
+      groupSize: 53
       boss: 0
   autoplay: 1
   startAvailable: 1

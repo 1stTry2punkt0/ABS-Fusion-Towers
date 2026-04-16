@@ -85,7 +85,7 @@ public class TowerMenu : MonoBehaviour
 
     private void UpdateUpgrades()
     {
-        Debug.Log("Updating upgrades for " + selectedTower.name + " With Level: " + selectedTower.level);
+        //Debug.Log("Updating upgrades for " + selectedTower.name + " With Level: " + selectedTower.level);
         level.text = "Level: " + selectedTower.level;
         for (int i = 0; i < upgradeProgress.Length; i++)
         {

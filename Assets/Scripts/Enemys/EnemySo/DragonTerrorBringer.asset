@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: DragonTerrorBringer
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStatSO
   enemyType: 11
-  maxHp: 160
-  baseHp: 160
+  maxHp: 838.39996
+  baseHp: 320
   hpScale: 0.08
-  amor: 45
+  amor: 90
   baseAmor: 45
   amorScale: 0.07
-  resistance: 35
+  resistance: 90
   baseResistance: 35
   resistanceScale: 0.06
-  speed: 1.7
+  speed: 6.2050004
   baseSpeed: 1.7
   speedScale: 0.05
   moveType: 1

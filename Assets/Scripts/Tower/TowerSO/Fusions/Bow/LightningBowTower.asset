@@ -43,5 +43,5 @@ MonoBehaviour:
   fusionCost:
     amount: 0
     ressourceType: 0
-  dmgMultiplierForEffect: 0.1
+  dmgMultiplierForEffect: 0.4
   effectMultiplierForDmg: 1

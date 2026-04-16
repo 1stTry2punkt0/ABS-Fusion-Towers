@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: DragonNightmare
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStatSO
   enemyType: 9
-  maxHp: 200
-  baseHp: 200
+  maxHp: 1260
+  baseHp: 400
   hpScale: 0.1
-  amor: 40
+  amor: 90
   baseAmor: 40
   amorScale: 0.1
-  resistance: 40
+  resistance: 90
   baseResistance: 40
   resistanceScale: 0.1
-  speed: 2
+  speed: 7.3
   baseSpeed: 2
   speedScale: 0.05
   moveType: 0

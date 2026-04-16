@@ -9,16 +9,16 @@ public class BowFusionSO : TowerStatSO
     public void SetStats(BaseTower tower, ElementalTower elemental)
     {
         baseDamage = tower.damage + elemental.effectiveness * effectMultiplierForDmg;
-        Debug.Log("Base Damage Increase: " + elemental.effectiveness * effectMultiplierForDmg);
-        baseAttackSpeed = tower.attackSpeed + duration * 0.5f;
-        Debug.Log("Base Attack Speed Increase: " + duration * 0.5f);
+        Debug.Log("Base Damage Increase by: " + elemental.effectiveness * effectMultiplierForDmg + " to: " + baseDamage);
+        baseAttackSpeed = tower.attackSpeed + elemental.duration * 0.2f;
+        Debug.Log("Base Attack Speed Increase by: " + elemental.duration * 0.2f + " to: " + baseAttackSpeed);
         baseRange = tower.range;
 
         baseDamageRange = tower.damageRange;
 
-        duration = elemental.duration + tower.attackSpeed * 0.5f;
-        Debug.Log("Duration Increase: " + tower.attackSpeed * 0.5f);
+        duration = elemental.duration + tower.attackSpeed * 0.7f;
+        Debug.Log("Duration Increase by: " + tower.attackSpeed * 0.7f + " to: " + duration);
         effectiveness = elemental.effectiveness + tower.damage * dmgMultiplierForEffect;
-        Debug.Log("Effectiveness Increase: " + tower.damage * dmgMultiplierForEffect);
+        Debug.Log("Effectiveness Increase by: " + tower.damage * dmgMultiplierForEffect + " to: " + effectiveness);
     }
 }

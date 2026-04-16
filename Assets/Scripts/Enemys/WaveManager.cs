@@ -46,7 +46,19 @@ public class WaveManager : MonoBehaviour
         merchant.StopMerchant();
 
         currentWave = 0;
-        lastWave = waves.Length;
+        switch (SaveDataHolder.instance.loadedState.difficultyIndex)
+        {
+            case 0:
+                lastWave = 60;
+                break;
+            case 1:
+                lastWave = 80;
+                break;
+            case 2:
+                lastWave = 100;
+                break;
+        }
+
         startAvailable = true;
         startAvailableImage.SetActive(true);
         UpdateUI(currentWave);
