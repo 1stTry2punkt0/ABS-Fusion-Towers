@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3475751833920023712}
-  - component: {fileID: 3775799763697172627}
+  - component: {fileID: -4776891465981589053}
   - component: {fileID: 5589710975400816491}
   - component: {fileID: -4233774549520181633}
   m_Layer: 6
@@ -36,7 +36,7 @@ Transform:
   - {fileID: 5160909243456886854}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3775799763697172627
+--- !u!114 &-4776891465981589053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,9 +45,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4864677678519958399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 178442190e5ea664999747045a435894, type: 3}
+  m_Script: {fileID: 11500000, guid: ae2d29ff24b554e46b4ad553e773c34e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  m_EditorClassIdentifier: Assembly-CSharp::SoulEater
   stats: {fileID: 11400000, guid: 8664380f4a6347646a9fe7174524a75b, type: 2}
   currentHealth: 0
   heightOffset: 0
@@ -55,6 +55,15 @@ MonoBehaviour:
   currentWaypointIndex: 0
   distanceToTarget: 0
   hitTransform: {fileID: 0}
+  defenseBuff: 0
+  speedBuff: 0
+  auraRadius: 15
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  animator: {fileID: 2418037067242527319}
+  screamSound: {fileID: 8300000, guid: 21702e360173e4a6a96da1479aa82615, type: 3}
+  buffAmount: 25
 --- !u!136 &5589710975400816491
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -216,5 +225,10 @@ PrefabInstance:
 --- !u!4 &2418037067232746111 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 459364, guid: 70f277dcf2cdfdd4db7ee0ca76e07767, type: 3}
+  m_PrefabInstance: {fileID: 2418037067232942107}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2418037067242527319 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9585228, guid: 70f277dcf2cdfdd4db7ee0ca76e07767, type: 3}
   m_PrefabInstance: {fileID: 2418037067232942107}
   m_PrefabAsset: {fileID: 0}

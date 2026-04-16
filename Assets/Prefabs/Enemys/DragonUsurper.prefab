@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3475751833920023712}
-  - component: {fileID: 3775799763697172627}
+  - component: {fileID: 6166272995266202620}
   - component: {fileID: 5589710975400816491}
   - component: {fileID: -4233774549520181633}
   m_Layer: 6
@@ -67,7 +67,7 @@ Transform:
   - {fileID: 885412098689652721}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3775799763697172627
+--- !u!114 &6166272995266202620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76,16 +76,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 4864677678519958399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 178442190e5ea664999747045a435894, type: 3}
+  m_Script: {fileID: 11500000, guid: b45f2c3cf754eae4fb377ac1d8bf7370, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  m_EditorClassIdentifier: Assembly-CSharp::Ursuper
   stats: {fileID: 11400000, guid: 72e53b81ff6e28b46814327150f0e2d7, type: 2}
   currentHealth: 0
   heightOffset: 0
-  movementEnabled: 1
+  movementEnabled: 0
   currentWaypointIndex: 0
   distanceToTarget: 0
   hitTransform: {fileID: 0}
+  defenseBuff: 0
+  speedBuff: 0
+  auraRadius: 15
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  animator: {fileID: 1129885175275829274}
+  screamSound: {fileID: 8300000, guid: 98e09261f3a63460d93dda8792af907d, type: 3}
+  buffAmount: 1
 --- !u!136 &5589710975400816491
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -213,6 +222,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeb4794909bc89d43b72ad784903e0f5, type: 3}
+--- !u!95 &1129885175275829274 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9581600, guid: aeb4794909bc89d43b72ad784903e0f5, type: 3}
+  m_PrefabInstance: {fileID: 1129885175285124154}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1129885175285543242 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 425328, guid: aeb4794909bc89d43b72ad784903e0f5, type: 3}

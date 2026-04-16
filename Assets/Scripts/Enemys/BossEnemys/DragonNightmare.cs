@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class DragonNightmare : BossEnemy
 {
@@ -14,6 +13,8 @@ public class DragonNightmare : BossEnemy
             if(enemy.currentHealth > enemy.stats.maxHp)
                 enemy.currentHealth = enemy.stats.maxHp;
             //Maybe visualize heal
+            ParticlePoolObj effect = ParticleSpawnManager.instance.SpawnParticle(ParticleType.ShortBuff, enemy.hitTransform.position);
+            effect.StartCoroutine(effect.FollowTarget(enemy.hitTransform));
         }
         Invoke("EndEffect", 2.8f);
     }

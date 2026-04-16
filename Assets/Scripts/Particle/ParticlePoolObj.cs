@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -17,7 +18,7 @@ public class ParticlePoolObj : MonoBehaviour
 
     public float Play()
     {
-        if(particle != null)
+        if (particle != null)
             particle.Play();
         return duration;
     }
@@ -30,5 +31,17 @@ public class ParticlePoolObj : MonoBehaviour
     public void SetPool(ObjectPool<ParticlePoolObj> pool)
     {
         this.pool = pool;
+    }
+
+    public IEnumerator FollowTarget(Transform target)
+    {
+        while (target != null)
+        {
+            if(!target.gameObject.activeSelf)
+                target = null;
+            transform.position = target.position;
+            yield return null;
+        }
+        pool.Release(this);
     }
 }

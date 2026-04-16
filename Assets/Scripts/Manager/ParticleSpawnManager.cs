@@ -55,6 +55,7 @@ public class ParticleSpawnManager : MonoBehaviour
 
     private void OnRelease(ParticlePoolObj particle)
     {
+        particle.StopAllCoroutines();
         particle.gameObject.SetActive(false);
     }
 
@@ -97,4 +98,7 @@ public enum ParticleType
     IceExplosion,
     LightningExplosion,
     ChainLightning,
+    ShortBuff,
+    LongBuff,
+    ShortDebuff
 }

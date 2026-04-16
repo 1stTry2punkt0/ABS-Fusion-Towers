@@ -95,8 +95,8 @@ public class Bomb : Projectile
             {
                 parentTower.TargetHit(targetEnemy);
             }
-            if (!FindNextTarget())
-                Disable();// Return to pool after hitting the target
+            FindNextTarget();
+            Disable();// Return to pool after hitting the target
         }
     }
 }

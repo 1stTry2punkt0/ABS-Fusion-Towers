@@ -5,7 +5,7 @@ public abstract class BossEnemy : Enemy
     [SerializeField] protected float auraRadius;
     [SerializeField] protected LayerMask layerMask;
     [SerializeField] protected Animator animator;
-    private static readonly int AnimationHash = Animator.StringToHash("Action");
+    [SerializeField] protected AudioClip screamSound;
 
     public override void Initialize()
     {
@@ -24,12 +24,13 @@ public abstract class BossEnemy : Enemy
         Collider[] targets = Physics.OverlapSphere(transform.position, auraRadius, layerMask);
         //Animation controller Scream
         Animate(Animation.Scream);
+        //Play Scream Sound
+        AudioManager.instance.PlaySoundFXClip(screamSound, transform, 1f);
         AuraEffect(targets);
     }
 
     public void Animate(Animation animation)
     {
-        //animator.SetInteger(AnimationHash, animation);
         switch(animation)
         {
             case Animation.Walk:
@@ -48,6 +49,7 @@ public abstract class BossEnemy : Enemy
     {
         movementEnabled = false;
         Animate(Animation.Die);
+        AudioManager.instance.PlaySoundFXClip(screamSound, transform, 1f);
         Invoke("Disappear", 3f);
     }
 

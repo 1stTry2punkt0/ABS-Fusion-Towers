@@ -86,12 +86,15 @@ MonoBehaviour:
   currentWaypointIndex: 0
   distanceToTarget: 0
   hitTransform: {fileID: 0}
-  auraRadius: 10
+  defenseBuff: 0
+  speedBuff: 0
+  auraRadius: 20
   layerMask:
     serializedVersion: 2
     m_Bits: 64
   animator: {fileID: 5424271510839063954}
-  heal: 30
+  screamSound: {fileID: 8300000, guid: 21702e360173e4a6a96da1479aa82615, type: 3}
+  heal: 100
 --- !u!136 &5589710975400816491
 CapsuleCollider:
   m_ObjectHideFlags: 0

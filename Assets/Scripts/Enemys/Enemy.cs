@@ -12,16 +12,18 @@ public class Enemy : MonoBehaviour
     public float heightOffset;
     public bool isDead => currentHealth <= 0;
     private ObjectPool<Enemy> pool;
-    public bool movementEnabled = false;
-    public int currentWaypointIndex = 0;
-    public float distanceToTarget;
+    [HideInInspector] public bool movementEnabled = false;
+    [HideInInspector] public int currentWaypointIndex = 0;
+    [HideInInspector] public float distanceToTarget;
     private Vector3 targetPosition;
     public float progress => currentWaypointIndex * 100 - distanceToTarget;
     private float electrifyMultiplier = 1;
     private float freezeMultiplier = 1;
     private StatusEffectData[] statusEffectDatas;
     private Transform meshTransform;
-    public Transform hitTransform;
+    [HideInInspector] public Transform hitTransform;
+    public float defenseBuff = 0;
+    [HideInInspector] public float speedBuff = 0;
 
 
     private void Awake()
@@ -58,7 +60,7 @@ public class Enemy : MonoBehaviour
     {
         if (!movementEnabled) return;
 
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, stats.speed * freezeMultiplier * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, (stats.speed + speedBuff) * freezeMultiplier * Time.deltaTime);
         //Rotate towards the target position
         Vector3 direction = (targetPosition - transform.position).normalized;
         if (direction != Vector3.zero)
@@ -94,6 +96,8 @@ public class Enemy : MonoBehaviour
         }
         movementEnabled = false;
         currentHealth = 0;
+        speedBuff = 0;
+        defenseBuff = 0;
         WaveManager.instance.enemyCount--;
         pool.Release(this);
     }
@@ -138,7 +142,7 @@ public class Enemy : MonoBehaviour
                 electrifyDmg = damage * (1 - (stats.amor * electrifyMultiplier)/100) - damage * (1- stats.amor/100);
             Debug.Log("Electrify Dmg: " + electrifyDmg + ",amor is reduced from " + stats.amor + " to " + (stats.amor * electrifyMultiplier));
             Debug.Log("Damage before armor: " + damage);
-            damage *= 1 - stats.amor/100;
+            damage *= 1 - Mathf.Min((stats.amor + defenseBuff), 100)/100;
 
 
         }
@@ -147,7 +151,7 @@ public class Enemy : MonoBehaviour
             if (statusEffectDatas[(int)StatusEffect.electrify].isActive)
                 electrifyDmg = damage * (1 - (stats.resistance * electrifyMultiplier)/ 100) - damage * (1 - stats.resistance / 100);
             Debug.Log("Electrify Dmg: " + electrifyDmg + ",resistence is reduced from " + stats.resistance + " to " + (stats.resistance * electrifyMultiplier));
-            damage *= 1 - stats.resistance/ 100;
+            damage *= 1 - Mathf.Min((stats.resistance + defenseBuff), 100)/ 100;
         }
         if(damage > currentHealth)
         {
