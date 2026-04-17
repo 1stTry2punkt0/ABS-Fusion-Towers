@@ -38,6 +38,6 @@ public class LevelSelection : MonoBehaviour
     public void StartGame()
     {
         SaveDataHolder.instance.SaveData();
-        SceneManager.LoadScene(SaveDataHolder.instance.loadedState.mapIndex); //Load the selected level scene based on the map index stored in the loaded state
+        GetComponent<LoadingScreen>().LoadScene(SaveDataHolder.instance.loadedState.mapIndex, mapPreviews[SaveDataHolder.instance.loadedState.mapIndex - 1]); //Start loading the selected level scene with the corresponding map preview as the background
     }
 }

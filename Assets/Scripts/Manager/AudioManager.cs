@@ -13,6 +13,8 @@ public class AudioManager : MonoBehaviour
 
     [Header("Music")]
     private AudioSource backgroundMusic;
+    private bool playBackgroundMusic = true;
+    Coroutine backgroundMusicCoroutine;
     [SerializeField] private AudioClip[] musicClips;
 
     private void Awake()
@@ -25,7 +27,8 @@ public class AudioManager : MonoBehaviour
         backgroundMusic = GetComponent<AudioSource>();
 
         CreateSFXPool();
-        ChangeBackgroundMusic();
+        if(backgroundMusicCoroutine == null)
+            backgroundMusicCoroutine = StartCoroutine(BackgroundMusicLoop());
     }
 
     private void CreateSFXPool()
@@ -66,17 +69,27 @@ public class AudioManager : MonoBehaviour
         );
     }
 
-    public void ChangeBackgroundMusic()
+    public void PlayBackgroundMusic()
     {
-        CancelInvoke(nameof(ChangeBackgroundMusic));
+        if (backgroundMusicCoroutine == null)
+            backgroundMusicCoroutine = StartCoroutine(BackgroundMusicLoop());
+    }
 
-        int random = Random.Range(0, musicClips.Length);
-        backgroundMusic.clip = musicClips[random];
-        backgroundMusic.volume = 0.3f;
-        backgroundMusic.loop = false;
-        backgroundMusic.Play();
+    private IEnumerator BackgroundMusicLoop()
+    {
+        while (playBackgroundMusic)
+        {
+            int random = Random.Range(0, musicClips.Length);
+            backgroundMusic.clip = musicClips[random];
+            backgroundMusic.volume = 0.3f;
+            backgroundMusic.loop = false;
+            backgroundMusic.Play();
+            while (backgroundMusic.isPlaying)
+                yield return null;
+            backgroundMusic.Stop();
+            yield return new WaitForSeconds(0.5f); // kleine Sicherheitspause
 
-        Invoke(nameof(ChangeBackgroundMusic), musicClips[random].length);
+        }
     }
 
     public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume)

@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ElementalTower
   stats: {fileID: 11400000, guid: 36c2094e0b53bc143bbf9732a1c0f1f9, type: 2}
-  towerName: 0
+  towerName: 4
   level: 1
   optionlvl: 0000000000000000
   range: 0

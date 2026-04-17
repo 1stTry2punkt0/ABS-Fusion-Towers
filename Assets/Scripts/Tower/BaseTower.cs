@@ -23,7 +23,6 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
     public float effectiveness;
 
     public Cost sellValue { get; set; }            // Value returned to the player when selling the tower
-
     public bool canAttack = true;     // Global attack toggle
 
     public Transform shootPoint;
@@ -177,7 +176,7 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
 
     public void Upgrade(int index)
     {
-        if (level > 5)
+        if (level == 6 || level == 12)
             return;
         if (!RessourceManager.instance.SpendRessource(stats.upgradeCosts[index]))
         {
@@ -185,6 +184,7 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
             return;
         }
         sellValue.amount += Mathf.CeilToInt(stats.upgradeCosts[index].amount * 0.7f);
+        Debug.Log("Sell value increased to: " + sellValue.amount);
         UpgradeOption option = stats.upgradeOption[index];
         float increaseAmount = option.increaseAmount * GetMultipyer(optionlvl[index]);
         switch (option.statToUpgrade)
@@ -260,14 +260,18 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
         damageRange = stats.baseDamageRange;
         duration = stats.duration;
         effectiveness = stats.effectiveness;
-        sellValue = new Cost
+        if (sellValue == null)
         {
-            amount = stats.baseCost.amount,
-            ressourceType = stats.baseCost.ressourceType
-        };
-        sellValue.amount = Mathf.CeilToInt(sellValue.amount * 0.7f);
+            sellValue = new Cost
+            {
+                amount = stats.baseCost.amount,
+                ressourceType = stats.baseCost.ressourceType
+            };
+            sellValue.amount = Mathf.CeilToInt(sellValue.amount * 0.7f);
+        }
 
-
+        optionlvl[0] = 0;
+        optionlvl[1] = 0;
     }
 
 
@@ -314,7 +318,7 @@ public abstract class BaseTower : MonoBehaviour, IOnTopObj
 
     public void OnSelect()
     {
-        if(GameManager.instance.gameState == GameState.Fusing)
+        if(GameManager.instance.isFusing)
         {
             if(level != 6)
             {

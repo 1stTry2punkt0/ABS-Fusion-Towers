@@ -1,16 +1,39 @@
+using TMPro;
 using UnityEngine;
 
 public class BuildingMenu : MonoBehaviour
 {
     [SerializeField] GameObject menuPanel;
     [SerializeField] GameObject[] buildingMenus;//Reference to the building menu UI, set in inspector
+    [SerializeField] TextMeshProUGUI[] towerCost;
+    [SerializeField] TowerStatSO[] towerStats;
 
-    
+    private void Start()
+    {
+        menuPanel.SetActive(false);
+        for (int i = 0; i < towerCost.Length; i++)
+        {
+            towerCost[i].text = towerStats[i].baseCost.amount.ToString();
+        }
+    }
+
 
     public void OpenMenu(MapTile tile)
     {
         menuPanel.SetActive(true);
-        SwitchMenu(0);
+        switch (GameManager.instance.gameState)
+        {
+            case GameState.RoadBuilding:
+                SwitchMenu(0);
+                break;
+            case GameState.Preparing:
+            case GameState.Fighting:
+                SwitchMenu(1);
+                break;
+            default:
+                Debug.Log("not supposed to open building menu in this gameState");
+                break;
+        }
     }
 
     public void CloseMenu(bool shouldUnselect = false)

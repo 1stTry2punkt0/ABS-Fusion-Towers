@@ -8,6 +8,7 @@ public class TextSceneObject : MonoBehaviour
     [SerializeField] string germanText;
     
     private TMP_Text textObj; //Reference to the text object in scene
+    [SerializeField] private TextSO textData; //Reference to the text data scriptable object
 
     private void Awake()
     {
@@ -16,6 +17,12 @@ public class TextSceneObject : MonoBehaviour
         {
             textObj = GetComponent<TMP_Text>();
         }
+    }
+
+    private void Start()
+    {
+        if (textData != null)
+            SetText(textData);
     }
 
     private void OnEnable()

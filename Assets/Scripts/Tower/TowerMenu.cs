@@ -15,11 +15,15 @@ public class TowerMenu : MonoBehaviour
     [SerializeField] Image icon;
     [SerializeField] TextSceneObject nameText;
     [SerializeField] TextMeshProUGUI dmgDealt;
-    [SerializeField] TMPro.TextMeshProUGUI level;
+    [SerializeField] TextMeshProUGUI level;
+
     [SerializeField] Image[] upgradeProgress;
     [SerializeField] TextSceneObject[] upgradeProgressText;
+    [SerializeField] GameObject[] upgradeButton;
+    [SerializeField] Image[] upgradeRessource;
+    [SerializeField] Sprite[] ressourceIcon;
     [SerializeField] TowerUI[] towerUI;
-    [SerializeField] GameObject FusionUpgrade;
+    [SerializeField] GameObject fusionUpgrade;
 
     [HideInInspector]
     public BaseTower selectedTower;
@@ -98,14 +102,26 @@ public class TowerMenu : MonoBehaviour
                 upgradeProgress[i].fillAmount = 0;
             }
             upgradeProgressText[i].SetText(selectedTower.stats.upgradeOption[i].upgradeName);
+            upgradeRessource[i].sprite = ressourceIcon[(int)selectedTower.stats.upgradeCosts[i].ressourceType];
+            upgradeButton[i].GetComponentInChildren<TextMeshProUGUI>().text = selectedTower.stats.upgradeCosts[i].amount.ToString();
         }
-        if(selectedTower.level > 5)
+
+        if(selectedTower.level == 6)
         {
-            FusionUpgrade.SetActive(true);
+            fusionUpgrade.SetActive(true);
+            upgradeButton[0].SetActive(false);
+            upgradeButton[1].SetActive(false);
+        } else if (selectedTower.level == 12)
+        {
+            fusionUpgrade.SetActive(false);
+            upgradeButton[0].SetActive(false);
+            upgradeButton[1].SetActive(false);
         }
         else
         {
-            FusionUpgrade.SetActive(false);
+            fusionUpgrade.SetActive(false);
+            upgradeButton[0].SetActive(true);
+            upgradeButton[1].SetActive(true);
         }
     }
 

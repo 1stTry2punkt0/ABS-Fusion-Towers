@@ -65,6 +65,8 @@ public class Catapult : BaseTower
         fusionTower.SetStats(this, otherTower);
         stats = fusionTower;
         Initialize();
+        level = 7;
+        Debug.Log("Sellvalue: " + sellValue.amount);
     }
 
     private IEnumerator AnimateShuffle()

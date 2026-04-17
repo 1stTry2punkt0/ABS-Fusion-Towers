@@ -76,7 +76,7 @@ public class WaveManager : MonoBehaviour
     {
         if(GameManager.instance.gameState != GameState.Fighting)
         {
-            GameManager.instance.gameState = GameState.Fighting;
+            GameManager.instance.SetGameState(GameState.Fighting);
         }
         if (!startAvailable) return;
         startAvailable = false;

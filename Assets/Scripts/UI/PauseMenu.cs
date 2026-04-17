@@ -21,7 +21,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (!ctx.performed)
             return;
-        if(GameManager.instance.gameState == GameState.Fusing)
+        if(GameManager.instance.isFusing)
         {
             GameManager.instance.CancelFusion();
             return;
@@ -63,7 +63,7 @@ public class PauseMenu : MonoBehaviour
     {
         if(SaveDataHolder.instance !=null)
         SaveDataHolder.instance.SaveData();
-        SceneManager.LoadScene(0);
+        GetComponent<LoadingScreen>().LoadScene(0, null);
     }
 
     public void QuitGame()

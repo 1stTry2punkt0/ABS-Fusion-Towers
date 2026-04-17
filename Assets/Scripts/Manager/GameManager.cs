@@ -1,12 +1,16 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance; //Singleton instance to allow easy access to the GameManager from other scripts
 
     public GameState gameState;
+    [SerializeField] TextSceneObject gamestateText; //Reference to the text object that displays the current game state, set in inspector
+    [SerializeField] GameObject nextButton;
+    [SerializeField] TextSO[] gamestateSO;
 
     [SerializeField] MapManager mapManager; //Reference to the MapManager, set in inspector
     [SerializeField] BuildingMenu buildingMenu; //Reference to the BuildingMenu, set in inspector
@@ -23,6 +27,7 @@ public class GameManager : MonoBehaviour
     public BaseTower weaponFusion;
     public ElementalTower elementalFusion;
     [SerializeField] GameObject fusionOverlay;
+    public bool isFusing = false;
 
     public int wave => WaveManager.instance.currentWave;
     [SerializeField] private List<EnemySO> enemySOs; //List of enemy prefabs corresponding to the enemies array
@@ -89,13 +94,13 @@ public class GameManager : MonoBehaviour
         ressourceManager.SetDefault();
         WaveManager.instance.NewGame();
         UpgradeEnemys();
-        gameState = GameState.RoadBuilding;
+        SetGameState(GameState.RoadBuilding);
     }
 
     public void EndGame(bool won)
     {
         if (gameState == GameState.Ended) return;
-        gameState = GameState.Ended;
+        SetGameState(GameState.Ended);
         BaseTower valueTower = null;
         if (towerList.Count > 0)
         {
@@ -136,8 +141,8 @@ public class GameManager : MonoBehaviour
 
     public void Unselect()
     {
-        if (selectedTile!=null)
-        SelectTile(selectedTile);
+        if (selectedTile != null)
+            SelectTile(selectedTile);
     }
 
     public Vector3 GetWorldPosition(Vector2Int gridPos)
@@ -147,7 +152,7 @@ public class GameManager : MonoBehaviour
 
     public void BuildBuilding(int buildingIndex)
     {
-        if(gameState != GameState.RoadBuilding)
+        if (gameState != GameState.RoadBuilding)
         {
             Invalid(invalidMessages[2]);
             return;
@@ -178,12 +183,12 @@ public class GameManager : MonoBehaviour
 
     public void SellBuilding(GameObject building)
     {
-        if(selectedTile.tileType == TileType.building)
+        if (selectedTile.tileType == TileType.building)
             mapManager.RemoveShowplace(selectedTile.gridPos);
 
         selectedTile.SetTileType(TileType.free, building);
         SelectTile(selectedTile);
-        
+
         Destroy(building);
     }
 
@@ -201,9 +206,6 @@ public class GameManager : MonoBehaviour
 
     public void BuildTower(int towerIndex)
     {
-        if (gameState == GameState.RoadBuilding)
-            gameState = GameState.Preparing;
-        
         if (selectedTile != null)
         {
             BaseTower tower = towerPrefabs[towerIndex].GetComponent<BaseTower>();
@@ -223,7 +225,7 @@ public class GameManager : MonoBehaviour
 
     public void Fusion(BaseTower tower)
     {
-        gameState = GameState.Fusing;
+        isFusing = true;
         fusionOverlay.SetActive(true);
         tower.mapTile.HighlightTile(true);
         if (tower is ElementalTower)
@@ -244,12 +246,13 @@ public class GameManager : MonoBehaviour
             }
             weaponFusion = tower;
         }
-        if(weaponFusion != null && elementalFusion != null)
+        if (weaponFusion != null && elementalFusion != null)
         {
             if (ressourceManager.SpendRessource(weaponFusion.stats.fusionCost))
             {
                 //Fuse the towers
                 weaponFusion.Fuse(elementalFusion);
+                weaponFusion.sellValue.amount += Mathf.CeilToInt(weaponFusion.stats.fusionCost.amount * 0.7f);
                 //Destroy the elemental tower
                 elementalFusion.Fuse(elementalFusion);
                 //Reset the fusion variables
@@ -274,7 +277,7 @@ public class GameManager : MonoBehaviour
             elementalFusion.mapTile.HighlightTile(false);
             elementalFusion = null;
         }
-        gameState = GameState.Fighting;
+        isFusing = false;
         fusionOverlay.SetActive(false);
         Unselect();
     }
@@ -301,13 +304,42 @@ public class GameManager : MonoBehaviour
             enemy.SetLevel(wave + SaveDataHolder.instance.loadedState.difficultyIndex * 5);
         }
     }
-}
 
+    public void SetGameState(GameState newGameState)
+    {
+        gameState = newGameState;
+        gamestateText.SetText(gamestateSO[(int)gameState]);
+        if (gameState == GameState.RoadBuilding || gameState == GameState.Preparing)
+        {
+            nextButton.SetActive(true);
+        }
+        else
+        {
+            nextButton.SetActive(false);
+        }
+    }
+    public void NextPhase()
+    {
+        switch (gameState)
+        {
+            case GameState.RoadBuilding:
+                buildingMenu.CloseMenu();
+                SetGameState(GameState.Preparing);
+                break;
+            case GameState.Preparing:
+                SetGameState(GameState.Fighting);
+                WaveManager.instance.StartWave();
+                break;
+            case GameState.Fighting:
+                WaveManager.instance.StartWave();
+                break;
+        }
+    }
+}
 public enum GameState
 {
     RoadBuilding,
     Preparing,
     Fighting,
-    Ended,
-    Fusing
+    Ended
 }

@@ -58,6 +58,7 @@ public class BowTower : BaseTower
         fusionTower.SetStats(this, otherTower);
         stats = fusionTower;
         Initialize();
+        level = 7;
     }
 
 }

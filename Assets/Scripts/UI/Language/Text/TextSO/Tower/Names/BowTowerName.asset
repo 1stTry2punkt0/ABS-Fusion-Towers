@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d50635542943f842a21550928bf086b, type: 3}
   m_Name: BowTowerName
   m_EditorClassIdentifier: Assembly-CSharp::TextSO
-  englishText: Bow Tower
+  englishText: Archer Tower
   germanText: "Bogensch\xFCtzenturm"
