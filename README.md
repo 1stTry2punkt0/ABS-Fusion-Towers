@@ -226,8 +226,6 @@ https://assetstore.unity.com/packages/3d/environments/winter-forest-low-poly-too
 https://assetstore.unity.com/packages/3d/environments/dungeons/dungeon-low-poly-toon-battle-arena-tower-defense-pack-109791  
 https://assetstore.unity.com/packages/3d/environments/desert-low-poly-toon-battle-arena-tower-defense-pack-124507  
 https://assetstore.unity.com/packages/3d/environments/fantasy/knight-statue-295214  
-https://assetstore.unity.com/packages/2d/gui/icons/stone-ui-182526  
-https://assetstore.unity.com/packages/2d/gui/fantasy-wooden-gui-free-103811  
 https://assetstore.unity.com/packages/3d/characters/animals/mammals/stylized-low-poly-animated-horse-pack-137631  
 https://assetstore.unity.com/packages/3d/props/low-poly-medieval-market-stalls-314286  
 https://assetstore.unity.com/packages/3d/characters/humanoids/humans/lowpoly-medieval-peasants-free-low-poly-medieval-fantasy-series-122225  
@@ -241,14 +239,19 @@ https://assetstore.unity.com/packages/3d/characters/creatures/stylized-free-skel
 https://assetstore.unity.com/packages/3d/characters/creatures/dragon-for-boss-monster-hp-79398  
 https://assetstore.unity.com/packages/3d/characters/dark-big-ghosts-lite-362212  
 
-### Weitere Assets
+### VFX
 https://assetstore.unity.com/packages/3d/props/potions-coin-and-box-of-pandora-pack-71778  
 https://assetstore.unity.com/packages/vfx/particles/particle-pack-127325  
 https://assetstore.unity.com/packages/vfx/particles/free-quick-effects-vol-1-304424  
 https://assetstore.unity.com/packages/vfx/particles/spells/zap-vfx-urp-303479  
 https://assetstore.unity.com/packages/vfx/particles/spells/spells-pack-2-free-version-310764  
 https://assetstore.unity.com/packages/vfx/trails-vfx-urp-242574  
-https://assetstore.unity.com/packages/tools/particles-effects/lightning-bolt-effect-for-unity-59471  
+https://assetstore.unity.com/packages/tools/particles-effects/lightning-bolt-effect-for-unity-59471
+
+### UI
+https://assetstore.unity.com/packages/2d/gui/icons/stone-ui-182526  
+https://assetstore.unity.com/packages/2d/gui/fantasy-wooden-gui-free-103811  
+
 
 ### Font
 https://www.1001freefonts.com/futhark.font?utm_source=copilot.com
