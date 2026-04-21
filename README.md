@@ -7,7 +7,7 @@ ABS – Fusion Towers ist ein Fantasy‑Mittelalter Tower‑Defense‑Spiel, in 
 ---
 
 ## Projektstart
-**Unity Version:** Unity 6.0 – Editor Version 6000.0.65f1  
+**Unity Version:** Unity 6.3 – Editor Version 6000.3.10f1  
 **Startszene:**  
 `Assets/Scenes/MainMenu.unity`
 
