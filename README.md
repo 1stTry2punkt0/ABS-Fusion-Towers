@@ -262,6 +262,19 @@ https://assetstore.unity.com/packages/audio/music/free-music-pack-1-207141
 https://pixabay.com/de/sound-effects/menschen-female-wilhelm-scream-audacity-86903/  
 https://assetstore.unity.com/packages/audio/sound-fx/creatures/monster-roars-audio-pack-301118  
 
+## Tools
+
+### KI‑gestützte Assistenz
+Für sprachliche Optimierung und Strukturierung einzelner Textabschnitte wurde Microsoft Copilot eingesetzt.  
+Alle Inhalte, Mechaniken und Designentscheidungen stammen vollständig vom Autor.
+
+### Adobe Illustrator
+- **Eigenkreation:** Fire Ground Mark, Flamme  
+- **KI‑generiert:** Ressourcen‑Icons
+
+### Blender & Substance Painter
+- Modellierung und Texturierung der Monolithen  
+- Erstellung des Eiszapfen‑Modells
 ---
 
 ## USK‑12 Hinweis
