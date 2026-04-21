@@ -9,6 +9,7 @@ public class Merchant : MonoBehaviour
     [SerializeField] float speed;
     private float distanceToTarget;
     private int currentWaypointIndex = 0;
+    [SerializeField] AudioClip coughtSound;
 
     public void StartRound()
     {
@@ -67,7 +68,10 @@ public class Merchant : MonoBehaviour
         if(other.TryGetComponent(out Enemy enemy))
         {
             if (enemy.stats.moveType != MoveType.Fly)
+            {
+                AudioManager.instance.PlaySoundFXClip(coughtSound, transform, 1f);
                 EndRound();
+            }
         }
     }
 }

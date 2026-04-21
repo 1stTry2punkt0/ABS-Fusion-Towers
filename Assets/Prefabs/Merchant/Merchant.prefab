@@ -54,6 +54,7 @@ MonoBehaviour:
     amount: 0
     ressourceType: 0
   speed: 5
+  coughtSound: {fileID: 8300000, guid: 4ac946bd9d4018b44a4be1558fbc6c04, type: 3}
 --- !u!65 &361033346441250338
 BoxCollider:
   m_ObjectHideFlags: 0

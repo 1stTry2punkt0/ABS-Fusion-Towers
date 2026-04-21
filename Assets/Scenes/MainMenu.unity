@@ -1856,10 +1856,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelection
   mapPreviews:
-  - {fileID: 111171317, guid: 548b8087eba415b47a00bd951c0a85ff, type: 3}
-  - {fileID: 1081021813, guid: fcad7fcb318d0074b86ee97d1004c6fb, type: 3}
-  - {fileID: 2132844246, guid: c99b1f912e48f5042854ad13a9073ae9, type: 3}
-  - {fileID: -310153600, guid: 546721588b52fa84fbef68dd12481e01, type: 3}
+  - {fileID: 694750645, guid: b5a44e487fd1da045964b8501402f896, type: 3}
+  - {fileID: 327694889, guid: b98248bb47c1e314d9fbe0e41db810a3, type: 3}
+  - {fileID: 615434033, guid: 631602fef4be0d04a8c1f1aaf3533ab9, type: 3}
+  - {fileID: -2105510526, guid: 15e0f5bcfb8d7144da64be2c1605cc0d, type: 3}
   mapPreviewImage: {fileID: 1449169921}
   levelDropdown: {fileID: 1954523325}
   difficultyDropdown: {fileID: 50910412}
@@ -4048,6 +4048,6 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 224221119}
   - {fileID: 1418678169}
   - {fileID: 861333332}
-  - {fileID: 224221119}

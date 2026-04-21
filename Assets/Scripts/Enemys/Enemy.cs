@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     private StatusEffectData[] statusEffectDatas;
     private Transform meshTransform;
     [HideInInspector] public Transform hitTransform;
-    public float defenseBuff = 0;
+    [HideInInspector] public float defenseBuff = 0;
     [HideInInspector] public float speedBuff = 0;
 
 
