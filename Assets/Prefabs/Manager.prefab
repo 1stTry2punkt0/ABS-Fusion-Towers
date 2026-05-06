@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   gameState: 0
+  gamestateText: {fileID: 0}
+  nextButton: {fileID: 0}
+  gamestateSO: []
   mapManager: {fileID: 0}
   buildingMenu: {fileID: 0}
   towerMenu: {fileID: 0}
@@ -64,6 +67,7 @@ MonoBehaviour:
   weaponFusion: {fileID: 0}
   elementalFusion: {fileID: 0}
   fusionOverlay: {fileID: 0}
+  isFusing: 0
   enemySOs:
   - {fileID: 11400000, guid: 958f6e374ecdfcd498019e59a3099c70, type: 2}
   - {fileID: 11400000, guid: 0ddc0f12ba29ce34995686c8cde05bc1, type: 2}
@@ -247,7 +251,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 6
       boss: 0
-  - delay: 7.5
+  - delay: 6.1
     enemyGroups:
     - enemyType: 1
       firstSpawnDelay: 0
@@ -261,7 +265,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 6
       boss: 0
-  - delay: 9
+  - delay: 6.2
     enemyGroups:
     - enemyType: 2
       firstSpawnDelay: 0
@@ -275,7 +279,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 7
       boss: 0
-  - delay: 6
+  - delay: 6.3
     enemyGroups:
     - enemyType: 3
       firstSpawnDelay: 0
@@ -284,12 +288,12 @@ MonoBehaviour:
       groupSize: 6
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 1.2
+      firstSpawnDelay: 2.4
       spawnInterval: 1.1700001
       groupInterval: 5
       groupSize: 7
       boss: 0
-  - delay: 7.5
+  - delay: 6.4
     enemyGroups:
     - enemyType: 4
       firstSpawnDelay: 0
@@ -303,7 +307,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 8
       boss: 0
-  - delay: 9
+  - delay: 6.5
     enemyGroups:
     - enemyType: 5
       firstSpawnDelay: 0
@@ -317,7 +321,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 8
       boss: 0
-  - delay: 6
+  - delay: 6.6
     enemyGroups:
     - enemyType: 6
       firstSpawnDelay: 0
@@ -331,7 +335,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 9
       boss: 0
-  - delay: 7.5
+  - delay: 6.7
     enemyGroups:
     - enemyType: 7
       firstSpawnDelay: 0
@@ -345,7 +349,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 9
       boss: 0
-  - delay: 9
+  - delay: 6.8
     enemyGroups:
     - enemyType: 8
       firstSpawnDelay: 0
@@ -359,7 +363,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 10
       boss: 0
-  - delay: 6
+  - delay: 6.9
     enemyGroups:
     - enemyType: 9
       firstSpawnDelay: 1
@@ -373,7 +377,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 9
       boss: 0
-  - delay: 7.5
+  - delay: 7
     enemyGroups:
     - enemyType: 1
       firstSpawnDelay: 0
@@ -393,7 +397,7 @@ MonoBehaviour:
       groupInterval: 6
       groupSize: 12
       boss: 0
-  - delay: 9
+  - delay: 7.1
     enemyGroups:
     - enemyType: 2
       firstSpawnDelay: 0
@@ -408,12 +412,12 @@ MonoBehaviour:
       groupSize: 11
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 2.4
+      firstSpawnDelay: 4.8
       spawnInterval: 1.09
       groupInterval: 6
       groupSize: 12
       boss: 0
-  - delay: 6
+  - delay: 7.2
     enemyGroups:
     - enemyType: 3
       firstSpawnDelay: 0
@@ -422,7 +426,7 @@ MonoBehaviour:
       groupSize: 11
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 1.2
+      firstSpawnDelay: 2.4
       spawnInterval: 1.08
       groupInterval: 5
       groupSize: 12
@@ -433,7 +437,7 @@ MonoBehaviour:
       groupInterval: 6
       groupSize: 13
       boss: 0
-  - delay: 7.5
+  - delay: 7.3
     enemyGroups:
     - enemyType: 4
       firstSpawnDelay: 0
@@ -453,7 +457,7 @@ MonoBehaviour:
       groupInterval: 6
       groupSize: 13
       boss: 0
-  - delay: 9
+  - delay: 7.4
     enemyGroups:
     - enemyType: 5
       firstSpawnDelay: 0
@@ -473,7 +477,7 @@ MonoBehaviour:
       groupInterval: 6
       groupSize: 14
       boss: 0
-  - delay: 6
+  - delay: 7.5
     enemyGroups:
     - enemyType: 6
       firstSpawnDelay: 0
@@ -493,7 +497,7 @@ MonoBehaviour:
       groupInterval: 6
       groupSize: 14
       boss: 0
-  - delay: 7.5
+  - delay: 7.6
     enemyGroups:
     - enemyType: 7
       firstSpawnDelay: 0
@@ -513,7 +517,7 @@ MonoBehaviour:
       groupInterval: 6
       groupSize: 15
       boss: 0
-  - delay: 9
+  - delay: 7.7
     enemyGroups:
     - enemyType: 8
       firstSpawnDelay: 0
@@ -533,7 +537,7 @@ MonoBehaviour:
       groupInterval: 6
       groupSize: 15
       boss: 0
-  - delay: 6
+  - delay: 7.8
     enemyGroups:
     - enemyType: 0
       firstSpawnDelay: 0
@@ -553,7 +557,7 @@ MonoBehaviour:
       groupInterval: 6
       groupSize: 16
       boss: 0
-  - delay: 7.5
+  - delay: 7.9
     enemyGroups:
     - enemyType: 10
       firstSpawnDelay: 1
@@ -573,7 +577,7 @@ MonoBehaviour:
       groupInterval: 6
       groupSize: 12
       boss: 0
-  - delay: 9
+  - delay: 8
     enemyGroups:
     - enemyType: 2
       firstSpawnDelay: 0
@@ -588,7 +592,7 @@ MonoBehaviour:
       groupSize: 16
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 2.4
+      firstSpawnDelay: 4.8
       spawnInterval: 1
       groupInterval: 6
       groupSize: 17
@@ -599,7 +603,7 @@ MonoBehaviour:
       groupInterval: 7
       groupSize: 18
       boss: 0
-  - delay: 6
+  - delay: 8.1
     enemyGroups:
     - enemyType: 3
       firstSpawnDelay: 0
@@ -608,7 +612,7 @@ MonoBehaviour:
       groupSize: 15
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 1.2
+      firstSpawnDelay: 2.4
       spawnInterval: 0.99000007
       groupInterval: 5
       groupSize: 16
@@ -625,7 +629,7 @@ MonoBehaviour:
       groupInterval: 7
       groupSize: 18
       boss: 0
-  - delay: 7.5
+  - delay: 8.2
     enemyGroups:
     - enemyType: 4
       firstSpawnDelay: 0
@@ -651,7 +655,7 @@ MonoBehaviour:
       groupInterval: 7
       groupSize: 19
       boss: 0
-  - delay: 9
+  - delay: 8.3
     enemyGroups:
     - enemyType: 5
       firstSpawnDelay: 0
@@ -677,7 +681,7 @@ MonoBehaviour:
       groupInterval: 7
       groupSize: 19
       boss: 0
-  - delay: 6
+  - delay: 8.4
     enemyGroups:
     - enemyType: 6
       firstSpawnDelay: 0
@@ -703,7 +707,7 @@ MonoBehaviour:
       groupInterval: 7
       groupSize: 20
       boss: 0
-  - delay: 7.5
+  - delay: 8.5
     enemyGroups:
     - enemyType: 7
       firstSpawnDelay: 0
@@ -729,7 +733,7 @@ MonoBehaviour:
       groupInterval: 7
       groupSize: 20
       boss: 0
-  - delay: 9
+  - delay: 8.6
     enemyGroups:
     - enemyType: 8
       firstSpawnDelay: 0
@@ -755,7 +759,7 @@ MonoBehaviour:
       groupInterval: 7
       groupSize: 21
       boss: 0
-  - delay: 6
+  - delay: 8.7
     enemyGroups:
     - enemyType: 0
       firstSpawnDelay: 0
@@ -781,7 +785,7 @@ MonoBehaviour:
       groupInterval: 7
       groupSize: 21
       boss: 0
-  - delay: 7.5
+  - delay: 8.8
     enemyGroups:
     - enemyType: 1
       firstSpawnDelay: 0
@@ -802,12 +806,12 @@ MonoBehaviour:
       groupSize: 21
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 3.6000001
+      firstSpawnDelay: 7.2000003
       spawnInterval: 0.9200001
       groupInterval: 7
       groupSize: 22
       boss: 0
-  - delay: 9
+  - delay: 8.9
     enemyGroups:
     - enemyType: 11
       firstSpawnDelay: 1
@@ -822,7 +826,7 @@ MonoBehaviour:
       groupSize: 15
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 2
+      firstSpawnDelay: 4
       spawnInterval: 0.71
       groupInterval: 6
       groupSize: 15
@@ -833,7 +837,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 15
       boss: 0
-  - delay: 6
+  - delay: 9
     enemyGroups:
     - enemyType: 3
       firstSpawnDelay: 0
@@ -842,7 +846,7 @@ MonoBehaviour:
       groupSize: 20
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 1.2
+      firstSpawnDelay: 2.4
       spawnInterval: 0.90000004
       groupInterval: 5
       groupSize: 21
@@ -859,7 +863,7 @@ MonoBehaviour:
       groupInterval: 7
       groupSize: 23
       boss: 0
-  - delay: 7.5
+  - delay: 9.1
     enemyGroups:
     - enemyType: 4
       firstSpawnDelay: 0
@@ -885,7 +889,7 @@ MonoBehaviour:
       groupInterval: 7
       groupSize: 23
       boss: 0
-  - delay: 9
+  - delay: 9.2
     enemyGroups:
     - enemyType: 5
       firstSpawnDelay: 0
@@ -911,7 +915,7 @@ MonoBehaviour:
       groupInterval: 7
       groupSize: 24
       boss: 0
-  - delay: 6
+  - delay: 9.3
     enemyGroups:
     - enemyType: 6
       firstSpawnDelay: 0
@@ -937,7 +941,7 @@ MonoBehaviour:
       groupInterval: 7
       groupSize: 24
       boss: 0
-  - delay: 7.5
+  - delay: 9.4
     enemyGroups:
     - enemyType: 7
       firstSpawnDelay: 0
@@ -963,7 +967,7 @@ MonoBehaviour:
       groupInterval: 7
       groupSize: 25
       boss: 0
-  - delay: 9
+  - delay: 9.5
     enemyGroups:
     - enemyType: 8
       firstSpawnDelay: 0
@@ -989,7 +993,7 @@ MonoBehaviour:
       groupInterval: 7
       groupSize: 25
       boss: 0
-  - delay: 6
+  - delay: 9.6
     enemyGroups:
     - enemyType: 0
       firstSpawnDelay: 0
@@ -1015,7 +1019,7 @@ MonoBehaviour:
       groupInterval: 7
       groupSize: 26
       boss: 0
-  - delay: 7.5
+  - delay: 9.7
     enemyGroups:
     - enemyType: 1
       firstSpawnDelay: 0
@@ -1036,12 +1040,12 @@ MonoBehaviour:
       groupSize: 25
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 3.6000001
+      firstSpawnDelay: 7.2000003
       spawnInterval: 0.83000004
       groupInterval: 7
       groupSize: 26
       boss: 0
-  - delay: 9
+  - delay: 9.8
     enemyGroups:
     - enemyType: 2
       firstSpawnDelay: 0
@@ -1056,7 +1060,7 @@ MonoBehaviour:
       groupSize: 25
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 2.4
+      firstSpawnDelay: 4.8
       spawnInterval: 0.82000005
       groupInterval: 6
       groupSize: 26
@@ -1067,7 +1071,7 @@ MonoBehaviour:
       groupInterval: 7
       groupSize: 27
       boss: 0
-  - delay: 6
+  - delay: 9.9
     enemyGroups:
     - enemyType: 12
       firstSpawnDelay: 1
@@ -1076,7 +1080,7 @@ MonoBehaviour:
       groupSize: 1
       boss: 1
     - enemyType: 4
-      firstSpawnDelay: 1
+      firstSpawnDelay: 2
       spawnInterval: 0.61
       groupInterval: 5
       groupSize: 19
@@ -1093,7 +1097,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 19
       boss: 0
-  - delay: 7.5
+  - delay: 10
     enemyGroups:
     - enemyType: 4
       firstSpawnDelay: 0
@@ -1125,7 +1129,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 29
       boss: 0
-  - delay: 9
+  - delay: 10.1
     enemyGroups:
     - enemyType: 5
       firstSpawnDelay: 0
@@ -1157,7 +1161,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 29
       boss: 0
-  - delay: 6
+  - delay: 10.2
     enemyGroups:
     - enemyType: 6
       firstSpawnDelay: 0
@@ -1189,7 +1193,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 30
       boss: 0
-  - delay: 7.5
+  - delay: 10.3
     enemyGroups:
     - enemyType: 7
       firstSpawnDelay: 0
@@ -1221,7 +1225,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 30
       boss: 0
-  - delay: 9
+  - delay: 10.4
     enemyGroups:
     - enemyType: 8
       firstSpawnDelay: 0
@@ -1253,7 +1257,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 31
       boss: 0
-  - delay: 6
+  - delay: 10.5
     enemyGroups:
     - enemyType: 0
       firstSpawnDelay: 0
@@ -1280,12 +1284,12 @@ MonoBehaviour:
       groupSize: 30
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 4.8
+      firstSpawnDelay: 9.6
       spawnInterval: 0.75000006
       groupInterval: 4
       groupSize: 31
       boss: 0
-  - delay: 7.5
+  - delay: 10.6
     enemyGroups:
     - enemyType: 1
       firstSpawnDelay: 0
@@ -1306,7 +1310,7 @@ MonoBehaviour:
       groupSize: 30
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 3.6000001
+      firstSpawnDelay: 7.2000003
       spawnInterval: 0.74000007
       groupInterval: 7
       groupSize: 31
@@ -1317,7 +1321,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 32
       boss: 0
-  - delay: 9
+  - delay: 10.7
     enemyGroups:
     - enemyType: 2
       firstSpawnDelay: 0
@@ -1332,7 +1336,7 @@ MonoBehaviour:
       groupSize: 29
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 2.4
+      firstSpawnDelay: 4.8
       spawnInterval: 0.7300001
       groupInterval: 6
       groupSize: 30
@@ -1349,7 +1353,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 32
       boss: 0
-  - delay: 6
+  - delay: 10.8
     enemyGroups:
     - enemyType: 3
       firstSpawnDelay: 0
@@ -1358,7 +1362,7 @@ MonoBehaviour:
       groupSize: 29
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 1.2
+      firstSpawnDelay: 2.4
       spawnInterval: 0.72
       groupInterval: 5
       groupSize: 30
@@ -1381,7 +1385,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 33
       boss: 0
-  - delay: 7.5
+  - delay: 10.9
     enemyGroups:
     - enemyType: 9
       firstSpawnDelay: 1
@@ -1413,7 +1417,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 22
       boss: 0
-  - delay: 9
+  - delay: 11
     enemyGroups:
     - enemyType: 5
       firstSpawnDelay: 0
@@ -1445,7 +1449,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 34
       boss: 0
-  - delay: 6
+  - delay: 11.1
     enemyGroups:
     - enemyType: 6
       firstSpawnDelay: 0
@@ -1477,7 +1481,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 34
       boss: 0
-  - delay: 7.5
+  - delay: 11.2
     enemyGroups:
     - enemyType: 7
       firstSpawnDelay: 0
@@ -1509,7 +1513,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 35
       boss: 0
-  - delay: 9
+  - delay: 11.3
     enemyGroups:
     - enemyType: 8
       firstSpawnDelay: 0
@@ -1541,7 +1545,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 35
       boss: 0
-  - delay: 6
+  - delay: 11.4
     enemyGroups:
     - enemyType: 0
       firstSpawnDelay: 0
@@ -1568,12 +1572,12 @@ MonoBehaviour:
       groupSize: 35
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 4.8
+      firstSpawnDelay: 9.6
       spawnInterval: 0.6600001
       groupInterval: 4
       groupSize: 36
       boss: 0
-  - delay: 7.5
+  - delay: 11.5
     enemyGroups:
     - enemyType: 1
       firstSpawnDelay: 0
@@ -1594,7 +1598,7 @@ MonoBehaviour:
       groupSize: 34
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 3.6000001
+      firstSpawnDelay: 7.2000003
       spawnInterval: 0.65000004
       groupInterval: 7
       groupSize: 35
@@ -1605,7 +1609,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 36
       boss: 0
-  - delay: 9
+  - delay: 11.6
     enemyGroups:
     - enemyType: 2
       firstSpawnDelay: 0
@@ -1620,7 +1624,7 @@ MonoBehaviour:
       groupSize: 34
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 2.4
+      firstSpawnDelay: 4.8
       spawnInterval: 0.64000005
       groupInterval: 6
       groupSize: 35
@@ -1637,7 +1641,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 37
       boss: 0
-  - delay: 6
+  - delay: 11.7
     enemyGroups:
     - enemyType: 3
       firstSpawnDelay: 0
@@ -1646,7 +1650,7 @@ MonoBehaviour:
       groupSize: 33
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 1.2
+      firstSpawnDelay: 2.4
       spawnInterval: 0.63000005
       groupInterval: 5
       groupSize: 34
@@ -1669,7 +1673,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 37
       boss: 0
-  - delay: 7.5
+  - delay: 11.8
     enemyGroups:
     - enemyType: 4
       firstSpawnDelay: 0
@@ -1701,7 +1705,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 38
       boss: 0
-  - delay: 9
+  - delay: 11.9
     enemyGroups:
     - enemyType: 10
       firstSpawnDelay: 1
@@ -1733,7 +1737,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 25
       boss: 0
-  - delay: 6
+  - delay: 12
     enemyGroups:
     - enemyType: 6
       firstSpawnDelay: 0
@@ -1765,7 +1769,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 39
       boss: 0
-  - delay: 7.5
+  - delay: 12.1
     enemyGroups:
     - enemyType: 7
       firstSpawnDelay: 0
@@ -1797,7 +1801,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 39
       boss: 0
-  - delay: 9
+  - delay: 12.2
     enemyGroups:
     - enemyType: 8
       firstSpawnDelay: 0
@@ -1829,7 +1833,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 40
       boss: 0
-  - delay: 6
+  - delay: 12.3
     enemyGroups:
     - enemyType: 0
       firstSpawnDelay: 0
@@ -1856,12 +1860,12 @@ MonoBehaviour:
       groupSize: 39
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 4.8
+      firstSpawnDelay: 9.6
       spawnInterval: 0.57000005
       groupInterval: 4
       groupSize: 40
       boss: 0
-  - delay: 7.5
+  - delay: 12.4
     enemyGroups:
     - enemyType: 1
       firstSpawnDelay: 0
@@ -1882,7 +1886,7 @@ MonoBehaviour:
       groupSize: 39
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 3.6000001
+      firstSpawnDelay: 7.2000003
       spawnInterval: 0.56000006
       groupInterval: 7
       groupSize: 40
@@ -1893,7 +1897,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 41
       boss: 0
-  - delay: 9
+  - delay: 12.5
     enemyGroups:
     - enemyType: 2
       firstSpawnDelay: 0
@@ -1908,7 +1912,7 @@ MonoBehaviour:
       groupSize: 38
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 2.4
+      firstSpawnDelay: 4.8
       spawnInterval: 0.5500001
       groupInterval: 6
       groupSize: 39
@@ -1925,7 +1929,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 41
       boss: 0
-  - delay: 6
+  - delay: 12.6
     enemyGroups:
     - enemyType: 3
       firstSpawnDelay: 0
@@ -1934,7 +1938,7 @@ MonoBehaviour:
       groupSize: 38
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 1.2
+      firstSpawnDelay: 2.4
       spawnInterval: 0.5400001
       groupInterval: 5
       groupSize: 39
@@ -1957,7 +1961,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 42
       boss: 0
-  - delay: 7.5
+  - delay: 12.7
     enemyGroups:
     - enemyType: 4
       firstSpawnDelay: 0
@@ -1989,7 +1993,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 42
       boss: 0
-  - delay: 9
+  - delay: 12.8
     enemyGroups:
     - enemyType: 5
       firstSpawnDelay: 0
@@ -2021,7 +2025,7 @@ MonoBehaviour:
       groupInterval: 4
       groupSize: 43
       boss: 0
-  - delay: 6
+  - delay: 12.900001
     enemyGroups:
     - enemyType: 11
       firstSpawnDelay: 1
@@ -2053,7 +2057,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 29
       boss: 0
-  - delay: 7.5
+  - delay: 13
     enemyGroups:
     - enemyType: 7
       firstSpawnDelay: 0
@@ -2091,7 +2095,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 45
       boss: 0
-  - delay: 9
+  - delay: 13.1
     enemyGroups:
     - enemyType: 8
       firstSpawnDelay: 0
@@ -2124,12 +2128,12 @@ MonoBehaviour:
       groupSize: 44
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 6
+      firstSpawnDelay: 12
       spawnInterval: 0.49000007
       groupInterval: 5
       groupSize: 45
       boss: 0
-  - delay: 6
+  - delay: 13.2
     enemyGroups:
     - enemyType: 0
       firstSpawnDelay: 0
@@ -2156,7 +2160,7 @@ MonoBehaviour:
       groupSize: 44
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 4.8
+      firstSpawnDelay: 9.6
       spawnInterval: 0.48000008
       groupInterval: 4
       groupSize: 45
@@ -2167,7 +2171,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 46
       boss: 0
-  - delay: 7.5
+  - delay: 13.3
     enemyGroups:
     - enemyType: 1
       firstSpawnDelay: 0
@@ -2188,7 +2192,7 @@ MonoBehaviour:
       groupSize: 43
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 3.6000001
+      firstSpawnDelay: 7.2000003
       spawnInterval: 0.47000006
       groupInterval: 7
       groupSize: 44
@@ -2205,7 +2209,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 46
       boss: 0
-  - delay: 9
+  - delay: 13.400001
     enemyGroups:
     - enemyType: 2
       firstSpawnDelay: 0
@@ -2220,7 +2224,7 @@ MonoBehaviour:
       groupSize: 43
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 2.4
+      firstSpawnDelay: 4.8
       spawnInterval: 0.46000007
       groupInterval: 6
       groupSize: 44
@@ -2243,7 +2247,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 47
       boss: 0
-  - delay: 6
+  - delay: 13.5
     enemyGroups:
     - enemyType: 3
       firstSpawnDelay: 0
@@ -2252,7 +2256,7 @@ MonoBehaviour:
       groupSize: 42
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 1.2
+      firstSpawnDelay: 2.4
       spawnInterval: 0.45000008
       groupInterval: 5
       groupSize: 43
@@ -2281,7 +2285,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 47
       boss: 0
-  - delay: 7.5
+  - delay: 13.6
     enemyGroups:
     - enemyType: 4
       firstSpawnDelay: 0
@@ -2319,7 +2323,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 48
       boss: 0
-  - delay: 9
+  - delay: 13.7
     enemyGroups:
     - enemyType: 5
       firstSpawnDelay: 0
@@ -2357,7 +2361,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 48
       boss: 0
-  - delay: 6
+  - delay: 13.8
     enemyGroups:
     - enemyType: 6
       firstSpawnDelay: 0
@@ -2395,7 +2399,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 49
       boss: 0
-  - delay: 7.5
+  - delay: 13.900001
     enemyGroups:
     - enemyType: 12
       firstSpawnDelay: 1
@@ -2433,7 +2437,7 @@ MonoBehaviour:
       groupInterval: 6
       groupSize: 32
       boss: 0
-  - delay: 9
+  - delay: 14
     enemyGroups:
     - enemyType: 8
       firstSpawnDelay: 0
@@ -2466,12 +2470,12 @@ MonoBehaviour:
       groupSize: 49
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 6
+      firstSpawnDelay: 12
       spawnInterval: 0.40000007
       groupInterval: 5
       groupSize: 50
       boss: 0
-  - delay: 6
+  - delay: 14.1
     enemyGroups:
     - enemyType: 0
       firstSpawnDelay: 0
@@ -2498,7 +2502,7 @@ MonoBehaviour:
       groupSize: 48
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 4.8
+      firstSpawnDelay: 9.6
       spawnInterval: 0.39000008
       groupInterval: 4
       groupSize: 49
@@ -2509,7 +2513,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 50
       boss: 0
-  - delay: 7.5
+  - delay: 14.2
     enemyGroups:
     - enemyType: 1
       firstSpawnDelay: 0
@@ -2530,7 +2534,7 @@ MonoBehaviour:
       groupSize: 48
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 3.6000001
+      firstSpawnDelay: 7.2000003
       spawnInterval: 0.38000005
       groupInterval: 7
       groupSize: 49
@@ -2547,7 +2551,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 51
       boss: 0
-  - delay: 9
+  - delay: 14.3
     enemyGroups:
     - enemyType: 2
       firstSpawnDelay: 0
@@ -2562,7 +2566,7 @@ MonoBehaviour:
       groupSize: 47
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 2.4
+      firstSpawnDelay: 4.8
       spawnInterval: 0.37000006
       groupInterval: 6
       groupSize: 48
@@ -2585,7 +2589,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 51
       boss: 0
-  - delay: 6
+  - delay: 14.400001
     enemyGroups:
     - enemyType: 3
       firstSpawnDelay: 0
@@ -2594,7 +2598,7 @@ MonoBehaviour:
       groupSize: 47
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 1.2
+      firstSpawnDelay: 2.4
       spawnInterval: 0.36000007
       groupInterval: 5
       groupSize: 48
@@ -2623,7 +2627,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 52
       boss: 0
-  - delay: 7.5
+  - delay: 14.5
     enemyGroups:
     - enemyType: 4
       firstSpawnDelay: 0
@@ -2661,7 +2665,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 52
       boss: 0
-  - delay: 9
+  - delay: 14.6
     enemyGroups:
     - enemyType: 5
       firstSpawnDelay: 0
@@ -2699,7 +2703,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 53
       boss: 0
-  - delay: 6
+  - delay: 14.7
     enemyGroups:
     - enemyType: 6
       firstSpawnDelay: 0
@@ -2737,7 +2741,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 53
       boss: 0
-  - delay: 7.5
+  - delay: 14.8
     enemyGroups:
     - enemyType: 7
       firstSpawnDelay: 0
@@ -2775,7 +2779,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 54
       boss: 0
-  - delay: 9
+  - delay: 14.900001
     enemyGroups:
     - enemyType: 9
       firstSpawnDelay: 1
@@ -2808,12 +2812,12 @@ MonoBehaviour:
       groupSize: 35
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 5
+      firstSpawnDelay: 10
       spawnInterval: 0.2
       groupInterval: 6
       groupSize: 35
       boss: 0
-  - delay: 6
+  - delay: 15
     enemyGroups:
     - enemyType: 0
       firstSpawnDelay: 0
@@ -2840,7 +2844,7 @@ MonoBehaviour:
       groupSize: 53
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 4.8
+      firstSpawnDelay: 9.6
       spawnInterval: 0.30000007
       groupInterval: 4
       groupSize: 54
@@ -2851,7 +2855,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 55
       boss: 0
-  - delay: 7.5
+  - delay: 15.1
     enemyGroups:
     - enemyType: 1
       firstSpawnDelay: 0
@@ -2872,7 +2876,7 @@ MonoBehaviour:
       groupSize: 52
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 3.6000001
+      firstSpawnDelay: 7.2000003
       spawnInterval: 0.29000008
       groupInterval: 7
       groupSize: 53
@@ -2889,7 +2893,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 55
       boss: 0
-  - delay: 9
+  - delay: 15.2
     enemyGroups:
     - enemyType: 2
       firstSpawnDelay: 0
@@ -2904,7 +2908,7 @@ MonoBehaviour:
       groupSize: 52
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 2.4
+      firstSpawnDelay: 4.8
       spawnInterval: 0.28000006
       groupInterval: 6
       groupSize: 53
@@ -2927,7 +2931,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 56
       boss: 0
-  - delay: 6
+  - delay: 15.3
     enemyGroups:
     - enemyType: 3
       firstSpawnDelay: 0
@@ -2936,7 +2940,7 @@ MonoBehaviour:
       groupSize: 51
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 1.2
+      firstSpawnDelay: 2.4
       spawnInterval: 0.27000007
       groupInterval: 5
       groupSize: 52
@@ -2965,7 +2969,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 56
       boss: 0
-  - delay: 7.5
+  - delay: 15.400001
     enemyGroups:
     - enemyType: 4
       firstSpawnDelay: 0
@@ -3003,7 +3007,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 57
       boss: 0
-  - delay: 9
+  - delay: 15.5
     enemyGroups:
     - enemyType: 5
       firstSpawnDelay: 0
@@ -3041,7 +3045,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 57
       boss: 0
-  - delay: 6
+  - delay: 15.6
     enemyGroups:
     - enemyType: 6
       firstSpawnDelay: 0
@@ -3079,7 +3083,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 58
       boss: 0
-  - delay: 7.5
+  - delay: 15.7
     enemyGroups:
     - enemyType: 7
       firstSpawnDelay: 0
@@ -3117,7 +3121,7 @@ MonoBehaviour:
       groupInterval: 5
       groupSize: 58
       boss: 0
-  - delay: 9
+  - delay: 15.8
     enemyGroups:
     - enemyType: 8
       firstSpawnDelay: 0
@@ -3150,12 +3154,12 @@ MonoBehaviour:
       groupSize: 58
       boss: 0
     - enemyType: 4
-      firstSpawnDelay: 6
+      firstSpawnDelay: 12
       spawnInterval: 0.22000007
       groupInterval: 5
       groupSize: 59
       boss: 0
-  - delay: 6
+  - delay: 15.900001
     enemyGroups:
     - enemyType: 9
       firstSpawnDelay: 0
@@ -3213,10 +3217,10 @@ MonoBehaviour:
   enemyCount: 0
   merchant: {fileID: 0}
   waveUI: {fileID: 0}
-  faithProducion:
-    amount: 7
+  faithProduction:
+    amount: 13
     ressourceType: 1
-  productionInterval: 5
+  productionInterval: 4
 --- !u!1 &2409480539191913955
 GameObject:
   m_ObjectHideFlags: 0

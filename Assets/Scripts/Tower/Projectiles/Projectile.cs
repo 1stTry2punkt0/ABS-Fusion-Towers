@@ -14,6 +14,7 @@ public abstract class Projectile : MonoBehaviour
 
     [SerializeField] AudioClip hitSound;
     [SerializeField] float volume = 1;
+    private float maxLifetime = 5f; // Maximum lifetime of the projectile to prevent it from existing indefinitely
 
     public virtual void Initialize(BaseTower tower, Enemy target)
     {
@@ -28,6 +29,7 @@ public abstract class Projectile : MonoBehaviour
 
         targetPosition = targetEnemy.transform.position; // Cache the target's transform for movement
         isActive = true;
+        maxLifetime = 5f; // Reset lifetime when initialized
     }
 
     protected virtual void Update()
@@ -50,6 +52,12 @@ public abstract class Projectile : MonoBehaviour
             }
             if (!FindNextTarget())
                 Disable();// Return to pool after hitting the target
+        }
+        // Lifetime check
+        maxLifetime -= Time.deltaTime;
+        if (maxLifetime <= 0)
+        {
+            Disable(); // Return to pool if lifetime expires
         }
     }
 

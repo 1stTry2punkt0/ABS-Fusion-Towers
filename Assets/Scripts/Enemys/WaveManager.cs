@@ -93,6 +93,7 @@ public class WaveManager : MonoBehaviour
             Coroutine c = StartCoroutine(SpawnWaveGroup(group));
             SpawnRoutines.Add(c);
         }
+        faithProduction.amount = Mathf.FloorToInt( 13 + currentWave * 0.2f);
         faithRoutine = StartCoroutine(FaithGain());
     }
 
@@ -114,7 +115,7 @@ public class WaveManager : MonoBehaviour
             yield return new WaitForSeconds(2f);
         }
         StopCoroutine(faithRoutine);
-        if (currentWave < waves.Length)
+        if (currentWave < lastWave)
         {
             startAvailable = true;
             startAvailableImage.SetActive(true);
@@ -147,7 +148,7 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    [SerializeField] Cost faithProducion;
+    [SerializeField] Cost faithProduction;
     [SerializeField] float productionInterval = 5f;
     private Coroutine faithRoutine;
     private IEnumerator FaithGain()
@@ -155,7 +156,7 @@ public class WaveManager : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(productionInterval);
-            RessourceManager.instance.GainRessource(faithProducion);
+            RessourceManager.instance.GainRessource(faithProduction);
         }
     }
 }

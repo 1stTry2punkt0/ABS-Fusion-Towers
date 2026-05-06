@@ -15,6 +15,14 @@ public class WaveGeneratorEditor : EditorWindow
         // { EnemyType.BigGhost, 2f },
         // { EnemyType.DevilGhost, 1.5f }
     };
+    private static readonly Dictionary<EnemyType, float> firstDelayMultipliers = new()
+    {
+        //{ EnemyType.Golem, 1.5f }
+        // Weitere Multiplikatoren kannst du hier jederzeit ergänzen:
+        { EnemyType.Rabbit, 2f },
+        // { EnemyType.BigGhost, 1.2f },
+        // { EnemyType.DevilGhost, 1.3f }
+    };
 
     [MenuItem("Tools/Generate Waves (100)")]
     public static void ShowWindow()
@@ -79,7 +87,7 @@ public class WaveGeneratorEditor : EditorWindow
             Wave w = new Wave();
 
             // Händler-Vorlauf: mindestens 6 Sekunden
-            w.delay = 6f + (i % 3) * 1.5f;
+            w.delay = 6f + i * 0.1f;
 
             // Anzahl Gruppen abhängig von Wave
             int groupCount =
@@ -126,6 +134,7 @@ public class WaveGeneratorEditor : EditorWindow
                         };
 
                         ApplySpawnMultipliers(group);
+                        ApplyFirstDelayMultipliers(group);
                         w.enemyGroups[g] = group;
                     }
                 }
@@ -159,6 +168,7 @@ public class WaveGeneratorEditor : EditorWindow
                         };
 
                         ApplySpawnMultipliers(group);
+                        ApplyFirstDelayMultipliers(group);
                         w.enemyGroups[g] = group;
                     }
                 }
@@ -181,6 +191,7 @@ public class WaveGeneratorEditor : EditorWindow
                     };
 
                     ApplySpawnMultipliers(group);
+                    ApplyFirstDelayMultipliers(group);
                     w.enemyGroups[g] = group;
                 }
             }
@@ -201,6 +212,14 @@ public class WaveGeneratorEditor : EditorWindow
         if (spawnMultipliers.TryGetValue(group.enemyType, out float multiplier))
         {
             group.spawnInterval *= multiplier;
+        }
+    }
+
+    private void ApplyFirstDelayMultipliers(EnemyGroup group)
+    {
+        if(firstDelayMultipliers.TryGetValue(group.enemyType, out float multiplier))
+        {
+            group.firstSpawnDelay *= multiplier;
         }
     }
 }
