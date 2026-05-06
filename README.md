@@ -268,6 +268,8 @@ https://assetstore.unity.com/packages/audio/sound-fx/creatures/monster-roars-aud
 Für sprachliche Optimierung und Strukturierung einzelner Textabschnitte wurde Microsoft Copilot eingesetzt.  
 Alle Inhalte, Mechaniken und Designentscheidungen stammen vollständig vom Autor.
 
+Ein Ki Generiertes Script: `Assets/Edistor/WaveGenerator.cs`
+
 ### Adobe Illustrator
 - **Eigenkreation:** Fire Ground Mark, Flamme  
 - **KI‑generiert:** Ressourcen‑Icons
