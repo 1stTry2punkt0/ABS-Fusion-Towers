@@ -93,6 +93,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   timeScale: 1
+  speedupToggle:
+  - {fileID: 0}
+  - {fileID: 0}
   elementalStats:
   - {fileID: 11400000, guid: 452cd33bd4fb07a48976a0d04e8d6b75, type: 2}
   - {fileID: 11400000, guid: 1ccb6039641f33f4497342740e8c79d2, type: 2}

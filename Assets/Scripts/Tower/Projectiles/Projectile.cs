@@ -23,9 +23,7 @@ public abstract class Projectile : MonoBehaviour
         if(tower.shootPoint != null)
             transform.position = tower.shootPoint.position;
         else
-        {
             transform.position =  new Vector3(targetEnemy.transform.position.x, 1, targetEnemy.transform.position.z);
-        }
 
         targetPosition = targetEnemy.transform.position; // Cache the target's transform for movement
         isActive = true;
@@ -43,7 +41,7 @@ public abstract class Projectile : MonoBehaviour
         transform.position += dir * speed * Time.deltaTime;
 
         // Hit detection
-        if (Vector3.Distance(transform.position, targetPosition) < 0.2f)
+        if (Vector3.Distance(transform.position, targetPosition) < 1f)
         {
             PlayHitSound();
             if (targetEnemy != null)

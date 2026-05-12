@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,9 +39,10 @@ public class GameManager : MonoBehaviour
     public LayerMask enemyLayer;
 
     public float timeScale = 1f;
-
+    [SerializeField] private Toggle[] speedupToggle;
+    
     [SerializeField] TowerStatSO[] elementalStats;
-
+    
     private void Awake()
     {
         //make sure their is only one instance
@@ -73,12 +75,18 @@ public class GameManager : MonoBehaviour
     {
         if (speedup)
         {
-            this.timeScale = 2.5f;
+            this.timeScale = 2.5f;        
         }
         else
         {
             this.timeScale = 1f;
         }
+
+        foreach (Toggle toggle in speedupToggle)
+        {
+            toggle.isOn = speedup;
+        }
+        if(Time.timeScale != 0) ApplyTimeScale();
         SaveDataHolder.instance.loadedState.speedup = speedup;
     }
 

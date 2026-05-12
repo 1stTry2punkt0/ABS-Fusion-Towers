@@ -68,18 +68,18 @@ public class Bomb : Projectile
         // horizontale Bewegung
         transform.position += flatDir * speed * Time.deltaTime;
 
-        // 2. Fortschritt entlang der Strecke (0–1)
+        // 2. Fortschritt entlang der Strecke (0ï¿½1)
         float traveled = Vector3.Distance(flatStart, new Vector3(transform.position.x, 0, transform.position.z));
         float total = Vector3.Distance(flatStart, flatTarget);
         float t = Mathf.Clamp01(traveled / total);
 
-        // 3. Parabelhöhe
+        // 3. Parabelhï¿½he
         float height = curve.Evaluate(t) * arcHeight;
 
-        // 4. Position entlang der Linie + Höhe
+        // 4. Position entlang der Linie + Hï¿½he
         Vector3 pos = transform.position;
 
-        // Interpolierte Grundhöhe zwischen Start und Ziel
+        // Interpolierte Grundhï¿½he zwischen Start und Ziel
         float baseY = Mathf.Lerp(startPos.y, targetPosition.y, t);
 
         pos.y = baseY + height;
@@ -89,7 +89,7 @@ public class Bomb : Projectile
         transform.rotation = Quaternion.LookRotation(flatDir);
 
         // Hit detection
-        if (Vector3.Distance(transform.position, targetPosition) < 0.2f)
+        if (Vector3.Distance(transform.position, targetPosition) < 1f)
         {
             if (targetEnemy != null || !targetEnemy.isDead)
             {

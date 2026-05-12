@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (paused)
         {
-            Time.timeScale = GameManager.instance.timeScale;
+            GameManager.instance.ApplyTimeScale();
             foreach (GameObject go in menuPanel)
             {
                 go.SetActive(false);

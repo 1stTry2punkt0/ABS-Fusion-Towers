@@ -65541,6 +65541,14 @@ PrefabInstance:
       propertyPath: 'gamestateSO.Array.data[4]'
       value: 
       objectReference: {fileID: 11400000, guid: bc0f8cbca0bcae047a61cd6bee0a4b3f, type: 2}
+    - target: {fileID: 309634942972183538, guid: 37924344f6181aa43a58c34d0371a4a2, type: 3}
+      propertyPath: 'speedupToggle.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1216723761}
+    - target: {fileID: 309634942972183538, guid: 37924344f6181aa43a58c34d0371a4a2, type: 3}
+      propertyPath: 'speedupToggle.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1216723760}
     - target: {fileID: 1801801916009730237, guid: 37924344f6181aa43a58c34d0371a4a2, type: 3}
       propertyPath: particlePrefabs.Array.size
       value: 14
@@ -69388,6 +69396,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216711841}
   m_Mesh: {fileID: 4300000, guid: 516c2d64e347c524f8bff38c1edbd265, type: 3}
+--- !u!114 &1216723760 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 645868030301653686, guid: da2acaa8ec8c36a4da8e0106271ad7c2, type: 3}
+  m_PrefabInstance: {fileID: 1761242927}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Toggle
+--- !u!114 &1216723761 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5793037564548066791, guid: da2acaa8ec8c36a4da8e0106271ad7c2, type: 3}
+  m_PrefabInstance: {fileID: 1761242927}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Toggle
 --- !u!1 &1217436384
 GameObject:
   m_ObjectHideFlags: 0

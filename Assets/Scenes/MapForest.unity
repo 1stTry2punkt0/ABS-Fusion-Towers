@@ -123974,6 +123974,14 @@ PrefabInstance:
       propertyPath: 'gamestateSO.Array.data[4]'
       value: 
       objectReference: {fileID: 11400000, guid: bc0f8cbca0bcae047a61cd6bee0a4b3f, type: 2}
+    - target: {fileID: 309634942972183538, guid: 37924344f6181aa43a58c34d0371a4a2, type: 3}
+      propertyPath: 'speedupToggle.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4919953936688054128}
+    - target: {fileID: 309634942972183538, guid: 37924344f6181aa43a58c34d0371a4a2, type: 3}
+      propertyPath: 'speedupToggle.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4919953936688054127}
     - target: {fileID: 1801801916009730237, guid: 37924344f6181aa43a58c34d0371a4a2, type: 3}
       propertyPath: particlePrefabs.Array.size
       value: 14
@@ -124389,7 +124397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2860284854162911889, guid: da2acaa8ec8c36a4da8e0106271ad7c2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 125.26
       objectReference: {fileID: 0}
     - target: {fileID: 2860284854162911889, guid: da2acaa8ec8c36a4da8e0106271ad7c2, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -124980,6 +124988,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd308e21b34656b41ac57a47cbe9434e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TextSceneObject
+--- !u!114 &4919953936688054127 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 645868030301653686, guid: da2acaa8ec8c36a4da8e0106271ad7c2, type: 3}
+  m_PrefabInstance: {fileID: 4919953936688054124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Toggle
+--- !u!114 &4919953936688054128 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5793037564548066791, guid: da2acaa8ec8c36a4da8e0106271ad7c2, type: 3}
+  m_PrefabInstance: {fileID: 4919953936688054124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Toggle
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
